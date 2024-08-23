@@ -55,6 +55,35 @@ Defines the types of modifier keys (e.g., `SHIFT`, `CONTROL`, `ALT`).
 ### Enum: `ModifierKeyState`
 Represents the state of a modifier key (e.g., `NONE`, `ONCE`, `REPEAT`).
 
+### Enum: `GestureType`
+Represents the 20 supported gestures on a MessagEase-style swipe keyboard.
+```kt
+enum class GestureType {
+    BOOMERANG_DOWN,
+    BOOMERANG_DOWN_LEFT,
+    BOOMERANG_DOWN_RIGHT,
+    BOOMERANG_LEFT,
+    BOOMERANG_RIGHT,
+    BOOMERANG_UP,
+    BOOMERANG_UP_LEFT,
+    BOOMERANG_UP_RIGHT,
+    CIRCLE_ANTI_CLOCKWISE,
+    CIRCLE_CLOCKWISE,
+    HOLD,
+    CLICK,
+    COPYABLE_CLICK,
+    MESSAGE_BOX_NO_OP,
+    SWIPE_DOWN,
+    SWIPE_DOWN_LEFT,
+    SWIPE_DOWN_RIGHT,
+    SWIPE_LEFT,
+    SWIPE_RIGHT,
+    SWIPE_UP,
+    SWIPE_UP_LEFT,
+    SWIPE_UP_RIGHT,
+    ;
+```
+
 ## Guidelines for Contributors
 
 To contribute a new keyboard layout, follow these steps:
