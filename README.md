@@ -130,7 +130,7 @@ The `bind` function is used to create a gesture for a custom keyboard. A gesture
 
 ### `griddleOperation: GriddleOperation`
 - **Description**: Defines the operation that should be executed when the gesture is detected. This could be inserting text, executing a command, etc.
-- **Example**: `GriddleOperation.INSERT_TEXT`
+- **Example**: `sendInput`
 
 ### `appSymbol: AppSymbol?`
 - **Description**: An optional symbol associated with the gesture. If not provided, the `char` parameter will be used instead.
@@ -212,3 +212,24 @@ To create a new instance of the `GriddleEnglishDefaultAlphaLayer` and use it in 
 
 ```kotlin
 val alphaLayer = GriddleEnglishDefaultAlphaLayer()
+
+List of GriddleOperations:
+- sendInput
+- deleteWordLeft
+- deleteWordRight
+- moveLeft
+- moveRight
+- moveUp
+- moveDown
+- copy
+- cut
+- paste
+- selectAll
+- undo
+- redo
+- `pressKey(keycode: Int, vararg modifierKeys: ModifierKeyKind)`
+- cycleShiftState
+
+
+helpful helpers in package (`org.galacticware.griddle.layouts.griddle.english.default`):
+- shiftLegends = Triple(SHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value, UNSHIFTED_SYMBOL.value)
