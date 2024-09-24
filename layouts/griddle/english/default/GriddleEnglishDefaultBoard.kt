@@ -56,12 +56,8 @@ class EnglishDefaultBoard @Inject constructor(
             // keyboard should probably also be 1x1.
             val positionAndSize: GridPosition = GridPosition.oneByOne
 
-            /**
-             * Todo, we should try to get the theme from user settings first, and return the default if not found.
-             */
             val defaultModifierTheme = ModifierTheme(
                 textColor = Color(0xFF00FFFF),
-                // Change backgroundColor for debug
                 backgroundColor = AppColor.PURPLE.color,
                 borderColor = Color(0xFFFF559F),
             )

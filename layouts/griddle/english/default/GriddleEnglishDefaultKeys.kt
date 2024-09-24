@@ -132,7 +132,7 @@ import org.galacticware.griddle.domain.util.withSymbol
 
 
 /***
- * The definitions for English keys, based on the MessagEase layout.
+ * The definitions for English keys, roughly-based on the MessagEase layout.
  * Alphas and numerics are in the same place, with the same possible gestures for them.
  */
 
