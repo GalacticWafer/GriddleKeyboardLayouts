@@ -4,7 +4,7 @@ This document allows developers to contribute custom keyboard layouts for differ
 
 ## Open Source Files Overview
 
-Griddle is partially open sourced, to allow users to create default layouts for the community. These files define the default 
+Griddle is partially open sourced, to allow programmers to create default layouts. These files define the default 
 layers and boards for the Griddle English keyboard. Developers can use these as templates or extend them for other languages:
 
 - **`GriddleEnglishDefaultAlphaLayer`**: Defines the default alpha (alphabetic) layer.
