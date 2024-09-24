@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
 
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
@@ -34,12 +34,18 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer : AbstractKeyboardLayer(
     
     companion object {
         val buttonBuilders = setOf(
-            cursorControlButton, button_0_0, button_0_1, button_0_2, rightAlphaLayerToggle,
-            enter, space, button_1_0, button_1_1, button_1_2,
-            backspace, button2_0, button_2_1, button2_2,
+            button_0_0, button_0_1, button_0_2, cursorControlButton,
+            button_1_0, button_1_1, button_1_2, rightAlphaLayerToggle,
+            button2_0, button_2_1, button2_2, backspace,
+            numericSpaceLeft, enter, numericSpaceRight
         ).plus(
-            setOf(button1, button2, button3, button4, button5, button6, button7, button8, button9, button0.withPosition(colStart = 0, colSpan = 3))
-                .map { it.withPosition(colStart = 4 + it.positionAndSize.colStart) }
+            setOf(
+                button1, button2, button3,
+                button4, button5, button6,
+                button7, button8, button9,
+                button0.withPosition(colStart = 0, colSpan = 3)
+                // right-side buttons start at column <pivot column + 1> == 4
+            ).map { it.withPosition(colStart = 4 + it.positionAndSize.colStart) }
         )
         val instance = GriddleEnglishDefaultUnifiedAlphaNumericLayer()
     }

@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
 
 import android.graphics.Rect
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness

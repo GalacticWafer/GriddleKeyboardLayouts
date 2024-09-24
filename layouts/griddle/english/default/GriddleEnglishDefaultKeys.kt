@@ -1,18 +1,14 @@
-package org.galacticware.griddle.keyboarddefinition.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
 
-import android.view.KeyEvent
-import android.view.KeyEvent.KEYCODE_0
 import android.view.KeyEvent.KEYCODE_1
 import android.view.KeyEvent.KEYCODE_2
 import android.view.KeyEvent.KEYCODE_3
 import android.view.KeyEvent.KEYCODE_4
 import android.view.KeyEvent.KEYCODE_5
 import android.view.KeyEvent.KEYCODE_6
-import android.view.KeyEvent.KEYCODE_7
 import android.view.KeyEvent.KEYCODE_8
 import android.view.KeyEvent.KEYCODE_9
 import android.view.KeyEvent.KEYCODE_A
-import android.view.KeyEvent.KEYCODE_DEL
 import android.view.KeyEvent.KEYCODE_DEL
 import android.view.KeyEvent.KEYCODE_DPAD_DOWN
 import android.view.KeyEvent.KEYCODE_DPAD_LEFT
@@ -20,6 +16,9 @@ import android.view.KeyEvent.KEYCODE_DPAD_RIGHT
 import android.view.KeyEvent.KEYCODE_DPAD_UP
 import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.KeyEvent.KEYCODE_F1
+import android.view.KeyEvent.KEYCODE_F10
+import android.view.KeyEvent.KEYCODE_F11
+import android.view.KeyEvent.KEYCODE_F12
 import android.view.KeyEvent.KEYCODE_F2
 import android.view.KeyEvent.KEYCODE_F3
 import android.view.KeyEvent.KEYCODE_F4
@@ -28,36 +27,12 @@ import android.view.KeyEvent.KEYCODE_F6
 import android.view.KeyEvent.KEYCODE_F7
 import android.view.KeyEvent.KEYCODE_F8
 import android.view.KeyEvent.KEYCODE_F9
-import android.view.KeyEvent.KEYCODE_F10
-import android.view.KeyEvent.KEYCODE_F11
-import android.view.KeyEvent.KEYCODE_F12
 import android.view.KeyEvent.KEYCODE_FORWARD_DEL
 import android.view.KeyEvent.KEYCODE_MOVE_END
 import android.view.KeyEvent.KEYCODE_MOVE_HOME
 import android.view.KeyEvent.KEYCODE_PAGE_DOWN
 import android.view.KeyEvent.KEYCODE_PAGE_UP
 import android.view.KeyEvent.KEYCODE_TAB
-import org.galacticware.griddle.domain.operation.cycleAccentCharacters
-import org.galacticware.griddle.domain.operation.cycleShiftState
-import org.galacticware.griddle.domain.operation.moveLeft
-import org.galacticware.griddle.domain.operation.moveRight
-import org.galacticware.griddle.domain.operation.moveWordLeft
-import org.galacticware.griddle.domain.operation.moveWordRight
-import org.galacticware.griddle.domain.operation.noOp
-import org.galacticware.griddle.domain.operation.openMacroEditor
-import org.galacticware.griddle.domain.operation.pressKey
-import org.galacticware.griddle.domain.operation.releaseShift
-import org.galacticware.griddle.domain.operation.remappedSymbolLookup
-import org.galacticware.griddle.domain.operation.repeatPreviousOperation
-import org.galacticware.griddle.domain.operation.selectAll
-import org.galacticware.griddle.domain.operation.simpleInput
-import org.galacticware.griddle.domain.operation.startRecognizingSpeech
-import org.galacticware.griddle.domain.operation.swapHandedness
-import org.galacticware.griddle.domain.operation.switchLayer
-import org.galacticware.griddle.domain.operation.toggleAltLock
-import org.galacticware.griddle.domain.operation.toggleCapslock
-import org.galacticware.griddle.domain.operation.toggleControlLock
-import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.gesture.Gesture
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
@@ -80,11 +55,6 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.makeClassicGestureButton
-import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
-import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
-import org.galacticware.griddle.domain.modifier.ModifierThemeSet
-import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
-import org.galacticware.griddle.domain.operation.pressSpace
 import org.galacticware.griddle.domain.keybinder.AppSymbol
 import org.galacticware.griddle.domain.keybinder.AppSymbol.ALT_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.BACKSPACE_SYMBOL
@@ -125,11 +95,37 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_NUMBER_LAYER_S
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW_SYMBOL
+import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
+import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import org.galacticware.griddle.domain.modifier.ModifierKeyKind
+import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
+import org.galacticware.griddle.domain.modifier.ModifierThemeSet
 import org.galacticware.griddle.domain.operation.applyAlt
 import org.galacticware.griddle.domain.operation.applyControl
+import org.galacticware.griddle.domain.operation.cycleAccentCharacters
+import org.galacticware.griddle.domain.operation.cycleShiftState
+import org.galacticware.griddle.domain.operation.moveLeft
+import org.galacticware.griddle.domain.operation.moveRight
+import org.galacticware.griddle.domain.operation.moveWordLeft
+import org.galacticware.griddle.domain.operation.moveWordRight
+import org.galacticware.griddle.domain.operation.noOp
+import org.galacticware.griddle.domain.operation.openMacroEditor
+import org.galacticware.griddle.domain.operation.pressKey
+import org.galacticware.griddle.domain.operation.pressSpace
+import org.galacticware.griddle.domain.operation.releaseShift
+import org.galacticware.griddle.domain.operation.remappedSymbolLookup
+import org.galacticware.griddle.domain.operation.repeatPreviousOperation
+import org.galacticware.griddle.domain.operation.selectAll
+import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.startRecognizingSpeech
 import org.galacticware.griddle.domain.operation.swapGesture
+import org.galacticware.griddle.domain.operation.swapHandedness
 import org.galacticware.griddle.domain.operation.swappable
+import org.galacticware.griddle.domain.operation.switchLayer
+import org.galacticware.griddle.domain.operation.toggleAltLock
+import org.galacticware.griddle.domain.operation.toggleCapslock
+import org.galacticware.griddle.domain.operation.toggleControlLock
+import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.withSymbol
@@ -140,8 +136,12 @@ import org.galacticware.griddle.domain.util.withSymbol
  * Alphas and numerics are in the same place, with the same possible gestures for them.
  */
 
+// By convention, we name the buttons `button_<row>_<col>`, where `<row>` and `<col>`
+// are the row start and and column start indices of the button, respectively.
 val button_0_0 = makeClassicGestureButton(
+    // define the position and size of the button
     rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
+    // define the gestures that can be performed on the button
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeChars = caseSensitive("a")),
         gesture(HOLD, simpleInput, char = "1"),
@@ -225,6 +225,7 @@ val cursorControlButton = makeClassicGestureButton(
     ),
 )
 
+// you can define a triple of text that will be re-used in multiple gestures
 val shiftLegends = Triple(SHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value, UNSHIFTED_SYMBOL.value)
 
 val button_1_0 = makeClassicGestureButton(
@@ -251,12 +252,6 @@ val button_1_0 = makeClassicGestureButton(
     ),
 )
 
-/*val button_1_1 = makeClassicGestureButton(
-    rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-    bind(CLICK, resizeBoard, threeChars = withSymbol(AppSymbol.RESIZE_BOARD_SYMBOL.value)),
-    )
-)*/
 val button_1_1 = makeClassicGestureButton(
     rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
@@ -430,26 +425,15 @@ val rightAlphaLayerToggle = makeClassicGestureButton(
         gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
         gesture(CLICK, switchLayer, appSymbol = TOGGLE_ALPHA_LAYER_SYMBOL),
-        // bind(SWIPE_RIGHT, switchLayer, symbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
-        /*bind(SWIPE_DOWN_LEFT, switchLayer,  symbol = EMOJI_SYMBOL.s)),*/
-        // bind(HOLD, switchLayer, symbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
     ),
 )
 
-
 val lefAlphaLayerToggle = rightAlphaLayerToggle
     .withPosition(rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,)
-
-/*
-
-val enterLeft = makeClassicGestureButton(rowStart = 3, colStart=0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(bind(CLICK, remappedSymbolLookup,  overrideTextTriple = caseSensitive(ENTER_SYMBOL.s))), )
-*/
-
 
 val rightNumLayerToggle = makeClassicGestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
@@ -458,7 +442,7 @@ val rightNumLayerToggle = makeClassicGestureButton(
         gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT_SYMBOL),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
         gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
-        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS), /*bind(SWIPE_DOWN_LEFT, switchLayer,  symbol = EMOJI_SYMBOL.s)),*/
+        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = TOGGLE_NUMBER_LAYER_SYMBOL),
         gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
         gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
@@ -488,16 +472,12 @@ val space = makeClassicGestureButton(
         gesture(SWIPE_UP, toggleOneShotShift, threeChars = UNSHIFTED_SYMBOL.value.let { Triple(SHIFTED_SYMBOL.value, it, it) }),
         gesture(BOOMERANG_UP, toggleCapslock, threeChars = Triple(UNSHIFTED_SYMBOL.value, UNSHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value)),
         gesture(SWIPE_DOWN, switchLayer, threeChars = withSymbol(TOGGLE_SETTINGS_LAYER_SYMBOL), appSymbol = TOGGLE_SETTINGS_LAYER_SYMBOL),
-        // bind(BOOMERANG_DOWN_LEFT, copyLogsToClipboard, threeChars = withSymbol(LOGS_SYMBOL), modifierThemeSet = ModifierThemeSet.allSameTheme(GridColorSet.CHALK_BOARD, "LOGS", modifierKeyKind = ModifierKeyKind.SHIFT)),
         gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = TOGGLE_FUNCTION_LAYER_SYMBOL),
-        // bind(SWIPE_DOWN_RIGHT, noOp,  threeChars = withSymbol(TRASH_BIN_SYMBOL)),
         gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
         gesture(CIRCLE_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
         gesture(HOLD, simpleInput, threeChars = reversedCase("0")),
         gesture(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("H")),
-//        bind(SWIPE_LEFT, shiftBoardLeft),
-//        bind(SWIPE_RIGHT, shiftBoardRight),
     ),
 )
 
@@ -509,7 +489,7 @@ val numericSpaceRight = space.withPosition(3, 2, 1, 1)
 val button0 = makeClassicGestureButton(
     rowStart = 3, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput/*keyInput(KEYCODE_0)*/, threeChars = caseSensitive("0"))
+        gesture(CLICK, simpleInput, threeChars = caseSensitive("0"))
     ),
 )
 

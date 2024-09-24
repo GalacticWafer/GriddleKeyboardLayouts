@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
 
 import android.graphics.Rect
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
@@ -11,7 +11,7 @@ class GriddleEnglishDefaultFunctionLayer : AbstractKeyboardLayer(
     griddleButtonBuilders = buttonBuilders,
     defaultButtonSample = run {
         buttonBuilder(
-            rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,            widthRuler = EnglishDefaultBoard.DEFAULT_WIDTH,
+            rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1, widthRuler = EnglishDefaultBoard.DEFAULT_WIDTH,
             heightRuler = EnglishDefaultBoard.DEFAULT_HEIGHT,
             modifierTheme = EnglishDefaultBoard.defaultModifierTheme,
             boxType = GestureButtonType.TWENTY_GESTURE_CLASSIC,
@@ -32,8 +32,10 @@ class GriddleEnglishDefaultFunctionLayer : AbstractKeyboardLayer(
     override val builders = buttonBuilders
     companion object {
         val buttonBuilders=  setOf(
-            f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12,
-            backspace, cursorControlButton, enter, rightAlphaLayerToggle,
+            f1, f2, f3, cursorControlButton,
+            f4, f5, f6, rightAlphaLayerToggle,
+            f7, f8, f9, backspace,
+            f10, f11, f12, enter,
         )
     }
     override val layerDefinition = LayerDefinition.FUNCTION_LAYER

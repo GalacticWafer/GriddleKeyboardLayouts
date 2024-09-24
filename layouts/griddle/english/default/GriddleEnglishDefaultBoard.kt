@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
 
 import android.content.Context
 import androidx.compose.ui.graphics.Color
@@ -21,6 +21,7 @@ import javax.inject.Inject
  * All default language keyboards (as opposed to user-defined ones) should follow the naming convention:
  * "<Language>DefaultBoard", where <Language> is the capitalized name of the given language.
  */
+// Define all the layers that make up a keyboard as constructor parameters.
 class EnglishDefaultBoard @Inject constructor(
     context: Context,
     griddleEnglishDefaultAlphaLayer: GriddleEnglishDefaultAlphaLayer,
@@ -51,6 +52,8 @@ class EnglishDefaultBoard @Inject constructor(
     )
 ) {
         companion object {
+            // used to nest the keyboard another composable grid arrangement. Usually 1x1. Your
+            // keyboard should probably also be 1x1.
             val positionAndSize: GridPosition = GridPosition.oneByOne
 
             /**
@@ -62,8 +65,8 @@ class EnglishDefaultBoard @Inject constructor(
                 backgroundColor = AppColor.PURPLE.color,
                 borderColor = Color(0xFFFF559F),
             )
-            val DEFAULT_HEIGHT: Int = 7
-            val DEFAULT_WIDTH: Int = 9
+            const val DEFAULT_HEIGHT: Int = 7
+            const val DEFAULT_WIDTH: Int = 9
         }
 }
 
