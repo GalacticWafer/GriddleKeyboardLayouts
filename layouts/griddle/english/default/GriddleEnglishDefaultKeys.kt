@@ -86,10 +86,12 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED_SYMBOL
+import org.galacticware.griddle.domain.keybinder.AppSymbol.SHOW_CLIPBOARD_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_ALPHA_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL
+import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_CLIPBOARD_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_FUNCTION_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_NUMBER_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS_LAYER_SYMBOL
@@ -447,6 +449,7 @@ val rightNumLayerToggle = makeClassicGestureButton(
         gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
         gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        gesture(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
     ),
 )
 
