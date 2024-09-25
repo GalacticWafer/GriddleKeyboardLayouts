@@ -6,6 +6,7 @@ import android.view.KeyEvent.KEYCODE_3
 import android.view.KeyEvent.KEYCODE_4
 import android.view.KeyEvent.KEYCODE_5
 import android.view.KeyEvent.KEYCODE_6
+import android.view.KeyEvent.KEYCODE_7
 import android.view.KeyEvent.KEYCODE_8
 import android.view.KeyEvent.KEYCODE_9
 import android.view.KeyEvent.KEYCODE_A
@@ -431,6 +432,7 @@ val rightAlphaLayerToggle = makeClassicGestureButton(
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        gesture(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
     ),
 )
 
@@ -519,7 +521,7 @@ val button6 = button_1_2.withoutLetters()
     .withGesture(CLICK, pressKey(KEYCODE_6, respectShift = false), threeChars = caseSensitive("6"))
 
 val button7 = button2_0.withoutLetters()
-    .withGesture(CLICK, pressKey(KEYCODE_3, respectShift = false), threeChars = caseSensitive("7"))
+    .withGesture(CLICK, pressKey(KEYCODE_7, respectShift = false), threeChars = caseSensitive("7"))
 
 val button8 = button_2_1.withoutLetters()
     .withGesture(CLICK, pressKey(KEYCODE_8, respectShift = false), threeChars = caseSensitive("8"))
