@@ -119,6 +119,7 @@ import org.galacticware.griddle.domain.operation.remappedSymbolLookup
 import org.galacticware.griddle.domain.operation.repeatPreviousOperation
 import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.spamBackspace
 import org.galacticware.griddle.domain.operation.startRecognizingSpeech
 import org.galacticware.griddle.domain.operation.swapGesture
 import org.galacticware.griddle.domain.operation.swapHandedness
@@ -395,13 +396,13 @@ val cycleEmojisRight = cycleEmojisLeft
 
 val multiKey: Gesture =  gesture(CLICK, swappable(
     pressKey(KEYCODE_DEL) to withSymbol(BACKSPACE_SYMBOL),
-    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT_SYMBOL),
+//    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT_SYMBOL),
 ), threeChars = withSymbol(BACKSPACE_SYMBOL))
 
 val backspace = makeClassicGestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(HOLD, swapGesture(multiKey)),
+        gesture(HOLD, /*swapGesture(multiKey)*/spamBackspace),
         multiKey,
         gesture(SWIPE_LEFT, pressKey(KEYCODE_DEL)),
         gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DEL)),
