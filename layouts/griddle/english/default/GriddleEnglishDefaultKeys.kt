@@ -98,7 +98,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_NUMBER_LAYER_S
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW_SYMBOL
-import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
+import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gestureSet
 import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import org.galacticware.griddle.domain.modifier.ModifierKeyKind
 import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
@@ -146,41 +146,41 @@ val button_0_0 = makeClassicGestureButton(
     rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
     // define the gestures that can be performed on the button
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("a")),
-        gesture(HOLD, simpleInput, char = "1"),
-        gesture(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_SYMBOL),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("-", "÷", "÷")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("÷", "-", "-")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("$")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("¢")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("v")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = reversedCase("V")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("A")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("A")), ),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("a")),
+        gestureSet(HOLD, simpleInput, char = "1"),
+        gestureSet(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_SYMBOL),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("-", "÷", "÷")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("÷", "-", "-")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("$")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("¢")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("v")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = reversedCase("V")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("A")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("A")), ),
 )
 
 val button_0_1 = makeClassicGestureButton(
     rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(BOOMERANG_UP, simpleInput, threeChars = caseSensitive("ˇ")),
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("n")),
-        gesture(HOLD, simpleInput, threeChars = withSymbol("2")),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("`", "\\", "\\")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive("\\", "`", "`")),
-        gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("^", "’", "’")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = Triple("^", "’", "’")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("!", "¡", "¡")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive("¡", "!", "!")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("/", "—", "—")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("—", "/", "/")),
-        gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("l")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("L")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("/", "—", "—")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive("—", "/", "/")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("+", "×", "×")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive("×", "+", "+")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("n")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("n")),
+        gestureSet(BOOMERANG_UP, simpleInput, threeChars = caseSensitive("ˇ")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("n")),
+        gestureSet(HOLD, simpleInput, threeChars = withSymbol("2")),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("`", "\\", "\\")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive("\\", "`", "`")),
+        gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("^", "’", "’")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = Triple("^", "’", "’")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("!", "¡", "¡")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive("¡", "!", "!")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("/", "—", "—")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("—", "/", "/")),
+        gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("l")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("L")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("/", "—", "—")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive("—", "/", "/")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("+", "×", "×")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive("×", "+", "+")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("n")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("n")),
     ),
 )
 
@@ -188,18 +188,18 @@ val button_0_1 = makeClassicGestureButton(
 val button_0_2 = makeClassicGestureButton(
     rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("i")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("€", "£", "£")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("£", "€", "€")),
-        gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("=", "±", "±")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("±", "=", "=")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("x")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("X")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("?", "¿", "¿")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive("¿", "?", "?")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("I")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("I")),
-        gesture(HOLD, simpleInput, threeChars = withSymbol("3")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("i")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("€", "£", "£")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("£", "€", "€")),
+        gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("=", "±", "±")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("±", "=", "=")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("x")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("X")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("?", "¿", "¿")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive("¿", "?", "?")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("I")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("I")),
+        gestureSet(HOLD, simpleInput, threeChars = withSymbol("3")),
     ),
 )
 
@@ -208,23 +208,23 @@ val shiftIndicator = ModifierThemeSet.forModifierWithDefaultTheme("LOWER", "UPPE
 val cursorControlButton = makeClassicGestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, noOp, modifierThemeSet = shiftIndicator),
-        gesture(HOLD, toggleCapslock),
-        gesture(SWIPE_UP, pressKey(KEYCODE_DPAD_UP), threeChars = withSymbol(UP_ARROW_SYMBOL)),
-        gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeChars = withSymbol(MOVE_PGDN_SYMBOL)),
-        gesture(SWIPE_RIGHT, moveRight, threeChars = withSymbol(RIGHT_ARROW_SYMBOL)),
-        gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_DPAD_UP)),
-        gesture(BOOMERANG_UP_RIGHT, pressKey(KEYCODE_DPAD_UP, control)),
-        gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_DPAD_RIGHT)),
-        gesture(BOOMERANG_RIGHT, moveWordRight),
-        gesture(SWIPE_LEFT, moveLeft, threeChars = withSymbol(LEFT_ARROW_SYMBOL)),
-        gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
-        gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
-        gesture(BOOMERANG_LEFT, moveWordLeft),
-        gesture(SWIPE_DOWN, pressKey(KEYCODE_DPAD_DOWN), threeChars = withSymbol(DOWN_ARROW_SYMBOL)),
-        gesture(BOOMERANG_DOWN, pressKey(KEYCODE_PAGE_DOWN), threeChars = withSymbol(MOVE_PGDN_SYMBOL)),
-        gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_MOVE_END), threeChars = withSymbol(MOVE_END_SYMBOL)),
-        gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_MOVE_HOME), threeChars = withSymbol(MOVE_HOME_SYMBOL)),
+        gestureSet(CLICK, noOp, modifierThemeSet = shiftIndicator),
+        gestureSet(HOLD, toggleCapslock),
+        gestureSet(SWIPE_UP, pressKey(KEYCODE_DPAD_UP), threeChars = withSymbol(UP_ARROW_SYMBOL)),
+        gestureSet(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeChars = withSymbol(MOVE_PGDN_SYMBOL)),
+        gestureSet(SWIPE_RIGHT, moveRight, threeChars = withSymbol(RIGHT_ARROW_SYMBOL)),
+        gestureSet(SWIPE_UP_RIGHT, pressKey(KEYCODE_DPAD_UP)),
+        gestureSet(BOOMERANG_UP_RIGHT, pressKey(KEYCODE_DPAD_UP, control)),
+        gestureSet(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_DPAD_RIGHT)),
+        gestureSet(BOOMERANG_RIGHT, moveWordRight),
+        gestureSet(SWIPE_LEFT, moveLeft, threeChars = withSymbol(LEFT_ARROW_SYMBOL)),
+        gestureSet(SWIPE_UP_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
+        gestureSet(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
+        gestureSet(BOOMERANG_LEFT, moveWordLeft),
+        gestureSet(SWIPE_DOWN, pressKey(KEYCODE_DPAD_DOWN), threeChars = withSymbol(DOWN_ARROW_SYMBOL)),
+        gestureSet(BOOMERANG_DOWN, pressKey(KEYCODE_PAGE_DOWN), threeChars = withSymbol(MOVE_PGDN_SYMBOL)),
+        gestureSet(CIRCLE_CLOCKWISE, pressKey(KEYCODE_MOVE_END), threeChars = withSymbol(MOVE_END_SYMBOL)),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_MOVE_HOME), threeChars = withSymbol(MOVE_HOME_SYMBOL)),
     ),
 )
 
@@ -234,75 +234,75 @@ val shiftLegends = Triple(SHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value, UNSHIFT
 val button_1_0 = makeClassicGestureButton(
     rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeChars = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeChars = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = Triple("{", "}", "}")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = Triple("}", "{", "{")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = Triple("%", "‰", "‰")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeChars = Triple("‰", "%", "%")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("k")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("K")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = Triple("_", "¬", "¬")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = Triple("¬", "_", "_")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = Triple("[", "]", "]")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = Triple("]", "[", "[")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = Triple("(", ")", ")")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = Triple(")", "(", "(")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("H")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("H")),
-        gesture(HOLD, simpleInput, threeChars = caseSensitive("4")),
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("h")),
+        gestureSet(SWIPE_UP, cycleShiftState, threeChars = shiftLegends),
+        gestureSet(SWIPE_DOWN, releaseShift, threeChars = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = Triple("{", "}", "}")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = Triple("}", "{", "{")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = Triple("%", "‰", "‰")),
+        gestureSet(BOOMERANG_UP_RIGHT, simpleInput, threeChars = Triple("‰", "%", "%")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("k")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("K")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = Triple("_", "¬", "¬")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = Triple("¬", "_", "_")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = Triple("[", "]", "]")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = Triple("]", "[", "[")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = Triple("(", ")", ")")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = Triple(")", "(", "(")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("H")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("H")),
+        gestureSet(HOLD, simpleInput, threeChars = caseSensitive("4")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("h")),
     ),
 )
 
 val button_1_1 = makeClassicGestureButton(
     rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("o")),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = reversedCase("q")),
-        gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
-        gesture(BOOMERANG_UP, simpleInput, threeChars = reversedCase("u")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeChars = reversedCase("P")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("B")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = reversedCase("J")),
-        gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("d")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("D")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("G")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("c")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = reversedCase("C")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("O")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("O")),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("5")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("o")),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = reversedCase("q")),
+        gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
+        gestureSet(BOOMERANG_UP, simpleInput, threeChars = reversedCase("u")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
+        gestureSet(BOOMERANG_UP_RIGHT, simpleInput, threeChars = reversedCase("P")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("B")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = reversedCase("J")),
+        gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("d")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("D")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("G")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("c")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = reversedCase("C")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("O")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("O")),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("5")),
     ),
 )
 
 val button_1_2 = makeClassicGestureButton(
     rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeChars = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeChars = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("|", "\\", "\\")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive("\\", "|", "|")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("}", "{", "{")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeChars = caseSensitive("{", "}", "}")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(")", "(", "(")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive("(", ")", ")")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("]", "[", "[")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("[", "]", "]")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("—")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("@", "ª", "ª")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("ª", "@", "@")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = reversedCase("M")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("R")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("R")),
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("r")),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("6")),
+        gestureSet(SWIPE_UP, cycleShiftState, threeChars = shiftLegends),
+        gestureSet(SWIPE_DOWN, releaseShift, threeChars = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("|", "\\", "\\")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive("\\", "|", "|")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("}", "{", "{")),
+        gestureSet(BOOMERANG_UP_RIGHT, simpleInput, threeChars = caseSensitive("{", "}", "}")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(")", "(", "(")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive("(", ")", ")")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("]", "[", "[")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("[", "]", "]")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("—")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("@", "ª", "ª")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = reversedCase("ª", "@", "@")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = reversedCase("M")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("R")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("R")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("r")),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("6")),
     ),
 )
 
@@ -310,21 +310,21 @@ val button_1_2 = makeClassicGestureButton(
 val button2_0 = makeClassicGestureButton(
     rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("t")),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("7")),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("~")),
-        gesture(SWIPE_UP, simpleInput, threeChars = Triple("¨", "¨", "¨")),
-        gesture(BOOMERANG_UP, simpleInput, threeChars = Triple("˝", "¨", "¨")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y", "y", "Y")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeChars = reversedCase("Y")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = Triple("*", "†", "†")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = Triple("†", "*", "*")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = Triple("<", ">", ">")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = Triple(">", "<", "<")),
-        gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_TAB), threeChars = withSymbol(TAB_RIGHT_SYMBOL)),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("T")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("T")),
-        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT_SYMBOL),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("t")),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("7")),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("~")),
+        gestureSet(SWIPE_UP, simpleInput, threeChars = Triple("¨", "¨", "¨")),
+        gestureSet(BOOMERANG_UP, simpleInput, threeChars = Triple("˝", "¨", "¨")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y", "y", "Y")),
+        gestureSet(BOOMERANG_UP_RIGHT, simpleInput, threeChars = reversedCase("Y")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = Triple("*", "†", "†")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = Triple("†", "*", "*")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = Triple("<", ">", ">")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = Triple(">", "<", "<")),
+        gestureSet(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_TAB), threeChars = withSymbol(TAB_RIGHT_SYMBOL)),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("T")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("T")),
+        gestureSet(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT_SYMBOL),
     ),
 )
 
@@ -332,28 +332,28 @@ val button2_0 = makeClassicGestureButton(
 val button_2_1 = makeClassicGestureButton(
     rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive(" ")),
-        gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("w")),
-        gesture(BOOMERANG_UP, simpleInput, threeChars = reversedCase("W")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("\'")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeChars = caseSensitive("\'")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("z")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("Z")),
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
-        gesture(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive(";")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(",")),
-        gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".", "…", "…")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("…", ".", ".")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive(",")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive(",")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("E")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("E")),
-        gesture(HOLD, simpleInput, threeChars = caseSensitive("8")),
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("e")),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("8")),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = caseSensitive(" ")),
+        gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("w")),
+        gestureSet(BOOMERANG_UP, simpleInput, threeChars = reversedCase("W")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("\'")),
+        gestureSet(BOOMERANG_UP_RIGHT, simpleInput, threeChars = caseSensitive("\'")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("z")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = reversedCase("Z")),
+        gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
+        gestureSet(BOOMERANG_RIGHT, simpleInput, threeChars = caseSensitive(";")),
+        gestureSet(BOOMERANG_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(",")),
+        gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".", "…", "…")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = caseSensitive("…", ".", ".")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive(",")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive(",")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("E")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("E")),
+        gestureSet(HOLD, simpleInput, threeChars = caseSensitive("8")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("e")),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("8")),
     ),
 )
 
@@ -361,21 +361,21 @@ val button_2_1 = makeClassicGestureButton(
 val button2_2 = makeClassicGestureButton(
     rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("s")),
-        gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
-        gesture(BOOMERANG_UP_LEFT, simpleInput, threeChars = reversedCase("F")),
-        gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("&")),
-        gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(">")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("°")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(";")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive(";")),
-        gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("#")),
-        gesture(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive(" ")),
-        gesture(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("S")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("S")),
-        gesture(HOLD, simpleInput, threeChars = caseSensitive("9")),
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("s")),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("9")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("s")),
+        gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
+        gestureSet(BOOMERANG_UP_LEFT, simpleInput, threeChars = reversedCase("F")),
+        gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("&")),
+        gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(">")),
+        gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("°")),
+        gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(";")),
+        gestureSet(BOOMERANG_DOWN_LEFT, simpleInput, threeChars = caseSensitive(";")),
+        gestureSet(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("#")),
+        gestureSet(BOOMERANG_LEFT, simpleInput, threeChars = caseSensitive(" ")),
+        gestureSet(CIRCLE_CLOCKWISE, simpleInput, threeChars = reversedCase("S")),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeChars = reversedCase("S")),
+        gestureSet(HOLD, simpleInput, threeChars = caseSensitive("9")),
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("s")),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("9")),
     ),
 )
 
@@ -384,7 +384,7 @@ val button2_2 = makeClassicGestureButton(
 val cycleEmojisLeft = makeClassicGestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, /* cycleEmojiPage */noOp, threeChars = caseSensitive("⬅\uFE0F"))
+        gestureSet(CLICK, /* cycleEmojiPage */noOp, threeChars = caseSensitive("⬅\uFE0F"))
     ),
 )
 
@@ -394,7 +394,7 @@ val cycleEmojisRight = cycleEmojisLeft
 
 
 
-val multiKey: Gesture =  gesture(CLICK, swappable(
+val multiKey: Gesture =  gestureSet(CLICK, swappable(
     pressKey(KEYCODE_DEL) to withSymbol(BACKSPACE_SYMBOL),
     repeatPreviousOperation to withSymbol(AppSymbol.REPEAT_SYMBOL),
 ), threeChars = withSymbol(BACKSPACE_SYMBOL))
@@ -402,16 +402,16 @@ val multiKey: Gesture =  gesture(CLICK, swappable(
 val backspace = makeClassicGestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(HOLD, swapGesture(multiKey)),
+        gestureSet(HOLD, swapGesture(multiKey)),
         multiKey,
-        gesture(SWIPE_LEFT, pressKey(KEYCODE_DEL)),
-        gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DEL)),
-        gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DEL)),
-        gesture(BOOMERANG_LEFT, pressKey(KEYCODE_DEL, control)),
-        gesture(SWIPE_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
-        gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
-        gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
-        gesture(BOOMERANG_RIGHT, pressKey(KEYCODE_FORWARD_DEL, control)),
+        gestureSet(SWIPE_LEFT, pressKey(KEYCODE_DEL)),
+        gestureSet(SWIPE_UP_LEFT, pressKey(KEYCODE_DEL)),
+        gestureSet(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DEL)),
+        gestureSet(BOOMERANG_LEFT, pressKey(KEYCODE_DEL, control)),
+        gestureSet(SWIPE_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
+        gestureSet(SWIPE_UP_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
+        gestureSet(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
+        gestureSet(BOOMERANG_RIGHT, pressKey(KEYCODE_FORWARD_DEL, control)),
     ),
 )
 
@@ -423,16 +423,16 @@ val rightBackspace = backspace
 val rightAlphaLayerToggle = makeClassicGestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY_SYMBOL),
-        gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT_SYMBOL),
-        gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
-        gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
-        gesture(CLICK, switchLayer, appSymbol = TOGGLE_ALPHA_LAYER_SYMBOL),
-        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
-        gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
-        gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
-        gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
-        gesture(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
+        gestureSet(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY_SYMBOL),
+        gestureSet(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT_SYMBOL),
+        gestureSet(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
+        gestureSet(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
+        gestureSet(CLICK, switchLayer, appSymbol = TOGGLE_ALPHA_LAYER_SYMBOL),
+        gestureSet(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
+        gestureSet(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
+        gestureSet(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        gestureSet(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
     ),
 )
 
@@ -442,16 +442,16 @@ val lefAlphaLayerToggle = rightAlphaLayerToggle
 val rightNumLayerToggle = makeClassicGestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY_SYMBOL),
-        gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT_SYMBOL),
-        gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
-        gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
-        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
-        gesture(CLICK, switchLayer, appSymbol = TOGGLE_NUMBER_LAYER_SYMBOL),
-        gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
-        gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
-        gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
-        gesture(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
+        gestureSet(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY_SYMBOL),
+        gestureSet(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT_SYMBOL),
+        gestureSet(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE_SYMBOL),
+        gestureSet(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO_SYMBOL, ),
+        gestureSet(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
+        gestureSet(CLICK, switchLayer, appSymbol = TOGGLE_NUMBER_LAYER_SYMBOL),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
+        gestureSet(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT_SYMBOL),
+        gestureSet(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        gestureSet(BOOMERANG_DOWN, switchLayer, appSymbol = TOGGLE_CLIPBOARD_LAYER_SYMBOL),
     ),
 )
 
@@ -461,11 +461,11 @@ val leftNumLayerToggles = rightNumLayerToggle
 val enter = makeClassicGestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_ENTER), threeChars = withSymbol(ENTER_SYMBOL)),
-        gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT_SYMBOL.value, kind = ModifierKeyKind.ALT)),
-        gesture(BOOMERANG_UP_LEFT, toggleAltLock),
-        gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL_SYMBOL.value, kind = ModifierKeyKind.CONTROL)),
-        gesture(BOOMERANG_UP_RIGHT, toggleControlLock),
+        gestureSet(CLICK, pressKey(KEYCODE_ENTER), threeChars = withSymbol(ENTER_SYMBOL)),
+        gestureSet(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT_SYMBOL.value, kind = ModifierKeyKind.ALT)),
+        gestureSet(BOOMERANG_UP_LEFT, toggleAltLock),
+        gestureSet(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL_SYMBOL.value, kind = ModifierKeyKind.CONTROL)),
+        gestureSet(BOOMERANG_UP_RIGHT, toggleControlLock),
     ),
 )
 
@@ -473,16 +473,16 @@ val enter = makeClassicGestureButton(
 val space = makeClassicGestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
     gestureSet = mutableSetOf(
-        gesture(CLICK, pressSpace),
-        gesture(SWIPE_UP, toggleOneShotShift, threeChars = UNSHIFTED_SYMBOL.value.let { Triple(SHIFTED_SYMBOL.value, it, it) }),
-        gesture(BOOMERANG_UP, toggleCapslock, threeChars = Triple(UNSHIFTED_SYMBOL.value, UNSHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value)),
-        gesture(SWIPE_DOWN, switchLayer, threeChars = withSymbol(TOGGLE_SETTINGS_LAYER_SYMBOL), appSymbol = TOGGLE_SETTINGS_LAYER_SYMBOL),
-        gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = TOGGLE_FUNCTION_LAYER_SYMBOL),
-        gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
-        gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
-        gesture(CIRCLE_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
-        gesture(HOLD, simpleInput, threeChars = reversedCase("0")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("H")),
+        gestureSet(CLICK, pressSpace),
+        gestureSet(SWIPE_UP, toggleOneShotShift, threeChars = UNSHIFTED_SYMBOL.value.let { Triple(SHIFTED_SYMBOL.value, it, it) }),
+        gestureSet(BOOMERANG_UP, toggleCapslock, threeChars = Triple(UNSHIFTED_SYMBOL.value, UNSHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value)),
+        gestureSet(SWIPE_DOWN, switchLayer, threeChars = withSymbol(TOGGLE_SETTINGS_LAYER_SYMBOL), appSymbol = TOGGLE_SETTINGS_LAYER_SYMBOL),
+        gestureSet(SWIPE_DOWN_LEFT, switchLayer, appSymbol = TOGGLE_FUNCTION_LAYER_SYMBOL),
+        gestureSet(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
+        gestureSet(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
+        gestureSet(CIRCLE_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
+        gestureSet(HOLD, simpleInput, threeChars = reversedCase("0")),
+        gestureSet(BOOMERANG_DOWN, simpleInput, threeChars = reversedCase("H")),
     ),
 )
 
@@ -494,7 +494,7 @@ val numericSpaceRight = space.withPosition(3, 2, 1, 1)
 val button0 = makeClassicGestureButton(
     rowStart = 3, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, simpleInput, threeChars = caseSensitive("0"))
+        gestureSet(CLICK, simpleInput, threeChars = caseSensitive("0"))
     ),
 )
 
@@ -530,26 +530,26 @@ val button9 = button2_2.withoutLetters()
     .withGesture(CLICK, pressKey(KEYCODE_9, respectShift = false), threeChars = caseSensitive("9"))
 
 val f1 = button_0_0
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F1), appSymbol = F1_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F1), appSymbol = F1_SYMBOL))
 val f2 = button_0_1
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F2), appSymbol = F2_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F2), appSymbol = F2_SYMBOL))
 val f3 = button_0_2
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F3), appSymbol = F3_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F3), appSymbol = F3_SYMBOL))
 val f4 = button_1_0
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F4), appSymbol = F4_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F4), appSymbol = F4_SYMBOL))
 val f5 = button_1_1
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F5), appSymbol = F5_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F5), appSymbol = F5_SYMBOL))
 val f6 = button_1_2
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F6), appSymbol = F6_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F6), appSymbol = F6_SYMBOL))
 val f7 = button2_0
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F7), appSymbol = F7_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F7), appSymbol = F7_SYMBOL))
 val f8 = button_2_1
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F8), appSymbol = F8_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F8), appSymbol = F8_SYMBOL))
 val f9 = button2_2
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F9), appSymbol = F9_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F9), appSymbol = F9_SYMBOL))
 val f10 = numericSpaceLeft
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F10), appSymbol = F10_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F10), appSymbol = F10_SYMBOL))
 val f11 = button0
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F11), appSymbol = F11_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F11), appSymbol = F11_SYMBOL))
 val f12 = numericSpaceRight
-    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F12), appSymbol = F12_SYMBOL))
+    .replaceGesturesWith(gestureSet(CLICK, pressKey(KEYCODE_F12), appSymbol = F12_SYMBOL))

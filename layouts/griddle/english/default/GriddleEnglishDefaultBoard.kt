@@ -11,7 +11,7 @@ import org.galacticware.griddle.keyboarddefinition.system.UserSettingsLayer
 import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
-import org.galacticware.griddle.keyboarddefinition.system.MoveAndResizeBoardLayer
+//import org.galacticware.griddle.keyboarddefinition.system.MoveAndResizeBoardLayer
 import org.galacticware.griddle.view.core.AppColor
 import javax.inject.Inject
 
@@ -34,7 +34,7 @@ class EnglishDefaultBoard @Inject constructor(
     userSettingsLayer: UserSettingsLayer,
     customizeKeyboardLayer: CustomizeKeyboardLayer,
     griddleEnglishDefaultUnifiedAlphaNumericLayer: GriddleEnglishDefaultUnifiedAlphaNumericLayer,
-    moveAndResizeBoardLayer: MoveAndResizeBoardLayer,
+//    moveAndResizeBoardLayer: MoveAndResizeBoardLayer,
 ): Keyboard(
     context,
     layers = setOf(
@@ -48,7 +48,7 @@ class EnglishDefaultBoard @Inject constructor(
         userSettingsLayer,
         customizeKeyboardLayer,
         griddleEnglishDefaultUnifiedAlphaNumericLayer,
-        moveAndResizeBoardLayer,
+//        moveAndResizeBoardLayer,
     )
 ) {
         companion object {
