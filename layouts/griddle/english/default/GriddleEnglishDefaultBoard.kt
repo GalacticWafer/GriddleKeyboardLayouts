@@ -4,9 +4,7 @@ import android.content.Context
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.keyboarddefinition.system.BaseSettingsLayer
 import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
-import org.galacticware.griddle.keyboarddefinition.system.CustomizeKeyboardLayer
 import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
-import org.galacticware.griddle.keyboarddefinition.system.LayoutEditorLayer
 import org.galacticware.griddle.keyboarddefinition.system.UserSettingsLayer
 import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.domain.keyboard.Keyboard
@@ -27,12 +25,10 @@ class EnglishDefaultBoard @Inject constructor(
     griddleEnglishDefaultAlphaLayer: GriddleEnglishDefaultAlphaLayer,
     griddleEnglishDefaultNumericLayer: GriddleEnglishDefaultNumericLayer,
     griddleEnglishDefaultFunctionLayer: GriddleEnglishDefaultFunctionLayer,
-    layoutEditorLayer: LayoutEditorLayer,
     emojiLayer: EmojiLayer,
     clipboardLayer: ClipboardLayer,
     baseSettingsLayer: BaseSettingsLayer,
     userSettingsLayer: UserSettingsLayer,
-    customizeKeyboardLayer: CustomizeKeyboardLayer,
     griddleEnglishDefaultUnifiedAlphaNumericLayer: GriddleEnglishDefaultUnifiedAlphaNumericLayer,
 //    moveAndResizeBoardLayer: MoveAndResizeBoardLayer,
 ): Keyboard(
@@ -41,12 +37,9 @@ class EnglishDefaultBoard @Inject constructor(
         griddleEnglishDefaultAlphaLayer,
         griddleEnglishDefaultNumericLayer,
         griddleEnglishDefaultFunctionLayer,
-        layoutEditorLayer,
         emojiLayer,
         clipboardLayer,
         baseSettingsLayer,
-        userSettingsLayer,
-        customizeKeyboardLayer,
         griddleEnglishDefaultUnifiedAlphaNumericLayer,
 //        moveAndResizeBoardLayer,
     )
