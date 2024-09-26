@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
 
 import android.content.Context
 import androidx.compose.ui.graphics.Color

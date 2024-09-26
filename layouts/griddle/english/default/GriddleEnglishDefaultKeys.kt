@@ -1,4 +1,4 @@
-package org.galacticware.griddle.keyboarddefinition.keyboarddefinitions.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
 
 import android.view.KeyEvent.KEYCODE_1
 import android.view.KeyEvent.KEYCODE_2
@@ -87,7 +87,6 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED_SYMBOL
-import org.galacticware.griddle.domain.keybinder.AppSymbol.SHOW_CLIPBOARD_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_ALPHA_LAYER_SYMBOL
