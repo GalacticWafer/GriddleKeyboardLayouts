@@ -47,6 +47,5 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer : AbstractKeyboardLayer(
                 // right-side buttons start at column <pivot column + 1> == 4
             ).map { it.withPosition(colStart = 4 + it.positionAndSize.colStart) }
         )
-        val instance = GriddleEnglishDefaultUnifiedAlphaNumericLayer()
     }
 }

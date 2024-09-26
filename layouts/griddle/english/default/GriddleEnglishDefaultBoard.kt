@@ -41,6 +41,7 @@ class EnglishDefaultBoard @Inject constructor(
         clipboardLayer,
         baseSettingsLayer,
         griddleEnglishDefaultUnifiedAlphaNumericLayer,
+        userSettingsLayer,
 //        moveAndResizeBoardLayer,
     )
 ) {
