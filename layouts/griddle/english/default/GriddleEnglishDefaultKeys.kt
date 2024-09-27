@@ -119,7 +119,7 @@ import org.galacticware.griddle.domain.operation.remappedSymbolLookup
 import org.galacticware.griddle.domain.operation.repeatPreviousOperation
 import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
-import org.galacticware.griddle.domain.operation.spamBackspace
+
 import org.galacticware.griddle.domain.operation.startRecognizingSpeech
 import org.galacticware.griddle.domain.operation.swapGesture
 import org.galacticware.griddle.domain.operation.swapHandedness
@@ -132,6 +132,7 @@ import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.withSymbol
+import spamBackspace
 
 
 /***
