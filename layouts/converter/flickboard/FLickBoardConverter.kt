@@ -58,7 +58,7 @@ class FLickBoardConverter : MatrixKeyboardConverter() {
                             printStream.print(
                                 "\nprivate val _${prefix}_button${i}_${++j} = makeClassicGestureButton(" +
                                         "\n\trowStart = ${i}, colStart = ${j}, rowSpan = 1, colSpan = 1," +
-                                        "\n\tkeyMap = mutableSetOf("
+                                        "\n\tgestureSet = mutableSetOf("
                             )
                         } else if (line.contains("actions = mapOf(")
                             || line == "                )"
