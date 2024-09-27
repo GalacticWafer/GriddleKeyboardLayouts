@@ -10,7 +10,7 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.makeClassicGestureButton
-import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gestureSet
+import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.util.caseSensitive
 
 /**
@@ -23,43 +23,43 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _NumMini_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("+")),
-		gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("*")),
-		gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("=")),
-		gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("-")),
-		gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("^")),
-		gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("_")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("+")),
+		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("*")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("=")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("-")),
+		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("^")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("_")),
 	)
 )
 private val _NumMini_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("(")),
-		gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive(")")),
-		gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("#")),
-		gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("$")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("(")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive(")")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("#")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("$")),
 	)
 )
 private val _NumMini_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("&")),
-		gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("@")),
-		gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("~")),
-		gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("!")),
-		gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("|")),
-		gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("?")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("&")),
+		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("@")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("~")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("!")),
+		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("|")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("?")),
 	)
 )
 private val _NumMini_button3_0 = makeClassicGestureButton(
 	rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
-		gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("'")),
-		gestureSet(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive(";")),
-		gestureSet(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
-		gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".")),
-		gestureSet(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
+		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("'")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive(";")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
+		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
 	)
 )
 private val _NumMini_button4_0 = makeClassicGestureButton(

@@ -7,7 +7,7 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_RIGHT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.makeClassicGestureButton
-import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gestureSet
+import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.util.caseSensitive
 
 /**
@@ -20,14 +20,14 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _UKMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("і")),
-		gestureSet(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ґ")),
+		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("і")),
+		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ґ")),
 	)
 )
 private val _UKMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gestureSet(SWIPE_UP, simpleInput, threeChars = caseSensitive("ї")),
-		gestureSet(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("є")),
+		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ї")),
+		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("є")),
 	)
 )
