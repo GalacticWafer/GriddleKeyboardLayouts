@@ -13,10 +13,6 @@ import org.galacticware.griddle.domain.layer.LayerDefinition
  */
 class GriddleEnglishDefaultUnifiedAlphaNumericLayer : AbstractKeyboardLayer(
     griddleButtonBuilders = buttonBuilders,
-    defaultButtonSample = GriddleButtonBuilder.makeClassicGestureButton(
-        rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,        widthRuler = 6,
-        heightRuler = 6,
-    ),
     borderColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
     backgroundColor = Color.Black,
     textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,

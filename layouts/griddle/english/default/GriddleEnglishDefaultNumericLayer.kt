@@ -8,18 +8,8 @@ import org.galacticware.griddle.domain.griddlebutton.GestureButtonType
 import org.galacticware.griddle.domain.layer.LayerDefinition
 import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer.Companion.buttonBuilder
 
-
-val defaultButtonSample = buttonBuilder(
-    rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,    widthRuler = EnglishDefaultBoard.DEFAULT_WIDTH,
-    heightRuler = EnglishDefaultBoard.DEFAULT_HEIGHT,
-    modifierTheme = EnglishDefaultBoard.defaultModifierTheme,
-    buttonType = GestureButtonType.TWENTY_GESTURE_CLASSIC,
-    settingsValueProvider = null,
-)
-
 class GriddleEnglishDefaultNumericLayer : AbstractKeyboardLayer(
     griddleButtonBuilders = buttonBuilders,
-    defaultButtonSample = defaultButtonSample,
     borderColor = EnglishDefaultBoard.defaultModifierTheme.borderColor,
     backgroundColor = EnglishDefaultBoard.defaultModifierTheme.backgroundColor,
     textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,

@@ -2,6 +2,7 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 
 import android.content.Context
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.keyboarddefinition.system.BaseSettingsLayer
 import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
 import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
@@ -32,7 +33,6 @@ class EnglishDefaultBoard @Inject constructor(
     userSettingsLayer: UserSettingsLayer,
     griddleEnglishDefaultUnifiedAlphaNumericLayer: GriddleEnglishDefaultUnifiedAlphaNumericLayer,
     languagePreferencesLayer: LanguagePreferencesLayer,
-//    moveAndResizeBoardLayer: MoveAndResizeBoardLayer,
 ): Keyboard(
     context,
     layers = setOf(
@@ -45,7 +45,6 @@ class EnglishDefaultBoard @Inject constructor(
         griddleEnglishDefaultUnifiedAlphaNumericLayer,
         userSettingsLayer,
         languagePreferencesLayer,
-//        moveAndResizeBoardLayer,
     )
 ) {
         companion object {
@@ -58,8 +57,9 @@ class EnglishDefaultBoard @Inject constructor(
                 backgroundColor = AppColor.PURPLE.color,
                 borderColor = Color(0xFFFF559F),
             )
-            const val DEFAULT_HEIGHT: Int = 7
-            const val DEFAULT_WIDTH: Int = 9
+            const val DEFAULT_HEIGHT: Int = 70
+            const val DEFAULT_WIDTH: Int = 90
+            val defaultButtonSize = IntSize(DEFAULT_WIDTH, DEFAULT_HEIGHT)
         }
 }
 

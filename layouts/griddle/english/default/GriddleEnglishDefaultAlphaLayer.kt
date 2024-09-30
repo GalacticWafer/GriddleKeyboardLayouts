@@ -17,9 +17,6 @@ class GriddleEnglishDefaultAlphaLayer : AbstractKeyboardLayer(
     griddleButtonBuilders = buttonBuilders,
     // Sample button used internally for sizing of rows and columns.
     // For most keyboards, this will be a 1x1 button.
-    defaultButtonSample = GriddleButtonBuilder.makeClassicGestureButton(
-        rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1
-    ),
     // Default border color for the buttons in this layer, which can a [GriddleButtonBuilder] can
     // override
     borderColor = EnglishDefaultBoard.defaultModifierTheme.textColor,

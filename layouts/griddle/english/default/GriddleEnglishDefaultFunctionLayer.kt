@@ -9,15 +9,6 @@ import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
 
 class GriddleEnglishDefaultFunctionLayer : AbstractKeyboardLayer(
     griddleButtonBuilders = buttonBuilders,
-    defaultButtonSample = run {
-        buttonBuilder(
-            rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1, widthRuler = EnglishDefaultBoard.DEFAULT_WIDTH,
-            heightRuler = EnglishDefaultBoard.DEFAULT_HEIGHT,
-            modifierTheme = EnglishDefaultBoard.defaultModifierTheme,
-            buttonType = GestureButtonType.TWENTY_GESTURE_CLASSIC,
-            settingsValueProvider = null,
-        )
-    },
     borderColor = EnglishDefaultBoard.defaultModifierTheme.borderColor,
     backgroundColor = EnglishDefaultBoard.defaultModifierTheme.backgroundColor,
     textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
