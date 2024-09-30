@@ -14,7 +14,7 @@ class GriddleEnglishDefaultFunctionLayer : AbstractKeyboardLayer(
             rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1, widthRuler = EnglishDefaultBoard.DEFAULT_WIDTH,
             heightRuler = EnglishDefaultBoard.DEFAULT_HEIGHT,
             modifierTheme = EnglishDefaultBoard.defaultModifierTheme,
-            boxType = GestureButtonType.TWENTY_GESTURE_CLASSIC,
+            buttonType = GestureButtonType.TWENTY_GESTURE_CLASSIC,
             settingsValueProvider = null,
         )
     },
