@@ -5,19 +5,17 @@ import android.graphics.Rect
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
 import org.galacticware.griddle.domain.layer.LayerType
-import org.galacticware.griddle.domain.griddlebutton.GestureButtonType
 import org.galacticware.griddle.domain.layer.LayerDefinition
-import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer.Companion.buttonBuilder
 
 class GriddleEnglishDefaultNumericLayer(
     context: Context,
 ) : AbstractKeyboardLayer(
     context,
     griddleButtonBuilders = buttonBuilders,
-    borderColor = EnglishDefaultBoard.defaultModifierTheme.borderColor,
-    backgroundColor = EnglishDefaultBoard.defaultModifierTheme.backgroundColor,
-    textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
-    fontSize = EnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
+    borderColor = GriddleEnglishDefaultBoard.defaultModifierTheme.borderColor,
+    backgroundColor = GriddleEnglishDefaultBoard.defaultModifierTheme.backgroundColor,
+    textColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
+    fontSize = GriddleEnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
         availableSpace = Rect(0, 0, 1, 1),
     ),
     keyboardHandedness = KeyboardHandedness(

@@ -22,7 +22,7 @@ import javax.inject.Inject
  * "<Language>DefaultBoard", where <Language> is the capitalized name of the given language.
  */
 // Define all the layers that make up a keyboard as constructor parameters.
-class EnglishDefaultBoard @Inject constructor(
+class GriddleEnglishDefaultBoard @Inject constructor(
     context: Context,
     griddleEnglishDefaultAlphaLayer: GriddleEnglishDefaultAlphaLayer,
     griddleEnglishDefaultNumericLayer: GriddleEnglishDefaultNumericLayer,

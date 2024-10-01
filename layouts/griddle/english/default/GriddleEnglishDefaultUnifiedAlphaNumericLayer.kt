@@ -17,10 +17,10 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer(
 ) : AbstractKeyboardLayer(
     context,
     griddleButtonBuilders = buttonBuilders,
-    borderColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
+    borderColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
     backgroundColor = Color.Black,
-    textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
-    fontSize = EnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
+    textColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
+    fontSize = GriddleEnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
         availableSpace = Rect(0, 0, 1, 1),
     ),
     keyboardHandedness = KeyboardHandedness(

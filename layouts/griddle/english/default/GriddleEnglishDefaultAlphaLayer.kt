@@ -23,16 +23,16 @@ class GriddleEnglishDefaultAlphaLayer(
     // For most keyboards, this will be a 1x1 button.
     // Default border color for the buttons in this layer, which can a [GriddleButtonBuilder] can
     // override
-    borderColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
+    borderColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
     // Default background color for the buttons in this layer, which can a [GriddleButtonBuilder]
     // can override
     backgroundColor = Color.Black,
     // Default text color for the buttons in this layer, which can a [GriddleButtonBuilder] can
     // override
-    textColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
+    textColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
     // Default border font size for the buttons in this layer, which can a [GriddleButtonBuilder]
     // can override
-    fontSize = EnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
+    fontSize = GriddleEnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
         availableSpace = Rect(0, 0, 1, 1)
     ),
     // Defines whether the keyboard can switch between left and right, and if so, the pivot column
