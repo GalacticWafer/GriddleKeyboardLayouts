@@ -1,5 +1,6 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
 
+import android.content.Context
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
@@ -11,7 +12,10 @@ import org.galacticware.griddle.domain.layer.LayerDefinition
 /**
  * All language layers should have the  [AbstractKeyboardLayer.layerDefinition] property set to [LayerDefinition.ALPHA_LAYER].
  */
-class GriddleEnglishDefaultUnifiedAlphaNumericLayer : AbstractKeyboardLayer(
+class GriddleEnglishDefaultUnifiedAlphaNumericLayer(
+    context: Context,
+) : AbstractKeyboardLayer(
+    context,
     griddleButtonBuilders = buttonBuilders,
     borderColor = EnglishDefaultBoard.defaultModifierTheme.textColor,
     backgroundColor = Color.Black,

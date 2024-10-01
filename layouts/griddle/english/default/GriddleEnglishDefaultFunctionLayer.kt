@@ -1,5 +1,6 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
 
+import android.content.Context
 import android.graphics.Rect
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.griddlebutton.GestureButtonType
@@ -7,7 +8,10 @@ import org.galacticware.griddle.domain.layer.LayerDefinition
 import org.galacticware.griddle.domain.layer.LayerType
 import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
 
-class GriddleEnglishDefaultFunctionLayer : AbstractKeyboardLayer(
+class GriddleEnglishDefaultFunctionLayer(
+    context: Context,
+) : AbstractKeyboardLayer(
+    context,
     griddleButtonBuilders = buttonBuilders,
     borderColor = EnglishDefaultBoard.defaultModifierTheme.borderColor,
     backgroundColor = EnglishDefaultBoard.defaultModifierTheme.backgroundColor,

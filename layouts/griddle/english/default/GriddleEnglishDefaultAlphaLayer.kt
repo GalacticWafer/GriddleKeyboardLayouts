@@ -1,5 +1,6 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
 
+import android.content.Context
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
@@ -12,7 +13,10 @@ import org.galacticware.griddle.domain.layer.LayerDefinition
  * Represents the default alpha layer for the Griddle English keyboard layout.
  * This layer is responsible for defining the alpha (alphabetic) keys and their properties.
  */
-class GriddleEnglishDefaultAlphaLayer : AbstractKeyboardLayer(
+class GriddleEnglishDefaultAlphaLayer(
+    context: Context,
+) : AbstractKeyboardLayer(
+    context,
     // Set of button builders used to create the buttons in this layer
     griddleButtonBuilders = buttonBuilders,
     // Sample button used internally for sizing of rows and columns.
