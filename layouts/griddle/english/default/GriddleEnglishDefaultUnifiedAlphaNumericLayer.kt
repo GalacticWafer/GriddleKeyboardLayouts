@@ -30,7 +30,7 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer(
 ) {
     override val layerDefinition = LayerDefinition.ALPHA_NUMERIC_UNIFIED
     override val layerType = LayerType.ALPHA_NUMERIC_UNIFIED
-    override val builders: MutableSet<GriddleButtonBuilder> = buttonBuilders
+    override var builders: MutableSet<GriddleButtonBuilder> = buttonBuilders
     
     companion object {
         val buttonBuilders = mutableSetOf(

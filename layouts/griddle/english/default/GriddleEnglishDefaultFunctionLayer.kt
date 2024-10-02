@@ -23,7 +23,7 @@ class GriddleEnglishDefaultFunctionLayer(
         pivotColumn = 1,
     ),
 ) {
-    override val builders = buttonBuilders
+    override var builders = buttonBuilders
     companion object {
         val buttonBuilders=  mutableSetOf(
             f1, f2, f3, cursorControlButton,

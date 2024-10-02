@@ -25,7 +25,7 @@ class GriddleEnglishDefaultNumericLayer(
 ) {
     override val layerDefinition = LayerDefinition.NUMERIC_LAYER
     override val layerType = LayerType.NUMERIC
-    override val builders = buttonBuilders
+    override var builders = buttonBuilders
     companion object {
         val buttonBuilders =  mutableSetOf(
             button1, button2, button3, cursorControlButton,
