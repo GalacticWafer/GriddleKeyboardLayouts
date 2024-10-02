@@ -10,8 +10,8 @@ import org.galacticware.griddle.keyboarddefinition.system.UserSettingsLayer
 import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
+import org.galacticware.griddle.keyboarddefinition.system.FinishResizing
 import org.galacticware.griddle.keyboarddefinition.system.LanguagePreferencesLayer
-//import org.galacticware.griddle.keyboarddefinition.system.MoveAndResizeBoardLayer
 import org.galacticware.griddle.view.core.AppColor
 import javax.inject.Inject
 
@@ -33,6 +33,7 @@ class GriddleEnglishDefaultBoard @Inject constructor(
     userSettingsLayer: UserSettingsLayer,
     griddleEnglishDefaultUnifiedAlphaNumericLayer: GriddleEnglishDefaultUnifiedAlphaNumericLayer,
     languagePreferencesLayer: LanguagePreferencesLayer,
+    finishResizing: FinishResizing,
 ): Keyboard(
     context,
     layers = setOf(

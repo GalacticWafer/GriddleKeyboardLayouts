@@ -1,5 +1,6 @@
 # Griddle Keyboard Contribution
 
+
 This document allows developers to contribute custom keyboard layouts for different languages to the IME project. Below is a guide to the open-source files, the classes and functions available in the API, and instructions for creating new keyboard layouts.
 
 ## Open Source Files Overview
