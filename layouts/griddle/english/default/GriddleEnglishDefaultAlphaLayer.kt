@@ -43,7 +43,7 @@ class GriddleEnglishDefaultAlphaLayer(
     ),
 ) {
     // Set of button builders used to create the buttons in this layer
-    override val builders: Set<GriddleButtonBuilder> = buttonBuilders
+    override var builders = buttonBuilders
     // Defines the layer as an alpha layer
     override val layerDefinition = LayerDefinition.ALPHA_LAYER
     // Specifies the type of the layer as alpha
@@ -51,7 +51,7 @@ class GriddleEnglishDefaultAlphaLayer(
 
     companion object {
         // Set of button builders used to create the buttons in this layer
-        val buttonBuilders = setOf(
+        val buttonBuilders = mutableSetOf(
             button_0_0, button_0_1, button_0_2, cursorControlButton,
             button_1_0, button_1_1, button_1_2, rightNumLayerToggle,
             button2_0, button_2_1, button2_2, backspace,

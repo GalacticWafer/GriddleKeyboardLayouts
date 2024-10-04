@@ -30,7 +30,7 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer(
 ) {
     override val layerDefinition = LayerDefinition.ALPHA_NUMERIC_UNIFIED
     override val layerType = LayerType.ALPHA_NUMERIC_UNIFIED
-    override val builders: Set<GriddleButtonBuilder> = buttonBuilders
+    override var builders = buttonBuilders
     
     companion object {
         val buttonBuilders = setOf(
@@ -46,6 +46,6 @@ class GriddleEnglishDefaultUnifiedAlphaNumericLayer(
                 button0.withPosition(colStart = 0, colSpan = 3)
                 // right-side buttons start at column <pivot column + 1> == 4
             ).map { it.withPosition(colStart = 4 + it.positionAndSize.colStart) }
-        )
+        ).toMutableSet()
     }
 }

@@ -89,7 +89,7 @@ import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_ALPHA_LAYER_SYM
 import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL
 import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_FUNCTION_LAYER_SYMBOL
 import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_NUMBER_LAYER_SYMBOL
-import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_SETTINGS_LAYER_SYMBOL
+import org.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_SETTINGS_SCREEN_SYMBOL
 import org.galacticware.griddle.model.keybinder.AppSymbol.UNSHIFTED_SYMBOL
 import org.galacticware.griddle.model.keybinder.AppSymbol.UP_ARROW_SYMBOL
 import org.galacticware.griddle.model.modifier.ModifierKeyKind

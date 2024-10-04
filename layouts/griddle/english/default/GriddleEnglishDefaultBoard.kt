@@ -3,7 +3,6 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.keyboarddefinition.system.BaseSettingsLayer
 import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
 import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
 import org.galacticware.griddle.keyboarddefinition.system.UserSettingsLayer
@@ -11,7 +10,6 @@ import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
 import org.galacticware.griddle.keyboarddefinition.system.LanguagePreferencesLayer
-//import org.galacticware.griddle.keyboarddefinition.system.MoveAndResizeBoardLayer
 import org.galacticware.griddle.view.core.AppColor
 import javax.inject.Inject
 
@@ -29,7 +27,6 @@ class GriddleEnglishDefaultBoard @Inject constructor(
     griddleEnglishDefaultFunctionLayer: GriddleEnglishDefaultFunctionLayer,
     emojiLayer: EmojiLayer,
     clipboardLayer: ClipboardLayer,
-    baseSettingsLayer: BaseSettingsLayer,
     userSettingsLayer: UserSettingsLayer,
     griddleEnglishDefaultUnifiedAlphaNumericLayer: GriddleEnglishDefaultUnifiedAlphaNumericLayer,
     languagePreferencesLayer: LanguagePreferencesLayer,
@@ -41,7 +38,6 @@ class GriddleEnglishDefaultBoard @Inject constructor(
         griddleEnglishDefaultFunctionLayer,
         emojiLayer,
         clipboardLayer,
-        baseSettingsLayer,
         griddleEnglishDefaultUnifiedAlphaNumericLayer,
         userSettingsLayer,
         languagePreferencesLayer,

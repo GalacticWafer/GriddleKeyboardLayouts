@@ -94,7 +94,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_ALPHA_NUMERIC_
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_CLIPBOARD_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_FUNCTION_LAYER_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_NUMBER_LAYER_SYMBOL
-import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS_LAYER_SYMBOL
+import org.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS_SCREEN_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW_SYMBOL
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
@@ -125,6 +125,7 @@ import org.galacticware.griddle.domain.operation.swapGesture
 import org.galacticware.griddle.domain.operation.swapHandedness
 import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.operation.switchLayer
+import org.galacticware.griddle.domain.operation.switchToScreen
 import org.galacticware.griddle.domain.operation.toggleAltLock
 import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.operation.toggleControlLock
@@ -132,6 +133,7 @@ import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.withSymbol
+import org.galacticware.griddle.keyboarddefinition.system.BaseSettingsScreen
 import spamBackspace
 
 
@@ -477,7 +479,7 @@ val space = makeClassicGestureButton(
         gesture(CLICK, pressSpace),
         gesture(SWIPE_UP, toggleOneShotShift, threeChars = UNSHIFTED_SYMBOL.value.let { Triple(SHIFTED_SYMBOL.value, it, it) }),
         gesture(BOOMERANG_UP, toggleCapslock, threeChars = Triple(UNSHIFTED_SYMBOL.value, UNSHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value)),
-        gesture(SWIPE_DOWN, switchLayer, threeChars = withSymbol(TOGGLE_SETTINGS_LAYER_SYMBOL), appSymbol = TOGGLE_SETTINGS_LAYER_SYMBOL),
+        gesture(SWIPE_DOWN, switchToScreen(BaseSettingsScreen), appSymbol = TOGGLE_SETTINGS_SCREEN_SYMBOL),
         gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = TOGGLE_FUNCTION_LAYER_SYMBOL),
         gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = TOGGLE_ALPHA_NUMERIC_UNIFIED_LAYER_SYMBOL),
