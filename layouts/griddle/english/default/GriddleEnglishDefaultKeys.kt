@@ -121,7 +121,6 @@ import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
 
 import org.galacticware.griddle.domain.operation.startRecognizingSpeech
-import org.galacticware.griddle.domain.operation.swapGesture
 import org.galacticware.griddle.domain.operation.swapHandedness
 import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.operation.switchLayer
