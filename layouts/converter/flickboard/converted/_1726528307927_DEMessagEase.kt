@@ -109,79 +109,79 @@ import org.galacticware.griddle.model.util.withSymbol
 private val _DEMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("a")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ä")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("v")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("a")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ä")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("v")),
 	)
 )
 private val _DEMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("n")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("l")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("n")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("l")),
 	)
 )
 private val _DEMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("i")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("x")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("i")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("x")),
 	)
 )
 private val _DEMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("ü")),
-		bind(CLICK, simpleInput, threeChars = caseSensitive("h")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("k")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ö")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ü")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("h")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("k")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ö")),
 	)
 )
 private val _DEMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("d")),
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("c")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("o")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("d")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("q")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("u")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("p")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("c")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("b")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("g")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("o")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("j")),
 	)
 )
 private val _DEMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("r")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("r")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("m")),
 	)
 )
 private val _DEMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("t")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ß")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("t")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ß")),
 private val _DEMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ẞ")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ẞ")),
 	)
 )
 private val _DEMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("e")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("w")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("z")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("e")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("w")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("z")),
 	)
 )
 private val _DEMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("s")),
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("s")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("f")),
 	)
 )*/

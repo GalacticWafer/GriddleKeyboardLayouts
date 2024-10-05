@@ -26,85 +26,85 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _FAThumbKey_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("د")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ض")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ص")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("د")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ض")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ص")),
 	)
 )
 private val _FAThumbKey_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ر")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ژ")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ق")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ز")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ف")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ر")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ژ")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ق")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ز")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ف")),
 	)
 )
 private val _FAThumbKey_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("و")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ع")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ء")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("و")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ع")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ء")),
 	)
 )
 private val _FAThumbKey_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ن")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ح")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ج")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("چ")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ن")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ح")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ج")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("چ")),
 	)
 )
 private val _FAThumbKey_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ا")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ذ")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ب")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("پ")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("خ")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("س")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("آ")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ل")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ش")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ا")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ذ")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ب")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("پ")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("خ")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("س")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("آ")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ل")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ش")),
 	)
 )
 private val _FAThumbKey_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("م")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("غ")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ک")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("گ")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("م")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("غ")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ک")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("گ")),
 	)
 )
 private val _FAThumbKey_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ت")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ث")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ت")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ث")),
 	)
 )
 private val _FAThumbKey_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ی")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("؟")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ئ")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("*")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ـ")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ی")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("؟")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ئ")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("*")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive(".")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ـ")),
 	)
 )
 private val _FAThumbKey_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("ه")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ط")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ظ")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ۀ")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("ه")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ط")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ظ")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ۀ")),
 	)
 )

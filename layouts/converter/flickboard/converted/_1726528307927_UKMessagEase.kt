@@ -20,14 +20,14 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _UKMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("і")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ґ")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("і")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ґ")),
 	)
 )
 private val _UKMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ї")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("є")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ї")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("є")),
 	)
 )

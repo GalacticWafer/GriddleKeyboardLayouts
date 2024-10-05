@@ -26,84 +26,84 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _FRExtMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("a")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ï")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("à")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("â")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ç")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("v")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ï")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("à")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("â")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ç")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("v")),
 	)
 )
 private val _FRExtMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("n")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("z")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("n")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("z")),
 	)
 )
 private val _FRExtMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("i")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("û")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ô")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("î")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("x")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("i")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("û")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ô")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("î")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("x")),
 	)
 )
 private val _FRExtMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("l")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ù")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("h")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("w")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("l")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ù")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("h")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("w")),
 	)
 )
 private val _FRExtMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("o")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("c")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("d")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("o")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("q")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("u")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("p")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("c")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("b")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("g")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("d")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("j")),
 	)
 )
 private val _FRExtMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("r")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("r")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("m")),
 	)
 )
 private val _FRExtMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("t")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ë")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("k")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("t")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ë")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("k")),
 	)
 )
 private val _FRExtMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("e")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("é")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("è")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ê")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("e")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("é")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("è")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ê")),
 	)
 )
 private val _FRExtMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("s")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ü")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("s")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("f")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ü")),
 	)
 )

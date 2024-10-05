@@ -26,81 +26,81 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _PLRmituraMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("a")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ą")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ą")),
 	)
 )
 private val _PLRmituraMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("n")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("v")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ń")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("x")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("n")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("v")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ń")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("x")),
 	)
 )
 private val _PLRmituraMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("i")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("l")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("£")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ł")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("i")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("q")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("l")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("£")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ł")),
 	)
 )
 private val _PLRmituraMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("w")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("c")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ć")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("w")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("c")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ć")),
 	)
 )
 private val _PLRmituraMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("o")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ó")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("k")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("d")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("o")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ó")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("u")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("p")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("k")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("b")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("g")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("d")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("j")),
 	)
 )
 private val _PLRmituraMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("r")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("r")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("m")),
 	)
 )
 private val _PLRmituraMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("z")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ż")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ź")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("z")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ż")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ź")),
 	)
 )
 private val _PLRmituraMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("e")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("h")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ę")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("t")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("e")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("h")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ę")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("t")),
 	)
 )
 private val _PLRmituraMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("s")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ś")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("s")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("f")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ś")),
 	)
 )

@@ -140,7 +140,7 @@ The `bind` function is used to create a gesture for a custom keyboard. A gesture
 - **Description**: The character to be input or displayed on the key when the gesture is recognized. Defaults to the value of `appSymbol` if provided.
 - **Example**: `"A"`
 
-### `threeChars: Triple<String, String, String>`
+### `threeStrings: Triple<String, String, String>`
 - **Description**: A set of three characters representing different states (e.g., normal, shifted, caps lock). This helps in displaying different characters based on the state of the keyboard.
 - **Example**: `Triple("a", "A", "AA")`
 

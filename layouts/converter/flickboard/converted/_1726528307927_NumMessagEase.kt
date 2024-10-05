@@ -109,70 +109,70 @@ import org.galacticware.griddle.model.util.withSymbol
 private val _NumMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("$")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("…")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("-")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("$")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("…")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("-")),
 private val _NumMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("÷")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("¥")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("•")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("÷")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("¥")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("•")),
 	)
 )
 private val _NumMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("`")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("^")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("´")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("+")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("!")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("/")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("\\")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("`")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("^")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("´")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("+")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("!")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("/")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("\\")),
 private val _NumMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("‘")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("˘")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("’")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("×")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("¡")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("–")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("—")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("‘")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("˘")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("’")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("×")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("¡")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("–")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("—")),
 	)
 )
 private val _NumMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("?")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("=")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("€")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("?")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("=")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("€")),
 private val _NumMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("¿")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("±")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("£")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("¿")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("±")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("£")),
 	)
 )
 private val _NumMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("{")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("%")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("(")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("[")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("_")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("{")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("%")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("(")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("[")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("_")),
 private val _NumMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("}")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("‰")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive(")")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("]")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("¯")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("¬")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("}")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("‰")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive(")")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("]")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("¯")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("¬")),
 	)
 )
 private val _NumMessagEase_button1_1 = makeClassicGestureButton(
@@ -183,74 +183,74 @@ private val _NumMessagEase_button1_1 = makeClassicGestureButton(
 private val _NumMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("|")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("}")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(")")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("@")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("]")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("}")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(")")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("@")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("]")),
 private val _NumMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("¶")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("{")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("(")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ª")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("[")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("¶")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("{")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("(")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ª")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("[")),
 	)
 )
 private val _NumMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("~")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("¨")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("<")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ˇ")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("*")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("~")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("¨")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("<")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ˇ")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("*")),
 private val _NumMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("˜")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("˝")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("‹")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("†")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("«")),
-	)
-)
-private val _NumMessagEase_button2_1 = makeClassicGestureButton(
-	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
-	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("'")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(",")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
-private val _NumMessagEase_button2_0 = makeClassicGestureButton(
-	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
-	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("“")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("”")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("‚")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("…")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("„")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("˜")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("˝")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("‹")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("†")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("«")),
 	)
 )
 private val _NumMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("&")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("°")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("#")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive(">")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive(";")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("\"")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("'")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(",")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive(".")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive(":")),
 private val _NumMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("§")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("º")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("£")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("›")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("¸")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("»")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("“")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("”")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("‚")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("…")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("„")),
+	)
+)
+private val _NumMessagEase_button2_1 = makeClassicGestureButton(
+	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
+	gestureSet = mutableSetOf(
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("&")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("°")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("#")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(">")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
+private val _NumMessagEase_button2_0 = makeClassicGestureButton(
+	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
+	gestureSet = mutableSetOf(
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("§")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("º")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("£")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("›")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("¸")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("»")),
 	)
 )
 private val _NumMessagEase_button7_0 = makeClassicGestureButton(

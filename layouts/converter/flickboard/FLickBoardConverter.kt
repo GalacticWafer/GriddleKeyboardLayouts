@@ -43,7 +43,7 @@ class FLickBoardConverter : MatrixKeyboardConverter() {
                             "BOTTOM_LEFT" -> "SWIPE_DOWN_LEFT"
                             else /* "BOTTOM_RIGHT"*/ -> "SWIPE_DOWN_RIGHT"
                         }
-                        printStream.print("\n\t\tbind($gestureType, simpleInput, threeChars = caseSensitive(\"$text\")),")
+                        printStream.print("\n\t\tbind($gestureType, simpleInput, threeStrings = caseSensitive(\"$text\")),")
                     } ?: run {
                         if (line.contains(" = Layer(")) {
                             stack.push(")")

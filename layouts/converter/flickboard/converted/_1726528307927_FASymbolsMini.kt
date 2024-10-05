@@ -23,42 +23,42 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _FASymbolsMini_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("+")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("*")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("=")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("-")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("^")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("_")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("+")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("*")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("=")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("-")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("^")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("_")),
 	)
 )
 private val _FASymbolsMini_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("(")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive(")")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("#")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("$")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("(")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive(")")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("#")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("$")),
 	)
 )
 private val _FASymbolsMini_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("&")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("@")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("~")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("!")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("|")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("?")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("&")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("@")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("~")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("!")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("|")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("?")),
 	)
 )
 private val _FASymbolsMini_button3_0 = makeClassicGestureButton(
 	rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("\"")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("'")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("؛")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("،")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive(".")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive(":")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("\"")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("'")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("؛")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("،")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive(".")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive(":")),
 	)
 )

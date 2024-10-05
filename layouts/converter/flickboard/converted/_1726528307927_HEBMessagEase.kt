@@ -109,78 +109,78 @@ import org.galacticware.griddle.model.util.withSymbol
 private val _HEBMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ר")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ן")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ר")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ן")),
 	)
 )
 private val _HEBMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ב")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ג")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ב")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ג")),
 	)
 )
 private val _HEBMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("א")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("צ")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("א")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("צ")),
 private val _HEBMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ץ")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ץ")),
 	)
 )
 private val _HEBMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("מ")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ם")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("מ")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ם")),
 	)
 )
 private val _HEBMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("י")),
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ק")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("ח")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("פ")),
-		bind(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ע")),
-		bind(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ד")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("כ")),
-		bind(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("נ")),
-		bind(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ש")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("י")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ק")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ח")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("פ")),
+		bind(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ע")),
+		bind(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ד")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("כ")),
+		bind(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("נ")),
+		bind(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ש")),
 private val _HEBMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ף")),
-		bind(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ך")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ף")),
+		bind(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ך")),
 	)
 )
 private val _HEBMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ו")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ו")),
 	)
 )
 private val _HEBMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ת")),
-		bind(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ז")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ת")),
+		bind(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ז")),
 	)
 )
 private val _HEBMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ה")),
-		bind(SWIPE_UP, simpleInput, threeChars = caseSensitive("ס")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ה")),
+		bind(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ס")),
 	)
 )
 private val _HEBMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		bind(CLICK, simpleInput, threeChars = caseSensitive("ל")),
-		bind(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ט")),
+		bind(CLICK, simpleInput, threeStrings = caseSensitive("ל")),
+		bind(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ט")),
 	)
 )*/

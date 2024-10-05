@@ -26,80 +26,80 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _HUDTMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("a")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("v")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("v")),
 	)
 )
 private val _HUDTMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("n")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("á")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("é")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ú")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("l")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ó")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("n")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("á")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("é")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ú")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("l")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ó")),
 	)
 )
 private val _HUDTMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("i")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("x")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("í")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("i")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("x")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("í")),
 	)
 )
 private val _HUDTMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("h")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ü")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("k")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ű")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("h")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ü")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("k")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ű")),
 	)
 )
 private val _HUDTMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("o")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("q")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("u")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("p")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("c")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("b")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("g")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("d")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("j")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("o")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("q")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("u")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("p")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("c")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("b")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("g")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("d")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("j")),
 	)
 )
 private val _HUDTMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("r")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ö")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("ő")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("m")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("r")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ö")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ő")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("m")),
 	)
 )
 private val _HUDTMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("t")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("y")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("t")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y")),
 	)
 )
 private val _HUDTMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("e")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("w")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("z")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("e")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("w")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("z")),
 	)
 )
 private val _HUDTMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("s")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("f")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("s")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("f")),
 	)
 )

@@ -26,78 +26,78 @@ import org.galacticware.griddle.domain.util.caseSensitive
 private val _RUMessagEase_button0_0 = makeClassicGestureButton(
 	rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("с")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ц")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("п")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("с")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ц")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("п")),
 	)
 )
 private val _RUMessagEase_button0_1 = makeClassicGestureButton(
 	rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("й")),
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("и")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("к")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("й")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("и")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("к")),
 	)
 )
 private val _RUMessagEase_button0_2 = makeClassicGestureButton(
 	rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("т")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("ь")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("т")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("ь")),
 	)
 )
 private val _RUMessagEase_button1_0 = makeClassicGestureButton(
 	rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("в")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("б")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("ы")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("ъ")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("в")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("б")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("ы")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("ъ")),
 	)
 )
 private val _RUMessagEase_button1_1 = makeClassicGestureButton(
 	rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("о")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ч")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("м")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("х")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ж")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("г")),
-		gesture(SWIPE_DOWN_LEFT, simpleInput, threeChars = caseSensitive("щ")),
-		gesture(SWIPE_DOWN, simpleInput, threeChars = caseSensitive("я")),
-		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeChars = caseSensitive("ш")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("о")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ч")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("м")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("х")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ж")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("г")),
+		gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("щ")),
+		gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive("я")),
+		gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ш")),
 	)
 )
 private val _RUMessagEase_button1_2 = makeClassicGestureButton(
 	rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("а")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("л")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("а")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("л")),
 	)
 )
 private val _RUMessagEase_button2_0 = makeClassicGestureButton(
 	rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("е")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("ё")),
-		gesture(SWIPE_UP_RIGHT, simpleInput, threeChars = caseSensitive("д")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("э")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("е")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("ё")),
+		gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("д")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("э")),
 	)
 )
 private val _RUMessagEase_button2_1 = makeClassicGestureButton(
 	rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("р")),
-		gesture(SWIPE_LEFT, simpleInput, threeChars = caseSensitive("ю")),
-		gesture(SWIPE_UP, simpleInput, threeChars = caseSensitive("у")),
-		gesture(SWIPE_RIGHT, simpleInput, threeChars = caseSensitive("з")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("р")),
+		gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("ю")),
+		gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("у")),
+		gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("з")),
 	)
 )
 private val _RUMessagEase_button2_2 = makeClassicGestureButton(
 	rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
 	gestureSet = mutableSetOf(
-		gesture(CLICK, simpleInput, threeChars = caseSensitive("н")),
-		gesture(SWIPE_UP_LEFT, simpleInput, threeChars = caseSensitive("ф")),
+		gesture(CLICK, simpleInput, threeStrings = caseSensitive("н")),
+		gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("ф")),
 	)
 )
