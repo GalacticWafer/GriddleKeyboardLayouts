@@ -29,7 +29,6 @@ import android.view.KeyEvent.KEYCODE_F9
 import android.view.KeyEvent.KEYCODE_FORWARD_DEL
 import android.view.KeyEvent.KEYCODE_PAGE_DOWN
 import android.view.KeyEvent.KEYCODE_PAGE_UP
-import android.view.KeyEvent.KEYCODE_TAB
 import org.galacticware.griddle.domain.gesture.Gesture
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
@@ -136,7 +135,7 @@ import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
-import org.galacticware.griddle.keyboarddefinition.system.BaseSettingsScreen
+import org.galacticware.griddle.view.composable.screen.BaseSettingsScreen
 import spamBackspace
 
 
