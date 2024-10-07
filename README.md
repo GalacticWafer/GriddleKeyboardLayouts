@@ -7,9 +7,10 @@ This document allows developers to contribute custom keyboard layouts for differ
 Griddle is partially open sourced, to allow programmers to create default layouts. These files define the default 
 layers and boards for the Griddle English keyboard. Developers can use these as templates or extend them for other languages:
 
-- **`GriddleEnglishDefaultAlphaLayer`**: Defines the default alpha (alphabetic) layer.
-- **`GriddleEnglishDefaultBoard.kt`**: Defines the overall layout and properties of the default board.
-- **`GriddleEnglishDefaultKeys.kt`**: Manages key configurations and mappings.
+- **`GriddleEnglishAlphaLayer`**: Defines the default alphabetic layer.
+- **`GriddleEnglishBoard.kt`**: Defines the set of layers for the keyboard.
+- **`GriddleSharedKeys.kt`**: Manages key configurations and mappings.
+- **`GriddleEnglishKeys.kt`**: Manages key configurations and mappings.
 - **`GriddleEnglishDefaultUnifiedAlphaNumericLayer`**: Defines a unified alphanumeric layer, including both letters and numbers.
 - **`GriddleEnglishDefaultFunctionLayer`**: Handles function keys (e.g., Shift, Control).
 - **`GriddleEnglishDefaultNumericLayer`**: Manages the numeric keypad.
@@ -59,20 +60,8 @@ Represents the state of a modifier key (e.g., `NONE`, `ONCE`, `REPEAT`).
 Represents the 20 supported gestures on a MessagEase-style swipe keyboard.
 ```kt
 enum class GestureType {
-    BOOMERANG_DOWN,
-    BOOMERANG_DOWN_LEFT,
-    BOOMERANG_DOWN_RIGHT,
-    BOOMERANG_LEFT,
-    BOOMERANG_RIGHT,
-    BOOMERANG_UP,
-    BOOMERANG_UP_LEFT,
-    BOOMERANG_UP_RIGHT,
-    CIRCLE_ANTI_CLOCKWISE,
-    CIRCLE_CLOCKWISE,
-    HOLD,
     CLICK,
-    COPYABLE_CLICK,
-    MESSAGE_BOX_NO_OP,
+    HOLD,
     SWIPE_DOWN,
     SWIPE_DOWN_LEFT,
     SWIPE_DOWN_RIGHT,
@@ -81,7 +70,17 @@ enum class GestureType {
     SWIPE_UP,
     SWIPE_UP_LEFT,
     SWIPE_UP_RIGHT,
-    ;
+    BOOMERANG_DOWN,
+    BOOMERANG_DOWN_LEFT,
+    BOOMERANG_DOWN_RIGHT,
+    BOOMERANG_LEFT,
+    BOOMERANG_RIGHT,
+    BOOMERANG_UP,
+    BOOMERANG_UP_LEFT,
+    BOOMERANG_UP_RIGHT,
+    CIRCLE_CLOCKWISE,
+    CIRCLE_ANTI_CLOCKWISE,
+;
 ```
 
 ## Guidelines for Contributors

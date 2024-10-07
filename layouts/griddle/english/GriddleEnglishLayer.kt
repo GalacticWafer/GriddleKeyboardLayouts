@@ -1,21 +1,27 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
 import android.content.Context
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
-import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder
-import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
+import org.galacticware.griddle.domain.language.LanguageTag
 import org.galacticware.griddle.domain.layer.LayerType
 import org.galacticware.griddle.domain.layer.LayerDefinition
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.cursorControlButton
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.enter
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.rightNumLayerToggle
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.space
+import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
 
 /**
  * Represents the default alpha layer for the Griddle English keyboard layout.
  * This layer is responsible for defining the alpha (alphabetic) keys and their properties.
  */
-class GriddleEnglishDefaultAlphaLayer(
+class GriddleEnglishLayer(
     context: Context,
-) : AbstractKeyboardLayer(
+    override val language: LanguageTag = LanguageTag.ENGLISH,
+) : LanguageLayer(
     context,
     // Set of button builders used to create the buttons in this layer
     griddleButtonBuilders = buttonBuilders,
@@ -23,16 +29,16 @@ class GriddleEnglishDefaultAlphaLayer(
     // For most keyboards, this will be a 1x1 button.
     // Default border color for the buttons in this layer, which can a [GriddleButtonBuilder] can
     // override
-    borderColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
+    borderColor = GriddleEnglishBoard.defaultModifierTheme.textColor,
     // Default background color for the buttons in this layer, which can a [GriddleButtonBuilder]
     // can override
     backgroundColor = Color.Black,
     // Default text color for the buttons in this layer, which can a [GriddleButtonBuilder] can
     // override
-    textColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
+    textColor = GriddleEnglishBoard.defaultModifierTheme.textColor,
     // Default border font size for the buttons in this layer, which can a [GriddleButtonBuilder]
     // can override
-    fontSize = GriddleEnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
+    fontSize = GriddleEnglishBoard.defaultModifierTheme.calculateFontSize(
         availableSpace = Rect(0, 0, 1, 1)
     ),
     // Defines whether the keyboard can switch between left and right, and if so, the pivot column

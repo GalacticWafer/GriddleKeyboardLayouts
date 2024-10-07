@@ -1,21 +1,22 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.default
+package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared
 
 import android.content.Context
 import android.graphics.Rect
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerDefinition
 import org.galacticware.griddle.domain.layer.LayerType
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishBoard
 import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
 
-class GriddleEnglishDefaultFunctionLayer(
+class GriddleFunctionLayer(
     context: Context,
 ) : AbstractKeyboardLayer(
     context,
     griddleButtonBuilders = buttonBuilders,
-    borderColor = GriddleEnglishDefaultBoard.defaultModifierTheme.borderColor,
-    backgroundColor = GriddleEnglishDefaultBoard.defaultModifierTheme.backgroundColor,
-    textColor = GriddleEnglishDefaultBoard.defaultModifierTheme.textColor,
-    fontSize = GriddleEnglishDefaultBoard.defaultModifierTheme.calculateFontSize(
+    borderColor = GriddleEnglishBoard.defaultModifierTheme.borderColor,
+    backgroundColor = GriddleEnglishBoard.defaultModifierTheme.backgroundColor,
+    textColor = GriddleEnglishBoard.defaultModifierTheme.textColor,
+    fontSize = GriddleEnglishBoard.defaultModifierTheme.calculateFontSize(
         availableSpace = Rect(0, 0, 1, 1),
     ),
     keyboardHandedness = KeyboardHandedness(
