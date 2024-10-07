@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
 import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
-import org.galacticware.griddle.keyboarddefinition.system.UserSettingsLayer
+import org.galacticware.griddle.keyboarddefinition.system.UserSettingsScreen
 import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
@@ -29,7 +29,6 @@ class GriddleFrenchBoard @Inject constructor(
     griddleFunctionLayer: GriddleFunctionLayer,
     emojiLayer: EmojiLayer,
     clipboardLayer: ClipboardLayer,
-    userSettingsLayer: UserSettingsLayer,
     griddleFrenchAlphaNumericLayer: GriddleFrenchAlphaNumericLayer,
     languagePreferencesLayer: LanguagePreferencesLayer,
 ): Keyboard(
@@ -41,7 +40,6 @@ class GriddleFrenchBoard @Inject constructor(
         emojiLayer,
         clipboardLayer,
         griddleFrenchAlphaNumericLayer,
-        userSettingsLayer,
         languagePreferencesLayer,
     )
 ) {
