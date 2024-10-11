@@ -60,7 +60,8 @@ val button_0_0 = makeClassicGestureButton(
         gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("v")),
         gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = reversedCase("V")),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("A")),
-        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("A")), ),
+        gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("A")),
+    ),
 )
 
 val button_0_1 = makeClassicGestureButton(
@@ -105,6 +106,7 @@ val button_0_2 = makeClassicGestureButton(
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("I")),
         gesture(HOLD, simpleInput, threeStrings = triple("3")),
     ),
+    isPeripheral = true,
 )
 
 

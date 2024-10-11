@@ -49,9 +49,11 @@ class GriddleEnglishBoard @Inject constructor(
             val positionAndSize: GridPosition = GridPosition.oneByOne
 
             val defaultModifierTheme = ModifierTheme(
-                textColor = Color(0xFF00FFFF),
-                backgroundColor = AppColor.PURPLE.color,
-                borderColor = Color(0xFFFF559F),
+                textColor = AppColor.MEOK_DEFAULT_YELLOW.color,
+                backgroundColor = AppColor.MEOK_DARK_GRAY.color,
+                borderColor = AppColor.MEOK_LIGHT_GRAY.color,
+                secondaryTextColor = Color.White,
+                secondaryBackgroundColor = AppColor.MEOK_LIGHT_GRAY.color,
             )
             const val DEFAULT_HEIGHT: Int = 70
             const val DEFAULT_WIDTH: Int = 90

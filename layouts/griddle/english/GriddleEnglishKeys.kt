@@ -105,6 +105,7 @@ val button_0_2 = makeClassicGestureButton(
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("I")),
         gesture(HOLD, simpleInput, threeStrings = triple("3")),
     ),
+    isPeripheral = true,
 )
 
 
