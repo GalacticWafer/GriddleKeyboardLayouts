@@ -20,7 +20,6 @@ import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
  */
 class GriddleEnglishLayer(
     context: Context,
-    override val language: LanguageTag = LanguageTag.ENGLISH,
 ) : LanguageLayer(
     context,
     // Set of button builders used to create the buttons in this layer
@@ -48,6 +47,7 @@ class GriddleEnglishLayer(
         pivotColumn = 1
     ),
 ) {
+    override val language = LanguageTag.ENGLISH
     // Set of button builders used to create the buttons in this layer
     override var builders = buttonBuilders
     // Defines the layer as an alpha layer
