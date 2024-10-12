@@ -58,6 +58,10 @@ class GriddleEnglishAlphaNumericLayer(
     override val layerDefinition = LayerDefinition.ALPHA_NUMERIC_UNIFIED
     override val layerType = LayerType.ALPHA_NUMERIC_UNIFIED
     override var builders = buttonBuilders
+    override val minColWidth: Int
+        get() = context.resources.displayMetrics.let {
+            (it.widthPixels / it.density) / 7
+        }.toInt()
     
     companion object {
         val buttonBuilders = setOf(
