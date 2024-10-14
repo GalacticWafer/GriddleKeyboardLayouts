@@ -22,6 +22,7 @@ class GriddleFunctionLayer(
         hasHandedness = true,
         pivotColumn = 1,
     ),
+    isPrimary = false,
 ) {
     override var builders = buttonBuilders
     companion object {
