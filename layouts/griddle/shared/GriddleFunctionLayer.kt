@@ -23,6 +23,7 @@ class GriddleFunctionLayer(
         pivotColumn = 1,
     ),
     isPrimary = false,
+    defaultButtonSize = GriddleEnglishBoard.defaultButtonSize
 ) {
     override var builders = buttonBuilders
     companion object {
