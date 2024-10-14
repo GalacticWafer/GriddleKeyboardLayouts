@@ -4,10 +4,8 @@ import android.content.Context
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
-import org.galacticware.griddle.domain.language.LanguageTag
-import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
-import org.galacticware.griddle.domain.layer.LayerType
-import org.galacticware.griddle.domain.layer.LayerDefinition
+import org.galacticware.griddle.keyboarddefinition.system.layerkind.AbstractKeyboardLayer
+import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button0
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button1
@@ -23,16 +21,15 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.enter
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.numericSpaceLeft
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.numericSpaceRight
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.rightAlphaLayerToggle
-import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.AlphabeticLayerToggle
+import org.galacticware.griddle.keyboarddefinition.system.layerkind.AlphaNumericUnifiedLayer
 
 /**
- * All language layers should have the  [AbstractKeyboardLayer.layerDefinition] property set to [LayerDefinition.ALPHA_LAYER].
+ * All language layers should have the  [AbstractKeyboardLayer.layerKind] property set to [LayerKind.ALPHA].
  */
 class GriddleFrenchAlphaNumericLayer(
     context: Context,
-    override val language: LanguageTag = LanguageTag.FRENCH,
-) : LanguageLayer(
+) : AlphaNumericUnifiedLayer(
     context,
     griddleButtonBuilders = buttonBuilders,
     borderColor = GriddleFrenchBoard.defaultModifierTheme.textColor,
@@ -46,14 +43,13 @@ class GriddleFrenchAlphaNumericLayer(
         pivotColumn = 3,
     ),
 ) {
-    override val layerDefinition = LayerDefinition.ALPHA_NUMERIC_UNIFIED
-    override val layerType = LayerType.ALPHA_NUMERIC_UNIFIED
+    override val layerKind = LayerKind.UNIFIED_ALPHA_NUMERIC
     override var builders = buttonBuilders
     
     companion object {
         val buttonBuilders = setOf(
             button_0_0, button_0_1, button_0_2, cursorControlButton,
-            button_1_0, button_1_1, button_1_2, rightAlphaLayerToggle,
+            button_1_0, button_1_1, button_1_2, AlphabeticLayerToggle,
             button2_0, button_2_1, button2_2, backspace,
             numericSpaceLeft, enter, numericSpaceRight
         ).plus(

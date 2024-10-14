@@ -3,15 +3,12 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.f
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
-import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
-import org.galacticware.griddle.keyboarddefinition.system.UserSettingsScreen
-import org.galacticware.griddle.domain.modifier.ModifierTheme
-import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
+import org.galacticware.griddle.domain.keyboard.Keyboard
+import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.GriddleFunctionLayer
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.GriddleNumericLayer
-import org.galacticware.griddle.keyboarddefinition.system.LanguagePreferencesLayer
+import org.galacticware.griddle.keyboarddefinition.system.EmojiScreen
 import org.galacticware.griddle.view.core.AppColor
 import javax.inject.Inject
 
@@ -27,26 +24,21 @@ class GriddleFrenchBoard @Inject constructor(
     griddleFrenchLayer: GriddleFrenchLayer,
     griddleNumericLayer: GriddleNumericLayer,
     griddleFunctionLayer: GriddleFunctionLayer,
-    emojiLayer: EmojiLayer,
-    clipboardLayer: ClipboardLayer,
+    emojiScreen: EmojiScreen,
     griddleFrenchAlphaNumericLayer: GriddleFrenchAlphaNumericLayer,
-    languagePreferencesLayer: LanguagePreferencesLayer,
 ): Keyboard(
     context,
     layers = setOf(
         griddleFrenchLayer,
         griddleNumericLayer,
         griddleFunctionLayer,
-        emojiLayer,
-        clipboardLayer,
         griddleFrenchAlphaNumericLayer,
-        languagePreferencesLayer,
     )
 ) {
         companion object {
             // used to nest the keyboard another composable grid arrangement. Usually 1x1. Your
             // keyboard should probably also be 1x1.
-            val positionAndSize: GridPosition = GridPosition.oneByOne
+            val positionAndSize: GridPosition = GridPosition.originUnit
 
             val defaultModifierTheme = ModifierTheme(
                 textColor = Color(0xFF00FFFF),

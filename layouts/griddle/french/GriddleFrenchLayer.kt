@@ -5,14 +5,13 @@ import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.language.LanguageTag
-import org.galacticware.griddle.domain.layer.LayerType
-import org.galacticware.griddle.domain.layer.LayerDefinition
+import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.cursorControlButton
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.enter
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.rightNumLayerToggle
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.NumericLayerToggle
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.space
-import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
+import org.galacticware.griddle.keyboarddefinition.system.layerkind.AlphabetLayer
 
 /**
  * Represents the default alpha layer for the Griddle French keyboard layout.
@@ -21,7 +20,7 @@ import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
 class GriddleFrenchLayer(
     context: Context,
     override val language: LanguageTag = LanguageTag.FRENCH,
-) : LanguageLayer(
+) : AlphabetLayer(
     context,
     // Set of button builders used to create the buttons in this layer
     griddleButtonBuilders = buttonBuilders,
@@ -50,16 +49,14 @@ class GriddleFrenchLayer(
 ) {
     // Set of button builders used to create the buttons in this layer
     override var builders = buttonBuilders
-    // Defines the layer as an alpha layer
-    override val layerDefinition = LayerDefinition.ALPHA_LAYER
-    // Specifies the type of the layer as alpha
-    override val layerType = LayerType.ALPHA
+    // Defines the layer as an alphabet layer
+    override val layerKind = LayerKind.ALPHA
 
     companion object {
         // Set of button builders used to create the buttons in this layer
         val buttonBuilders = mutableSetOf(
             button_0_0, button_0_1, button_0_2, cursorControlButton,
-            button_1_0, button_1_1, button_1_2, rightNumLayerToggle,
+            button_1_0, button_1_1, button_1_2, NumericLayerToggle,
             button2_0, button_2_1, button2_2, backspace,
             space, enter
         )

@@ -3,15 +3,11 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.keyboarddefinition.system.ClipboardLayer
-import org.galacticware.griddle.keyboarddefinition.system.EmojiLayer
-import org.galacticware.griddle.keyboarddefinition.system.UserSettingsScreen
-import org.galacticware.griddle.domain.modifier.ModifierTheme
-import org.galacticware.griddle.domain.keyboard.Keyboard
 import org.galacticware.griddle.domain.geometry.GridPosition
+import org.galacticware.griddle.domain.keyboard.Keyboard
+import org.galacticware.griddle.domain.modifier.ModifierTheme
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.GriddleFunctionLayer
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.GriddleNumericLayer
-import org.galacticware.griddle.keyboarddefinition.system.LanguagePreferencesLayer
 import org.galacticware.griddle.view.core.AppColor
 import javax.inject.Inject
 
@@ -27,26 +23,20 @@ class GriddleEnglishBoard @Inject constructor(
     griddleEnglishLayer: GriddleEnglishLayer,
     griddleNumericLayer: GriddleNumericLayer,
     griddleFunctionLayer: GriddleFunctionLayer,
-    emojiLayer: EmojiLayer,
-    clipboardLayer: ClipboardLayer,
-    griddleEnglishAlphaNumericLayer: GriddleEnglishAlphaNumericLayer,
-    languagePreferencesLayer: LanguagePreferencesLayer,
+    griddleEnglishAndNumericLayer: GriddleEnglishAndNumericLayer,
 ): Keyboard(
     context,
     layers = setOf(
         griddleEnglishLayer,
         griddleNumericLayer,
         griddleFunctionLayer,
-        emojiLayer,
-        clipboardLayer,
-        griddleEnglishAlphaNumericLayer,
-        languagePreferencesLayer,
+        griddleEnglishAndNumericLayer,
     )
 ) {
         companion object {
             // used to nest the keyboard another composable grid arrangement. Usually 1x1. Your
             // keyboard should probably also be 1x1.
-            val positionAndSize: GridPosition = GridPosition.oneByOne
+            val positionAndSize: GridPosition = GridPosition.originUnit
 
             val defaultModifierTheme = ModifierTheme(
                 textColor = AppColor.MEOK_DEFAULT_YELLOW.color,

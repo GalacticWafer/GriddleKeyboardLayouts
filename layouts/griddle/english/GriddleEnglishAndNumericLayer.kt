@@ -3,12 +3,8 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 import android.content.Context
 import android.graphics.Rect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
-import org.galacticware.griddle.domain.language.LanguageTag
-import org.galacticware.griddle.keyboarddefinition.system.AbstractKeyboardLayer
-import org.galacticware.griddle.domain.layer.LayerType
-import org.galacticware.griddle.domain.layer.LayerDefinition
+import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button0
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button1
@@ -22,20 +18,17 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button9
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.cursorControlButton
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.enter
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.numericSpaceLeft
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.numericSpaceRight
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.rightAlphaLayerToggle
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.AlphabeticLayerToggle
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.space
-import org.galacticware.griddle.keyboarddefinition.system.LanguageLayer
-import kotlin.math.roundToInt
+import org.galacticware.griddle.keyboarddefinition.system.layerkind.AbstractKeyboardLayer
+import org.galacticware.griddle.keyboarddefinition.system.layerkind.AlphaNumericUnifiedLayer
 
 /**
- * All language layers should have the  [AbstractKeyboardLayer.layerDefinition] property set to [LayerDefinition.ALPHA_LAYER].
+ * All language layers should have the  [AbstractKeyboardLayer.layerKind] property set to [LayerKind.ALPHA].
  */
-class GriddleEnglishAlphaNumericLayer(
+class GriddleEnglishAndNumericLayer(
     context: Context,
-    override val language: LanguageTag = LanguageTag.ENGLISH,
-) : LanguageLayer(
+) : AlphaNumericUnifiedLayer(
     context,
     griddleButtonBuilders = buttonBuilders,
     borderColor = GriddleEnglishBoard.defaultModifierTheme.textColor,
@@ -49,14 +42,7 @@ class GriddleEnglishAlphaNumericLayer(
         pivotColumn = 3,
     ),
 ) {
-    private val defaultButtonSize: IntSize = GriddleEnglishBoard.defaultButtonSize.let{
-        IntSize(
-            width = (it.width * .75).roundToInt(),
-            height = it.height,
-        )
-    }
-    override val layerDefinition = LayerDefinition.ALPHA_NUMERIC_UNIFIED
-    override val layerType = LayerType.ALPHA_NUMERIC_UNIFIED
+    override val layerKind = LayerKind.UNIFIED_ALPHA_NUMERIC
     override var builders = buttonBuilders
     override val minColWidth: Int
         get() = context.resources.displayMetrics.let {
@@ -66,7 +52,7 @@ class GriddleEnglishAlphaNumericLayer(
     companion object {
         val buttonBuilders = setOf(
             button_0_0, button_0_1, button_0_2, cursorControlButton,
-            button_1_0, button_1_1, button_1_2, rightAlphaLayerToggle,
+            button_1_0, button_1_1, button_1_2, AlphabeticLayerToggle,
             button2_0, button_2_1, button2_2, backspace,
            space, enter,
                    // numericSpaceLeft, enter, numericSpaceRight

@@ -22,8 +22,8 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.makeClassicGestureButton
 import org.galacticware.griddle.domain.keybinder.AppSymbol
-import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED_SYMBOL
-import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT_SYMBOL
+import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED
+import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.operation.cycleAccentCharacters
 import org.galacticware.griddle.domain.operation.cycleShiftState
@@ -52,7 +52,7 @@ val button_0_0 = makeClassicGestureButton(
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
         gesture(HOLD, simpleInput, oneString = "1"),
-        gesture(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_SYMBOL),
+        gesture(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("-", "÷", "÷")),
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = reversedCase("÷", "-", "-")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("$")),
@@ -114,7 +114,7 @@ val button_1_0 = makeClassicGestureButton(
     rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
+        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = Triple("%", "‰", "‰")),
@@ -164,7 +164,7 @@ val button_1_2 = makeClassicGestureButton(
     rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED_SYMBOL.value, SHIFTED_SYMBOL.value)),
+        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("}", "{", "{")),
@@ -200,11 +200,11 @@ val button2_0 = makeClassicGestureButton(
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = Triple("†", "*", "*")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = Triple("<", ">", ">")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = Triple(">", "<", "<")),
-        gesture(SWIPE_DOWN_RIGHT, sendTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT_SYMBOL)),
-        gesture(BOOMERANG_DOWN_RIGHT, pressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT_SYMBOL)),
+        gesture(SWIPE_DOWN_RIGHT, sendTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
+        gesture(BOOMERANG_DOWN_RIGHT, pressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
-        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT_SYMBOL),
+        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),
     ),
 )
 
