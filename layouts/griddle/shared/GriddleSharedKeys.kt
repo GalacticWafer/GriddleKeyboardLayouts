@@ -6,7 +6,6 @@ import android.view.KeyEvent.KEYCODE_3
 import android.view.KeyEvent.KEYCODE_4
 import android.view.KeyEvent.KEYCODE_5
 import android.view.KeyEvent.KEYCODE_6
-import android.view.KeyEvent.KEYCODE_7
 import android.view.KeyEvent.KEYCODE_8
 import android.view.KeyEvent.KEYCODE_9
 import android.view.KeyEvent.KEYCODE_A
@@ -97,7 +96,6 @@ import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifier
 import org.galacticware.griddle.domain.modifier.ModifierThemeSet
 import org.galacticware.griddle.domain.operation.applyAlt
 import org.galacticware.griddle.domain.operation.applyControl
-import org.galacticware.griddle.domain.operation.cycleShiftState
 import org.galacticware.griddle.domain.operation.moveDown
 import org.galacticware.griddle.domain.operation.moveEnd
 import org.galacticware.griddle.domain.operation.moveHome
@@ -111,7 +109,6 @@ import org.galacticware.griddle.domain.operation.openMacroEditor
 import org.galacticware.griddle.domain.operation.pressEnterKey
 import org.galacticware.griddle.domain.operation.pressKey
 import org.galacticware.griddle.domain.operation.pressSpace
-import org.galacticware.griddle.domain.operation.releaseShift
 import org.galacticware.griddle.domain.operation.remappedSymbolLookup
 import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
@@ -128,9 +125,15 @@ import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button2_0
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button2_2
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_0_0
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_0_1
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_0_2
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_1_0
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_1_1
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_1_2
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.button_2_1
 import org.galacticware.griddle.keyboarddefinition.system.ClipboardScreen
 import org.galacticware.griddle.view.composable.screen.BaseSettingsScreen
 import spamBackspace
@@ -171,11 +174,8 @@ val cycleEmojisLeft = makeClassicGestureButton(
     ),
 )
 
-
 val cycleEmojisRight = cycleEmojisLeft
     .withPosition(rowStart = 3, colStart=2, rowSpan = 1, colSpan = 1,)
-
-
 
 val multiKey: Gesture =  gesture(CLICK, swappable(
     pressKey(KEYCODE_DEL) to triple(BACKSPACE),
@@ -198,10 +198,8 @@ val backspace = makeClassicGestureButton(
     ),
 )
 
-
 val rightBackspace = backspace
     .withPosition(rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,)
-
 
 val AlphabeticLayerToggle = makeClassicGestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
@@ -277,141 +275,72 @@ val button0 = makeClassicGestureButton(
 
 val button1 = button_0_0
     .withoutLetters()
-    .withGesture(CLICK, pressKey(KEYCODE_1, respectShift = false), char = "1")
+    .withGesture(CLICK, pressKey(KEYCODE_1, respectShift = false), oneString = "1")
 
 val button2 = button_0_1
     .withoutLetters()
-    .withGesture(CLICK, pressKey(KEYCODE_2, respectShift = false), char = "2")
+    .withGesture(CLICK, pressKey(KEYCODE_2, respectShift = false), oneString = "2")
 
 val button3 = button_0_2
     .withoutLetters()
-    .withGesture(CLICK, pressKey(KEYCODE_3, respectShift = false), char = "3")
+    .withGesture(CLICK, pressKey(KEYCODE_3, respectShift = false), oneString = "3")
 
-val button4 = makeClassicGestureButton(
-    rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
-        gesture(CLICK, pressKey(KEYCODE_4, respectShift = false), threeStrings = caseSensitive("4"))
-    )
-)
+val button4 = button_1_0
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_4, respectShift = false), oneString = "4")
 
-val button5 = makeClassicGestureButton(
-    rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_5, respectShift = false), threeStrings = caseSensitive("5"))
-    )
-)
+val button5 = button_1_1
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_5, respectShift = false), oneString = "5")
 
-val button6 = makeClassicGestureButton(
-    rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
-        gesture(CLICK, pressKey(KEYCODE_6, respectShift = false), threeStrings = caseSensitive("6")),
-    )
-)
-val button7 = makeClassicGestureButton(
-    rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_7, respectShift = false), threeStrings = caseSensitive("7"))
-    )
-)
+val button6 = button_1_2
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_6, respectShift = false), oneString = "6")
 
-val button8 = makeClassicGestureButton(
-    rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_8, respectShift = false), threeStrings = caseSensitive("8"))
-    )
-)
+val button7 = button2_0
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_6, respectShift = false), oneString = "7")
 
-val button9 = makeClassicGestureButton(
-    rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_9, respectShift = false), threeStrings = caseSensitive("9"))
-    )
-)
+val button8 = button_2_1
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_8, respectShift = false), oneString = "8")
 
-val f1 = makeClassicGestureButton(
-    rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F1), appSymbol = F1_SYMBOL)
-    )
-)
+val button9 = button2_2
+    .withoutLetters()
+    .withGesture(CLICK, pressKey(KEYCODE_9, respectShift = false), oneString = "9")
 
-val f2 = makeClassicGestureButton(
-    rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F2), appSymbol = F2_SYMBOL)
-    )
-)
+val f1 = button1
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F1), appSymbol = F1_SYMBOL))
 
-val f3 = makeClassicGestureButton(
-    rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F3), appSymbol = F3_SYMBOL)
-    )
-)
+val f2 = button2
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F2), appSymbol = F2_SYMBOL))
 
-val f4 = makeClassicGestureButton(
-    rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F4), appSymbol = F4_SYMBOL)
-    )
-)
+val f3 = button3
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F3), appSymbol = F3_SYMBOL))
 
-val f5 = makeClassicGestureButton(
-    rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F5), appSymbol = F5_SYMBOL)
-    )
-)
+val f4 = button4
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F4), appSymbol = F4_SYMBOL))
 
-val f6 = makeClassicGestureButton(
-    rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F6), appSymbol = F6_SYMBOL)
-    )
-)
+val f5 = button5
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F5), appSymbol = F5_SYMBOL))
 
-val f7 = makeClassicGestureButton(
-    rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F7), appSymbol = F7_SYMBOL)
-    )
-)
+val f6 = button6
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F6), appSymbol = F6_SYMBOL))
 
-val f8 = makeClassicGestureButton(
-    rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F8), appSymbol = F8_SYMBOL)
-    )
-)
+val f7 = button7
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F7), appSymbol = F7_SYMBOL))
 
-val f9 = makeClassicGestureButton(
-    rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F9), appSymbol = F9_SYMBOL)
-    )
-)
+val f8 = button8
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F8), appSymbol = F8_SYMBOL))
 
-val f10 = makeClassicGestureButton(
-    rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F10), appSymbol = F10_SYMBOL)
-    )
-)
+val f9 = button9
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F9), appSymbol = F9_SYMBOL))
 
-val f11 = makeClassicGestureButton(
-    rowStart = 3, colStart = 1, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F11), appSymbol = F11_SYMBOL)
-    )
-)
+val f10 = numericSpaceLeft
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F10), appSymbol = F10_SYMBOL))
 
-val f12 = makeClassicGestureButton(
-    rowStart = 3, colStart = 2, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, pressKey(KEYCODE_F12), appSymbol = F12_SYMBOL)
-    )
-)
+val f11 = button0
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F11), appSymbol = F11_SYMBOL))
+
+val f12 = numericSpaceRight
+    .replaceGesturesWith(gesture(CLICK, pressKey(KEYCODE_F12), appSymbol = F12_SYMBOL))

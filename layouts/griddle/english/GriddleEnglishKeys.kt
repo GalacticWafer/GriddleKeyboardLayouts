@@ -45,7 +45,7 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 
 // By convention, we name the buttons `button_<row>_<col>`, where `<row>` and `<col>`
 // are the row start and and column start indices of the button, respectively.
-val button_0_0 = makeClassicGestureButton(
+val button_0_0 get() = makeClassicGestureButton(
     // define the position and size of the button
     rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1,
     // define the gestures that can be performed on the button
@@ -63,7 +63,7 @@ val button_0_0 = makeClassicGestureButton(
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("A")), ),
 )
 
-val button_0_1 = makeClassicGestureButton(
+val button_0_1 get() = makeClassicGestureButton(
     rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(BOOMERANG_UP, simpleInput, threeStrings = caseSensitive("ˇ")),
@@ -89,7 +89,7 @@ val button_0_1 = makeClassicGestureButton(
 )
 
 
-val button_0_2 = makeClassicGestureButton(
+val button_0_2 get() = makeClassicGestureButton(
     rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("i")),
@@ -109,7 +109,7 @@ val button_0_2 = makeClassicGestureButton(
 )
 
 
-val button_1_0 = makeClassicGestureButton(
+val button_1_0 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
@@ -133,7 +133,7 @@ val button_1_0 = makeClassicGestureButton(
     ),
 )
 
-val button_1_1 = makeClassicGestureButton(
+val button_1_1 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("o")),
@@ -159,7 +159,7 @@ val button_1_1 = makeClassicGestureButton(
     ),
 )
 
-val button_1_2 = makeClassicGestureButton(
+val button_1_2 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
@@ -185,7 +185,7 @@ val button_1_2 = makeClassicGestureButton(
 )
 
 
-val button2_0 = makeClassicGestureButton(
+val button2_0 get() = makeClassicGestureButton(
     rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("t")),
@@ -208,7 +208,7 @@ val button2_0 = makeClassicGestureButton(
 )
 
 
-val button_2_1 = makeClassicGestureButton(
+val button_2_1 get() = makeClassicGestureButton(
     rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("\"")),
@@ -237,7 +237,7 @@ val button_2_1 = makeClassicGestureButton(
 )
 
 
-val button2_2 = makeClassicGestureButton(
+val button2_2 get() = makeClassicGestureButton(
     rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("s")),
