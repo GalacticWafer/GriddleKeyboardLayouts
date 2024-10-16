@@ -143,7 +143,7 @@ val shiftIndicator = ModifierThemeSet.forModifierWithDefaultTheme("LOWER", "UPPE
 val cursorControlButton = makeClassicGestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, noOp, modifierThemeSet = shiftIndicator),
+        gesture(CLICK, noOp, modifierThemeSet = shiftIndicator, isIndicator = true),
         gesture(HOLD, toggleCapslock),
         gesture(SWIPE_UP, moveUp, threeStrings = triple(UP_ARROW)),
         gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeStrings = triple(MOVE_PGDN)),
@@ -237,9 +237,9 @@ val enter = makeClassicGestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressEnterKey, appSymbol = ENTER),
-        gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT)),
+        gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
         gesture(BOOMERANG_UP_LEFT, toggleAltLock),
-        gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL)),
+        gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
         gesture(BOOMERANG_UP_RIGHT, toggleControlLock),
     ),
 )

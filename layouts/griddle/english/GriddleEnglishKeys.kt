@@ -112,7 +112,7 @@ val button_0_2 get() = makeClassicGestureButton(
 val button_1_0 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
+        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true),
         gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
@@ -162,7 +162,7 @@ val button_1_1 get() = makeClassicGestureButton(
 val button_1_2 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends),
+        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true),
         gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
