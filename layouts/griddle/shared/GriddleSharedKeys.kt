@@ -122,6 +122,7 @@ import org.galacticware.griddle.domain.operation.toggleAltLock
 import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.operation.toggleControlLock
 import org.galacticware.griddle.domain.operation.toggleOneShotShift
+import org.galacticware.griddle.domain.operation.toggleTurboMode
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
@@ -143,8 +144,8 @@ val shiftIndicator = ModifierThemeSet.forModifierWithDefaultTheme("LOWER", "UPPE
 val cursorControlButton = makeClassicGestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, noOp, modifierThemeSet = shiftIndicator, isIndicator = true),
-        gesture(HOLD, toggleCapslock),
+        gesture(CLICK, noOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
+        gesture(HOLD, switchToScreen(BaseSettingsScreen)),
         gesture(SWIPE_UP, moveUp, threeStrings = triple(UP_ARROW)),
         gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeStrings = triple(MOVE_PGDN)),
         gesture(SWIPE_RIGHT, moveRight, threeStrings = triple(RIGHT_ARROW)),
@@ -247,10 +248,9 @@ val enter = makeClassicGestureButton(
 val space = makeClassicGestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
     gestureSet = mutableSetOf(
-        gesture(CLICK, pressSpace),
-        gesture(SWIPE_UP, toggleOneShotShift, threeStrings = UNSHIFTED.value.let { Triple(SHIFTED.value, it, it) }),
+        gesture(CLICK, pressSpace, modifierThemeSet = shiftIndicator),
+        gesture(SWIPE_UP, toggleTurboMode),
         gesture(BOOMERANG_UP, toggleCapslock, threeStrings = Triple(UNSHIFTED.value, UNSHIFTED.value, CAPSLOCKED.value)),
-        gesture(SWIPE_DOWN, switchToScreen(BaseSettingsScreen), appSymbol = TOGGLE_SETTINGS),
         gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = FUNCTION_LAYER),
         gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),

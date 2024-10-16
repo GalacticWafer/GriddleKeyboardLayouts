@@ -33,6 +33,7 @@ import org.galacticware.griddle.domain.operation.repeatPreviousOperation
 import org.galacticware.griddle.domain.operation.sendEnter
 import org.galacticware.griddle.domain.operation.sendTab
 import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
@@ -116,6 +117,7 @@ val button_1_0 get() = makeClassicGestureButton(
         gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
+        gesture(BOOMERANG_UP, toggleCapslock),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = Triple("%", "‰", "‰")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = Triple("‰", "%", "%")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("k")),
@@ -166,6 +168,7 @@ val button_1_2 get() = makeClassicGestureButton(
         gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
+        gesture(BOOMERANG_UP, toggleCapslock),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("}", "{", "{")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = caseSensitive("{", "}", "}")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(")", "(", "(")),
