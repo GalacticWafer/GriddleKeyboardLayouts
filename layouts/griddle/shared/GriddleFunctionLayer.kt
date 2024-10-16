@@ -22,6 +22,8 @@ class GriddleFunctionLayer(
         hasHandedness = true,
         pivotColumn = 1,
     ),
+    defaultButtonSize= GriddleEnglishBoard.defaultButtonSize,
+    isPrimary = false,
 ) {
     override var builders = buttonBuilders
     companion object {
