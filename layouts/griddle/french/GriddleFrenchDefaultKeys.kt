@@ -30,7 +30,7 @@ import org.galacticware.griddle.domain.operation.cycleShiftState
 import org.galacticware.griddle.domain.operation.pressTab
 import org.galacticware.griddle.domain.operation.releaseShift
 import org.galacticware.griddle.domain.operation.repeatPreviousOperation
-import org.galacticware.griddle.domain.operation.sendEnter
+import org.galacticware.griddle.domain.operation.sendNewLineFeed
 import org.galacticware.griddle.domain.operation.sendTab
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
@@ -248,7 +248,7 @@ val button2_2 = makeClassicGestureButton(
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(">")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("°")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
-        gesture(SWIPE_DOWN, sendEnter, oneString = "\\n"),
+        gesture(SWIPE_DOWN, sendNewLineFeed, oneString = "\\n"),
         gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("#")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = caseSensitive(" ")),

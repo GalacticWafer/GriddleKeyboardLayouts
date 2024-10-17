@@ -22,22 +22,23 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.makeClassicGestureButton
 import org.galacticware.griddle.domain.keybinder.AppSymbol
-import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED
 import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.operation.cycleAccentCharacters
 import org.galacticware.griddle.domain.operation.cycleShiftState
 import org.galacticware.griddle.domain.operation.pressTab
-import org.galacticware.griddle.domain.operation.releaseShift
 import org.galacticware.griddle.domain.operation.repeatPreviousOperation
-import org.galacticware.griddle.domain.operation.sendEnter
+import org.galacticware.griddle.domain.operation.sendNewLineFeed
 import org.galacticware.griddle.domain.operation.sendTab
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.shiftIndicatorColorTheme
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.shiftLegends
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftIndicator
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftLegends
 
 /***
  * The definitions for English keys, roughly-based on the MessagEase layout.
@@ -113,8 +114,9 @@ val button_0_2 get() = makeClassicGestureButton(
 val button_1_0 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
+        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true, modifierThemeSet = shiftIndicatorColorTheme),
+        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, isIndicator = true, modifierThemeSet = unShiftIndicator),
+
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(BOOMERANG_UP, toggleCapslock),
@@ -164,8 +166,10 @@ val button_1_1 get() = makeClassicGestureButton(
 val button_1_2 get() = makeClassicGestureButton(
     rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true),
-        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", SHIFTED.value, SHIFTED.value)),
+        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, isIndicator = true, modifierThemeSet = shiftIndicatorColorTheme),
+//        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
+        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
+
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
         gesture(BOOMERANG_UP, toggleCapslock),
@@ -176,8 +180,8 @@ val button_1_2 get() = makeClassicGestureButton(
         gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("]", "[", "[")),
         gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("[", "]", "]")),
         gesture(BOOMERANG_DOWN, simpleInput, threeStrings = caseSensitive("—")),
-        gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("@", "ª", "ª")),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = reversedCase("ª", "@", "@")),
+        gesture(SWIPE_DOWN_LEFT, simpleInput, oneString = "@"),
+        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = Triple("ª", "@", "@")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("m")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = reversedCase("M")),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("R")),
@@ -196,7 +200,7 @@ val button2_0 get() = makeClassicGestureButton(
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("~")),
         gesture(SWIPE_UP, simpleInput, threeStrings = Triple("¨", "¨", "¨")),
         gesture(BOOMERANG_UP, simpleInput, threeStrings = Triple("˝", "¨", "¨")),
-        gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y", "y", "Y")),
+        gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("y")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = reversedCase("Y")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = Triple("*", "†", "†")),
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = Triple("†", "*", "*")),
@@ -206,7 +210,7 @@ val button2_0 get() = makeClassicGestureButton(
         gesture(BOOMERANG_DOWN_RIGHT, pressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
-        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),
+//        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),
     ),
 )
 
@@ -250,7 +254,7 @@ val button2_2 get() = makeClassicGestureButton(
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(">")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("°")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
-        gesture(SWIPE_DOWN, sendEnter, oneString = "\\n"),
+        gesture(SWIPE_DOWN, sendNewLineFeed, appSymbol = AppSymbol.NEW_LINE),
         gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("#")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = caseSensitive(" ")),

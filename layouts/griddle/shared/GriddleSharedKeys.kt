@@ -1,5 +1,6 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared
 
+import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_1
 import android.view.KeyEvent.KEYCODE_2
 import android.view.KeyEvent.KEYCODE_3
@@ -28,6 +29,7 @@ import android.view.KeyEvent.KEYCODE_F9
 import android.view.KeyEvent.KEYCODE_FORWARD_DEL
 import android.view.KeyEvent.KEYCODE_PAGE_DOWN
 import android.view.KeyEvent.KEYCODE_PAGE_UP
+import androidx.compose.ui.graphics.Color
 import org.galacticware.griddle.domain.gesture.Gesture
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_RIGHT
@@ -57,7 +59,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.CONTROL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.COPY
 import org.galacticware.griddle.domain.keybinder.AppSymbol.CUT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.DOWN_ARROW
-import org.galacticware.griddle.domain.keybinder.AppSymbol.ENTER
+import org.galacticware.griddle.domain.keybinder.AppSymbol.GO
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F10_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F11_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F12_SYMBOL
@@ -70,14 +72,12 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.F6_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F7_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F8_SYMBOL
 import org.galacticware.griddle.domain.keybinder.AppSymbol.F9_SYMBOL
-import org.galacticware.griddle.domain.keybinder.AppSymbol.LEFT_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MACRO
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MICROPHONE_CHAR
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_END
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGDN
 import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE
-import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
@@ -119,9 +119,7 @@ import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.operation.switchLayer
 import org.galacticware.griddle.domain.operation.switchToScreen
 import org.galacticware.griddle.domain.operation.toggleAltLock
-import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.operation.toggleControlLock
-import org.galacticware.griddle.domain.operation.toggleOneShotShift
 import org.galacticware.griddle.domain.operation.toggleTurboMode
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
@@ -139,33 +137,31 @@ import org.galacticware.griddle.keyboarddefinition.system.ClipboardScreen
 import org.galacticware.griddle.view.composable.screen.BaseSettingsScreen
 import spamBackspace
 
-val shiftIndicator = ModifierThemeSet.forModifierWithDefaultTheme("LOWER", "UPPER", "CAPS ", kind = ModifierKeyKind.SHIFT)
+val shiftIndicatorColorTheme = ModifierThemeSet
+    .forModifierWithDefaultTheme(SHIFTED.value, UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
+    .withTextColorSet(Color.White, Color.Yellow, Color.Red)
+    .withTransparentBackground()
+val unShiftIndicator = ModifierThemeSet
+    .forModifierWithDefaultTheme(" ", SHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
+    .withTextColorSet(Color.Black, Color.Yellow, Color.Red)
+    .withTransparentBackground()
 
 val cursorControlButton = makeClassicGestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, noOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
         gesture(HOLD, switchToScreen(BaseSettingsScreen)),
-        gesture(SWIPE_UP, moveUp, threeStrings = triple(UP_ARROW)),
-        gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeStrings = triple(MOVE_PGDN)),
-        gesture(SWIPE_RIGHT, moveRight, threeStrings = triple(RIGHT_ARROW)),
-        gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_DPAD_UP)),
-        gesture(BOOMERANG_UP_RIGHT, pressKey(KEYCODE_DPAD_UP, control)),
-        gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_DPAD_RIGHT)),
-        gesture(BOOMERANG_RIGHT, moveWordRight),
-        gesture(SWIPE_LEFT, moveLeft, threeStrings = triple(LEFT_ARROW)),
-        gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
-        gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
-        gesture(BOOMERANG_LEFT, moveWordLeft),
-        gesture(SWIPE_DOWN, moveDown, threeStrings = triple(DOWN_ARROW)),
-        gesture(BOOMERANG_DOWN, pressKey(KEYCODE_PAGE_DOWN), threeStrings = triple(MOVE_PGDN)),
-        gesture(CIRCLE_CLOCKWISE, moveEnd, threeStrings = triple(MOVE_END)),
-        gesture(CIRCLE_ANTI_CLOCKWISE, moveHome, threeStrings = triple(MOVE_HOME)),
+        gesture(SWIPE_LEFT, pressKey(KeyEvent.KEYCODE_Z, control), threeStrings = triple("UNDO")),
+        gesture(SWIPE_RIGHT, pressKey(KeyEvent.KEYCODE_Y, control), threeStrings = triple("REDO")),
+        gesture(SWIPE_UP, toggleTurboMode),
+        gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
+        gesture(CIRCLE_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
     ),
 )
 
 // you can define a triple of text that will be re-used in multiple gestures
 val shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
+val unShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
 
 
 val cycleEmojisLeft = makeClassicGestureButton(
@@ -237,7 +233,7 @@ val NumericLayerToggle = makeClassicGestureButton(
 val enter = makeClassicGestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(CLICK, pressEnterKey, appSymbol = ENTER),
+        gesture(CLICK, pressEnterKey, appSymbol = GO),
         gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
         gesture(BOOMERANG_UP_LEFT, toggleAltLock),
         gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
@@ -248,15 +244,27 @@ val enter = makeClassicGestureButton(
 val space = makeClassicGestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
     gestureSet = mutableSetOf(
-        gesture(CLICK, pressSpace, modifierThemeSet = shiftIndicator),
-        gesture(SWIPE_UP, toggleTurboMode),
-        gesture(BOOMERANG_UP, toggleCapslock, threeStrings = Triple(UNSHIFTED.value, UNSHIFTED.value, CAPSLOCKED.value)),
+        gesture(CLICK, pressSpace),
         gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = FUNCTION_LAYER),
-        gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
-        gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
-        gesture(CIRCLE_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
+        //gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         gesture(HOLD, simpleInput, threeStrings = reversedCase("0")),
-        gesture(BOOMERANG_DOWN, simpleInput, threeStrings = reversedCase("H")),
+        gesture(SWIPE_LEFT, moveLeft),
+        gesture(BOOMERANG_LEFT, moveWordLeft),
+        gesture(SWIPE_RIGHT, moveRight),
+        gesture(BOOMERANG_RIGHT, moveWordRight),
+        gesture(SWIPE_UP, moveUp, threeStrings = triple(UP_ARROW)),
+        gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), threeStrings = triple(MOVE_PGDN)),
+        gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_DPAD_UP)),
+        gesture(BOOMERANG_UP_RIGHT, pressKey(KEYCODE_DPAD_UP, control)),
+        gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_DPAD_RIGHT)),
+        gesture(BOOMERANG_RIGHT, moveWordRight),
+        gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
+        gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
+        gesture(BOOMERANG_LEFT, moveWordLeft),
+        gesture(SWIPE_DOWN, moveDown, threeStrings = triple(DOWN_ARROW)),
+        gesture(BOOMERANG_DOWN, pressKey(KEYCODE_PAGE_DOWN), threeStrings = triple(MOVE_PGDN)),
+        gesture(CIRCLE_CLOCKWISE, moveEnd, threeStrings = triple(MOVE_END)),
+        gesture(CIRCLE_ANTI_CLOCKWISE, moveHome, threeStrings = triple(MOVE_HOME)),
     ),
 )
 
