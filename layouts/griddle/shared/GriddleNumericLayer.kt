@@ -23,7 +23,7 @@ import org.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 object DefaultNumericMap: GriddleKeyMap() {
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
-    override val layerKind: LayerKind = LayerKind.NUMERIC
+    override val layerKind: LayerKind = LayerKind.NUMPAD
     override val languageTag = null
     override val defalultSize: IntSize = DEFAULT_SIZE
 

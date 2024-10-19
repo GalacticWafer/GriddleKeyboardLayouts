@@ -47,7 +47,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_END
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGDN
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGUP
-import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMERIC_LAYER
+import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMPAD_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE
 import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT
@@ -191,7 +191,8 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
         gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO, ),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
-        gesture(CLICK, switchLayer, appSymbol = NUMERIC_LAYER),
+        gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
+        gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),
         gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
