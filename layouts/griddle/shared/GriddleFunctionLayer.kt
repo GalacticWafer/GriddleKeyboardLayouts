@@ -30,8 +30,8 @@ import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.domain.operation.pressKey
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
 import org.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleKeyMap
 
 object DefaultFunctionMap: GriddleKeyMap() {
     override val isPrimary: Boolean = false

@@ -17,11 +17,10 @@ import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.domain.operation.pressKey
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
 import org.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleKeyMap
 
 object DefaultNumericMap: GriddleKeyMap() {
-//    override val name = this::class.simpleName
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
     override val layerKind: LayerKind = LayerKind.NUMERIC

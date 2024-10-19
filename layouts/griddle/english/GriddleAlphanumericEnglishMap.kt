@@ -4,6 +4,7 @@ import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishMap.englishA
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishMap.englishI
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishMap.englishN

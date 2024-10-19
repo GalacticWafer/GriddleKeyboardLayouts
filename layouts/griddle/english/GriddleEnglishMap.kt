@@ -1,6 +1,5 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
-import android.content.Context
 import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
@@ -27,7 +26,6 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.language.LanguageTag
-import org.galacticware.griddle.domain.layer.LayerDefinable
 import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.domain.operation.cycleAccentCharacters
 import org.galacticware.griddle.domain.operation.cycleShiftState
@@ -39,8 +37,7 @@ import org.galacticware.griddle.domain.operation.toggleCapslock
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.CreateLayout
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GridKeyMapper
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.NumericLayerToggle
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button_0_0
@@ -60,28 +57,6 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftIndicator
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftLegends
 import org.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import java.util.Locale
-
-/***
- * The definitions for English keys, roughly-based on the MessagEase layout.
- * Alphas and numerics are in the same place, with the same possible gestures for them.
- */
-abstract class GriddleKeyMap: GridKeyMapper {
-    private val nameRegex = Regex("(?<=[a-z])(?=[A-Z])")
-    override val name = this::class.simpleName!!.split(nameRegex).dropLast(1).joinToString(" ") { s ->
-        s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
-    }
-    override fun build(context: Context): LayerDefinable = CreateLayout(
-        context,
-        name,
-        allMappings(),
-        keyboardHandedness,
-        defalultSize,
-        isPrimary,
-        layerKind,
-        languageTag,
-    )
-}
 
 object GriddleEnglishMap: GriddleKeyMap() {
     override val isPrimary: Boolean = true
