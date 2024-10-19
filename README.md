@@ -21,7 +21,7 @@ layers and boards for the Griddle English keyboard. Developers can use these as 
 Base class for creating keyboard layers. All layers (e.g., alpha, numeric) must extend this class.
 
 - **Property: `definition`**  
-  Defines the layer type (e.g., `ALPHA_LAYER`, `NUMERIC_LAYER`). Use `LayerDefinition.ALPHA_LAYER` for alphabetic layers and `LayerDefinition.ALPHA_NUMERIC_UNIFIED` for layers that include both letters and numbers.
+  Defines the layer type (e.g., `ALPHA`, `NUMERIC`). Use `LayerDefinition.ALPHA` for alphabetic layers and `LayerDefinition.ALPHA_NUMERIC_UNIFIED` for layers that include both letters and numbers.
 
 - **Property: `gestureBoxBuilders`**  
   Set of `GestureBoxBuilder` instances that define the gestures and their associated operations for this layer.
@@ -181,13 +181,13 @@ The `GriddleEnglishDefaultAlphaLayer` class represents the default alpha (letter
 
 The `GriddleEnglishDefaultAlphaLayer` class is initialized with the following parameters:
 
-- **`definition: LayerDefinition`**: Specifies that this layer is an alpha layer. The value is set to `LayerDefinition.ALPHA_LAYER`.
+- **`definition: LayerDefinition`**: Specifies that this layer is an alpha layer. The value is set to `LayerDefinition.ALPHA`.
 - **`gestureBoxBuilders: Set<GestureBoxBuilder>`**: A set of `GestureBoxBuilder` instances used to construct the `GestureBox`es for this layer.
 - **`borderColor: Color`**: The default color for the border of the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
 - **`backgroundColor: Color`**: The default background color for the layer. If not provided for a `GestureBox`, it defaults to `Color.Black`.
 - **`textColor: Color`**: The default color of the text on the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
 - **`fontSize: TextUnit`**: The default font size for the text on the layer. It is calculated using `EnglishDefaultBoard.defaultModifierTheme.calculateFontSize` based on the available space.
-- **`layerType: LayerType`**: Specifies the type of layer. For this class, it is set to `LayerType.ALPHA`.
+- **`layerKind: LayerKind`**: Specifies the type of layer. For this class, it is set to `LayerDefinition.ALPHA`.
 
 ## Companion Object
 
@@ -231,4 +231,4 @@ List of GriddleOperations:
 
 
 helpful helpers in package (`org.galacticware.griddle.layouts.griddle.english.default`):
-- shiftLegends = Triple(SHIFTED_SYMBOL.value, CAPSLOCKED_SYMBOL.value, UNSHIFTED_SYMBOL.value)
+- shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
