@@ -29,7 +29,7 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_RIGHT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
-import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.gestureButton
+import org.galacticware.griddle.domain.button.GestureButtonBuilder.Companion.gestureButton
 import org.galacticware.griddle.domain.keybinder.AppSymbol
 import org.galacticware.griddle.domain.keybinder.AppSymbol.ALPHA_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.ALT
@@ -47,7 +47,6 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_END
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGDN
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGUP
-import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMPAD_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE
 import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT
@@ -74,7 +73,6 @@ import org.galacticware.griddle.domain.operation.moveRight
 import org.galacticware.griddle.domain.operation.moveWordLeft
 import org.galacticware.griddle.domain.operation.moveWordRight
 import org.galacticware.griddle.domain.operation.noOp
-import org.galacticware.griddle.domain.operation.openMacroEditor
 import org.galacticware.griddle.domain.operation.pressEnterKey
 import org.galacticware.griddle.domain.operation.pressKey
 import org.galacticware.griddle.domain.operation.pressSpace
@@ -92,9 +90,10 @@ import org.galacticware.griddle.domain.operation.toggleTurboMode
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
-import org.galacticware.griddle.keyboarddefinition.system.ClipboardScreen
+import org.galacticware.griddle.view.composable.screen.ClipboardScreen
 import org.galacticware.griddle.view.composable.screen.BaseSettingsScreen
-import spamBackspace
+import org.galacticware.griddle.view.composable.screen.MacroEditorScreen
+import org.galacticware.griddle.domain.operation.spamBackspace
 
 val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1)
 val button_0_1 get() = gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1)
@@ -172,7 +171,7 @@ val AlphabeticLayerToggle = gestureButton(
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
         gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
-        gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, switchToScreen(MacroEditorScreen), appSymbol = MACRO, ),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
         gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
@@ -189,7 +188,7 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
         gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
-        gesture(SWIPE_UP_LEFT, openMacroEditor, appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, switchToScreen(MacroEditorScreen), appSymbol = MACRO, ),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
         gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),

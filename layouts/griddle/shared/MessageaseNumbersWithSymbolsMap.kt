@@ -1,7 +1,7 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared
 
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder
+import org.galacticware.griddle.domain.button.GestureButtonBuilder
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
@@ -32,13 +32,13 @@ object MessageaseNumbersWithSymbolsMap : GriddleKeyMap() {
     override val languageTag = null
     override val defalultSize = IntSize(45, 35)
 
-    override fun allMappings(): MutableSet<GriddleButtonBuilder> {
+    override fun allMappings(): MutableSet<GestureButtonBuilder> {
         return listOf(
             englishA to button1, englishN to button2, englishI to button3,
             englishH to button4, englishO to button5, englishR to button6,
             englishT to button7, englishE to button8, englishS to button9,
         ).map { (englishGestures, numpadGestures) ->
-            numpadGestures.plusGestures(englishGestures.withoutLetters().gestureSet)
+            numpadGestures.combinedWith(englishGestures.withoutLetters().gestureSet)
         }.plus(
             setOf(
                 button0,

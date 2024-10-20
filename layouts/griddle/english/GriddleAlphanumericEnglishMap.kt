@@ -1,7 +1,7 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder
+import org.galacticware.griddle.domain.button.GestureButtonBuilder
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.language.LanguageTag
 import org.galacticware.griddle.domain.layer.LayerKind
@@ -42,7 +42,7 @@ object GriddleAlphanumericEnglishMap : GriddleKeyMap() {
     override val languageTag = LanguageTag.ENGLISH
     override val defalultSize = IntSize(45, 35)
 
-    override fun allMappings(): MutableSet<GriddleButtonBuilder> {
+    override fun allMappings(): MutableSet<GestureButtonBuilder> {
         return setOf(
             englishA, englishN, englishI,
             englishH, englishO, englishR, cursorControlButton,

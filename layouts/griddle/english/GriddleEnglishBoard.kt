@@ -10,9 +10,6 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 val GriddleEnglishBoard = { context: Context ->
     Keyboard(
         context,
-        // Order matters! Instantiate language and numeric layers before
-        // the alphanumeric layer, because it uses their mappings to
-        // build its own.
         layers = listOf(
             GriddleEnglishMap,
             DefaultNumericMap,

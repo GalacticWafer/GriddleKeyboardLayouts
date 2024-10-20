@@ -10,7 +10,7 @@ import android.view.KeyEvent.KEYCODE_8
 import android.view.KeyEvent.KEYCODE_9
 import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.domain.gesture.GestureType.CLICK
-import org.galacticware.griddle.domain.griddlebutton.builder.GriddleButtonBuilder.Companion.gestureButton
+import org.galacticware.griddle.domain.button.GestureButtonBuilder.Companion.gestureButton
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
