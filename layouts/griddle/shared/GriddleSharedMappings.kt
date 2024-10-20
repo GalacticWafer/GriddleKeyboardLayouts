@@ -10,6 +10,7 @@ import android.view.KeyEvent.KEYCODE_FORWARD_DEL
 import android.view.KeyEvent.KEYCODE_PAGE_DOWN
 import android.view.KeyEvent.KEYCODE_PAGE_UP
 import androidx.compose.ui.graphics.Color
+import org.galacticware.griddle.domain.button.GestureButtonBuilder.Companion.gestureButton
 import org.galacticware.griddle.domain.gesture.Gesture
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_LEFT
@@ -29,7 +30,6 @@ import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_RIGHT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
-import org.galacticware.griddle.domain.button.GestureButtonBuilder.Companion.gestureButton
 import org.galacticware.griddle.domain.keybinder.AppSymbol
 import org.galacticware.griddle.domain.keybinder.AppSymbol.ALPHA_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.ALT
@@ -62,6 +62,12 @@ import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import org.galacticware.griddle.domain.modifier.ModifierKeyKind
 import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
 import org.galacticware.griddle.domain.modifier.ModifierThemeSet
+import org.galacticware.griddle.domain.operation.DeleteWordLeft
+import org.galacticware.griddle.domain.operation.DeleteWordRight
+import org.galacticware.griddle.domain.operation.MoveWordRight
+import org.galacticware.griddle.domain.operation.OpenMacroEditor
+import org.galacticware.griddle.domain.operation.GoToSettingsMenu
+import org.galacticware.griddle.domain.operation.OpenMultiClipboard
 import org.galacticware.griddle.domain.operation.applyAlt
 import org.galacticware.griddle.domain.operation.applyControl
 import org.galacticware.griddle.domain.operation.arrowDown
@@ -79,21 +85,17 @@ import org.galacticware.griddle.domain.operation.pressSpace
 import org.galacticware.griddle.domain.operation.remappedSymbolLookup
 import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.spamBackspace
 import org.galacticware.griddle.domain.operation.startRecognizingSpeech
 import org.galacticware.griddle.domain.operation.swapHandedness
 import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.operation.switchLayer
-import org.galacticware.griddle.domain.operation.switchToScreen
 import org.galacticware.griddle.domain.operation.toggleAltLock
 import org.galacticware.griddle.domain.operation.toggleControlLock
 import org.galacticware.griddle.domain.operation.toggleTurboMode
-import org.galacticware.griddle.domain.util.caseSensitive
+import org.galacticware.griddle.domain.operation.Undo
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
-import org.galacticware.griddle.view.composable.screen.ClipboardScreen
-import org.galacticware.griddle.view.composable.screen.BaseSettingsScreen
-import org.galacticware.griddle.view.composable.screen.MacroEditorScreen
-import org.galacticware.griddle.domain.operation.spamBackspace
 
 val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1)
 val button_0_1 get() = gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1)
@@ -118,8 +120,8 @@ val cursorControlButton = gestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, noOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
-        gesture(HOLD, switchToScreen(BaseSettingsScreen)),
-        gesture(SWIPE_LEFT, pressKey(KeyEvent.KEYCODE_Z, control), threeStrings = triple("UNDO")),
+        gesture(HOLD, GoToSettingsMenu, appSymbol = TOGGLE_SETTINGS),
+        gesture(SWIPE_LEFT, Undo, threeStrings = triple("UNDO")),
         gesture(SWIPE_RIGHT, pressKey(KeyEvent.KEYCODE_Y, control), threeStrings = triple("REDO")),
         gesture(SWIPE_UP, toggleTurboMode),
         gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
@@ -130,17 +132,6 @@ val cursorControlButton = gestureButton(
 // you can define a triple of text that will be re-used in multiple gestures
 val shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
 val unShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
-
-
-val cycleEmojisLeft = gestureButton(
-    rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        gesture(CLICK, /* cycleEmojiPage */noOp, threeStrings = caseSensitive("⬅\uFE0F"))
-    ),
-)
-
-val cycleEmojisRight = cycleEmojisLeft
-    .withPosition(rowStart = 3, colStart=2, rowSpan = 1, colSpan = 1,)
 
 val multiKey: Gesture =  gesture(CLICK, swappable(
     pressKey(KEYCODE_DEL) to triple(BACKSPACE),
@@ -155,11 +146,11 @@ val backspace = gestureButton(
         gesture(SWIPE_LEFT, pressKey(KEYCODE_DEL)),
         gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DEL)),
         gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DEL)),
-        gesture(BOOMERANG_LEFT, pressKey(KEYCODE_DEL, control)),
+        gesture(BOOMERANG_LEFT, DeleteWordLeft),
         gesture(SWIPE_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
         gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
         gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_FORWARD_DEL)),
-        gesture(BOOMERANG_RIGHT, pressKey(KEYCODE_FORWARD_DEL, control)),
+        gesture(BOOMERANG_RIGHT, DeleteWordRight),
     ),
 )
 
@@ -171,14 +162,14 @@ val AlphabeticLayerToggle = gestureButton(
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
         gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
-        gesture(SWIPE_UP_LEFT, switchToScreen(MacroEditorScreen), appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
         gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
-        gesture(BOOMERANG_DOWN, switchToScreen(ClipboardScreen), appSymbol = TOGGLE_CLIPBOARD),
+        gesture(BOOMERANG_DOWN, OpenMultiClipboard, appSymbol = TOGGLE_CLIPBOARD),
     ),
 )
 
@@ -188,14 +179,14 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
         gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
         gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
-        gesture(SWIPE_UP_LEFT, switchToScreen(MacroEditorScreen), appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
         gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
         gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),
         gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
-        gesture(BOOMERANG_DOWN, switchToScreen(ClipboardScreen), appSymbol = TOGGLE_CLIPBOARD),
+        gesture(BOOMERANG_DOWN, OpenMultiClipboard, appSymbol = TOGGLE_CLIPBOARD),
     ),
 )
 
