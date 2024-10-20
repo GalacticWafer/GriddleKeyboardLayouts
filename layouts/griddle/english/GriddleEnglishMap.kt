@@ -27,13 +27,13 @@ import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.language.LanguageTag
 import org.galacticware.griddle.domain.layer.LayerKind
-import org.galacticware.griddle.domain.operation.cycleAccentCharacters
-import org.galacticware.griddle.domain.operation.cycleShiftState
+import org.galacticware.griddle.domain.operation.CycleAccentCharacters
+import org.galacticware.griddle.domain.operation.CycleShiftState
 import org.galacticware.griddle.domain.operation.pressTab
 import org.galacticware.griddle.domain.operation.sendNewLineFeed
 import org.galacticware.griddle.domain.operation.sendTab
 import org.galacticware.griddle.domain.operation.simpleInput
-import org.galacticware.griddle.domain.operation.toggleCapslock
+import org.galacticware.griddle.domain.operation.ToggleCapslock
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
@@ -68,7 +68,7 @@ object GriddleEnglishMap: GriddleKeyMap() {
     val englishA = button_0_0.replaceGesturesWith(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
         gesture(HOLD, simpleInput, oneString = "1"),
-        gesture(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
+        gesture(SWIPE_UP_LEFT, CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("-", "÷", "÷")),
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = reversedCase("÷", "-", "-")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("$")),
@@ -118,11 +118,11 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishH = button_1_0.replaceGesturesWith(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
-        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, modifierThemeSet = unShiftIndicator, isIndicator = true),
+        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, modifierThemeSet = unShiftIndicator, isIndicator = true),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
-        gesture(BOOMERANG_UP, toggleCapslock),
+        gesture(BOOMERANG_UP, ToggleCapslock),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = Triple("%", "‰", "‰")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = Triple("‰", "%", "%")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("k")),
@@ -163,13 +163,13 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishR = button_1_2.replaceGesturesWith(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
         //        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
-        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
+        gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
 
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
-        gesture(BOOMERANG_UP, toggleCapslock),
+        gesture(BOOMERANG_UP, ToggleCapslock),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("}", "{", "{")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = caseSensitive("{", "}", "}")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(")", "(", "(")),

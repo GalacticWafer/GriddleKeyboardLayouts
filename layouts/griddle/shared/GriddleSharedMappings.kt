@@ -62,38 +62,39 @@ import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import org.galacticware.griddle.domain.modifier.ModifierKeyKind
 import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
 import org.galacticware.griddle.domain.modifier.ModifierThemeSet
+import org.galacticware.griddle.domain.operation.Copy
+import org.galacticware.griddle.domain.operation.Cut
 import org.galacticware.griddle.domain.operation.DeleteWordLeft
 import org.galacticware.griddle.domain.operation.DeleteWordRight
+import org.galacticware.griddle.domain.operation.DpadLeft
+import org.galacticware.griddle.domain.operation.DpadRight
+import org.galacticware.griddle.domain.operation.GoToSettingsMenu
+import org.galacticware.griddle.domain.operation.MoveEnd
+import org.galacticware.griddle.domain.operation.MoveHome
+import org.galacticware.griddle.domain.operation.MoveWordLeft
 import org.galacticware.griddle.domain.operation.MoveWordRight
 import org.galacticware.griddle.domain.operation.OpenMacroEditor
-import org.galacticware.griddle.domain.operation.GoToSettingsMenu
 import org.galacticware.griddle.domain.operation.OpenMultiClipboard
-import org.galacticware.griddle.domain.operation.applyAlt
-import org.galacticware.griddle.domain.operation.applyControl
+import org.galacticware.griddle.domain.operation.Paste
+import org.galacticware.griddle.domain.operation.SelectAllToClipboard
+import org.galacticware.griddle.domain.operation.Undo
+import org.galacticware.griddle.domain.operation.ApplyAlt
+import org.galacticware.griddle.domain.operation.ApplyControl
 import org.galacticware.griddle.domain.operation.arrowDown
 import org.galacticware.griddle.domain.operation.arrowUp
-import org.galacticware.griddle.domain.operation.moveEnd
-import org.galacticware.griddle.domain.operation.moveHome
-import org.galacticware.griddle.domain.operation.moveLeft
-import org.galacticware.griddle.domain.operation.moveRight
-import org.galacticware.griddle.domain.operation.moveWordLeft
-import org.galacticware.griddle.domain.operation.moveWordRight
 import org.galacticware.griddle.domain.operation.noOp
 import org.galacticware.griddle.domain.operation.pressEnterKey
 import org.galacticware.griddle.domain.operation.pressKey
 import org.galacticware.griddle.domain.operation.pressSpace
-import org.galacticware.griddle.domain.operation.remappedSymbolLookup
-import org.galacticware.griddle.domain.operation.selectAll
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.operation.spamBackspace
 import org.galacticware.griddle.domain.operation.startRecognizingSpeech
-import org.galacticware.griddle.domain.operation.swapHandedness
+import org.galacticware.griddle.domain.operation.SwapHandedness
 import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.operation.switchLayer
-import org.galacticware.griddle.domain.operation.toggleAltLock
-import org.galacticware.griddle.domain.operation.toggleControlLock
+import org.galacticware.griddle.domain.operation.ToggleAltLock
+import org.galacticware.griddle.domain.operation.ToggleControlLock
 import org.galacticware.griddle.domain.operation.toggleTurboMode
-import org.galacticware.griddle.domain.operation.Undo
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
 
@@ -160,12 +161,12 @@ val rightBackspace = backspace
 val AlphabeticLayerToggle = gestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
-        gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
+        gesture(SWIPE_UP, Copy, appSymbol = COPY),
+        gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
         gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
-        gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
+        gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
         gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
-        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
+        gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
@@ -176,15 +177,15 @@ val AlphabeticLayerToggle = gestureButton(
 val NumericLayerToggle = gestureButton(
     rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(SWIPE_UP, remappedSymbolLookup, appSymbol = COPY),
-        gesture(SWIPE_LEFT, remappedSymbolLookup, appSymbol = CUT),
-        gesture(SWIPE_DOWN, remappedSymbolLookup, appSymbol = PASTE),
+        gesture(SWIPE_UP, Copy, appSymbol = COPY),
+        gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
+        gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
         gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
-        gesture(SWIPE_RIGHT, swapHandedness, appSymbol = SWAP_HANDEDNESS),
+        gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
         gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),
-        gesture(CIRCLE_ANTI_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
-        gesture(CIRCLE_CLOCKWISE, selectAll, appSymbol = SELECT_ALL_TEXT),
+        gesture(CIRCLE_ANTI_CLOCKWISE, SelectAllToClipboard, appSymbol = SELECT_ALL_TEXT),
+        gesture(CIRCLE_CLOCKWISE, SelectAllToClipboard, appSymbol = SELECT_ALL_TEXT),
         gesture(SWIPE_DOWN_RIGHT, startRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
         gesture(BOOMERANG_DOWN, OpenMultiClipboard, appSymbol = TOGGLE_CLIPBOARD),
     ),
@@ -194,10 +195,10 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressEnterKey, appSymbol = GO),
-        gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
-        gesture(BOOMERANG_UP_LEFT, toggleAltLock),
-        gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
-        gesture(BOOMERANG_UP_RIGHT, toggleControlLock),
+        gesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
+        gesture(BOOMERANG_UP_LEFT, ToggleAltLock),
+        gesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
+        gesture(BOOMERANG_UP_RIGHT, ToggleControlLock),
     ),
 )
 
@@ -208,23 +209,22 @@ val space = gestureButton(
         gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = FUNCTION_LAYER),
         //gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         gesture(HOLD, simpleInput, threeStrings = reversedCase("0")),
-        gesture(SWIPE_LEFT, moveLeft, appSymbol = AppSymbol.LEFT_ARROW),
-        gesture(BOOMERANG_LEFT, moveWordLeft),
-        gesture(SWIPE_RIGHT, moveRight, appSymbol = RIGHT_ARROW),
-        gesture(BOOMERANG_RIGHT, moveWordRight),
+        gesture(SWIPE_LEFT, DpadLeft, appSymbol = AppSymbol.LEFT_ARROW),
+        gesture(BOOMERANG_LEFT, MoveWordLeft),
+        gesture(SWIPE_RIGHT, DpadRight, appSymbol = RIGHT_ARROW),
+        gesture(BOOMERANG_RIGHT, MoveWordRight),
         gesture(SWIPE_UP, arrowUp, threeStrings = triple(UP_ARROW)),
         gesture(BOOMERANG_UP, pressKey(KEYCODE_PAGE_UP), appSymbol = MOVE_PGUP),
         gesture(SWIPE_UP_RIGHT, pressKey(KEYCODE_DPAD_UP)),
         gesture(BOOMERANG_UP_RIGHT, pressKey(KEYCODE_DPAD_UP, control)),
         gesture(SWIPE_DOWN_RIGHT, pressKey(KEYCODE_DPAD_RIGHT)),
-        gesture(BOOMERANG_RIGHT, moveWordRight),
         gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
         gesture(SWIPE_DOWN_LEFT, pressKey(KEYCODE_DPAD_LEFT)),
-        gesture(BOOMERANG_LEFT, moveWordLeft),
+        gesture(BOOMERANG_LEFT, MoveWordLeft),
         gesture(SWIPE_DOWN, arrowDown, threeStrings = triple(DOWN_ARROW)),
         gesture(BOOMERANG_DOWN, pressKey(KEYCODE_PAGE_DOWN), appSymbol = MOVE_PGDN),
-        gesture(CIRCLE_CLOCKWISE, moveEnd, threeStrings = triple(MOVE_END)),
-        gesture(CIRCLE_ANTI_CLOCKWISE, moveHome, threeStrings = triple(MOVE_HOME)),
+        gesture(CIRCLE_CLOCKWISE, MoveEnd, threeStrings = triple(MOVE_END)),
+        gesture(CIRCLE_ANTI_CLOCKWISE, MoveHome, threeStrings = triple(MOVE_HOME)),
     ),
 )
 
