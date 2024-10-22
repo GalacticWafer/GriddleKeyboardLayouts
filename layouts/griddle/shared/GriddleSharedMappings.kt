@@ -41,7 +41,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.CUT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.DOWN_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.FUNCTION_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.GO
-import org.galacticware.griddle.domain.keybinder.AppSymbol.MACRO
+import org.galacticware.griddle.domain.keybinder.AppSymbol.TEXT_REPLACER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MICROPHONE_CHAR
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_END
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
@@ -73,7 +73,7 @@ import org.galacticware.griddle.domain.operation.MoveEnd
 import org.galacticware.griddle.domain.operation.MoveHome
 import org.galacticware.griddle.domain.operation.MoveWordLeft
 import org.galacticware.griddle.domain.operation.MoveWordRight
-import org.galacticware.griddle.domain.operation.OpenMacroEditor
+import org.galacticware.griddle.domain.operation.OpenTextReplacerEditor
 import org.galacticware.griddle.domain.operation.OpenMultiClipboard
 import org.galacticware.griddle.domain.operation.Paste
 import org.galacticware.griddle.domain.operation.SelectAllToClipboard
@@ -163,7 +163,7 @@ val AlphabeticLayerToggle = gestureButton(
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, Copy, appSymbol = COPY),
         gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
-        gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = TEXT_REPLACER, ),
         gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
         gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
@@ -180,7 +180,7 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_UP, Copy, appSymbol = COPY),
         gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
         gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
-        gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
+        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = TEXT_REPLACER, ),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
         gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),
