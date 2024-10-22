@@ -41,7 +41,7 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.CUT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.DOWN_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.FUNCTION_LAYER
 import org.galacticware.griddle.domain.keybinder.AppSymbol.GO
-import org.galacticware.griddle.domain.keybinder.AppSymbol.TEXT_REPLACER
+import org.galacticware.griddle.domain.keybinder.AppSymbol.MACRO
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MICROPHONE_CHAR
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_END
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
@@ -109,11 +109,11 @@ val button_2_1 get() = gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, co
 val button_2_2 get() = gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1)
 
 val shiftIndicatorColorTheme = ModifierThemeSet
-    .forModifierWithDefaultTheme(SHIFTED.value, UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
+    .forModifierWithDefaultTheme(SHIFTED.text, UNSHIFTED.text, UNSHIFTED.text, kind = ModifierKeyKind.SHIFT)
     .withTextColorSet(Color.White, Color.Yellow, Color.Red)
     .withTransparentBackground()
 val unShiftIndicator = ModifierThemeSet
-    .forModifierWithDefaultTheme("", UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
+    .forModifierWithDefaultTheme("", UNSHIFTED.text, UNSHIFTED.text, kind = ModifierKeyKind.SHIFT)
     .withTextColorSet(Color.White)
     .withTransparentBackground()
 
@@ -131,8 +131,8 @@ val cursorControlButton = gestureButton(
 )
 
 // you can define a triple of text that will be re-used in multiple gestures
-val shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
-val unShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
+val shiftLegends = Triple(SHIFTED.text, CAPSLOCKED.text, UNSHIFTED.text)
+val unShiftLegends = Triple(" ", UNSHIFTED.text, UNSHIFTED.text)
 
 val multiKey: Gesture =  gesture(CLICK, swappable(
     pressKey(KEYCODE_DEL) to triple(BACKSPACE),
@@ -163,7 +163,7 @@ val AlphabeticLayerToggle = gestureButton(
     gestureSet = mutableSetOf(
         gesture(SWIPE_UP, Copy, appSymbol = COPY),
         gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
-        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = TEXT_REPLACER, ),
+        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = MACRO, ),
         gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
         gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
@@ -180,7 +180,7 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_UP, Copy, appSymbol = COPY),
         gesture(SWIPE_LEFT, Cut, appSymbol = CUT),
         gesture(SWIPE_DOWN, Paste, appSymbol = PASTE),
-        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = TEXT_REPLACER, ),
+        gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, appSymbol = MACRO, ),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CLICK, switchLayer, appSymbol = AppSymbol.NUMERIC_LAYER),
         gesture(HOLD, switchLayer, appSymbol = AppSymbol.NUMPAD_LAYER),
@@ -195,9 +195,9 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressEnterKey, appSymbol = GO),
-        gesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
+        gesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.text, kind = ModifierKeyKind.ALT), isIndicator = true),
         gesture(BOOMERANG_UP_LEFT, ToggleAltLock),
-        gesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
+        gesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.text, kind = ModifierKeyKind.CONTROL), isIndicator = true),
         gesture(BOOMERANG_UP_RIGHT, ToggleControlLock),
     ),
 )
@@ -229,7 +229,7 @@ val space = gestureButton(
 )
 
 val numericSpaceLeft = space
-    .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.value }
+    .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.text }
     .withPosition(0, 3, 1, 1)
 
 val numericSpaceRight = numericSpaceLeft
