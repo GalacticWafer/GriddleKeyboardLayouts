@@ -61,7 +61,7 @@ import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import org.galacticware.griddle.domain.modifier.ModifierKeyKind
 import org.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
-import org.galacticware.griddle.domain.modifier.ModifierThemeSet
+import org.galacticware.griddle.domain.modifier.GestureTheme
 import org.galacticware.griddle.domain.operation.Copy
 import org.galacticware.griddle.domain.operation.Cut
 import org.galacticware.griddle.domain.operation.DeleteWordLeft
@@ -108,11 +108,11 @@ val button_2_0 get() = gestureButton(rowStart = 2, colStart = 0, rowSpan = 1, co
 val button_2_1 get() = gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1)
 val button_2_2 get() = gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1)
 
-val shiftIndicatorColorTheme = ModifierThemeSet
+val shiftIndicatorColorTheme = GestureTheme
     .forModifierWithDefaultTheme(SHIFTED.text, UNSHIFTED.text, UNSHIFTED.text, kind = ModifierKeyKind.SHIFT)
     .withTextColorSet(Color.White, Color.Yellow, Color.Red)
     .withTransparentBackground()
-val unShiftIndicator = ModifierThemeSet
+val unShiftIndicator = GestureTheme
     .forModifierWithDefaultTheme("", UNSHIFTED.text, UNSHIFTED.text, kind = ModifierKeyKind.SHIFT)
     .withTextColorSet(Color.White)
     .withTransparentBackground()
@@ -195,9 +195,9 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressEnterKey, appSymbol = GO),
-        gesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.text, kind = ModifierKeyKind.ALT), isIndicator = true),
+        gesture(SWIPE_UP_LEFT, ApplyAlt, gestureTheme = modifierThemes(ALT.text, kind = ModifierKeyKind.ALT), isIndicator = true),
         gesture(BOOMERANG_UP_LEFT, ToggleAltLock),
-        gesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.text, kind = ModifierKeyKind.CONTROL), isIndicator = true),
+        gesture(SWIPE_UP_RIGHT, ApplyControl, gestureTheme = modifierThemes(CONTROL.text, kind = ModifierKeyKind.CONTROL), isIndicator = true),
         gesture(BOOMERANG_UP_RIGHT, ToggleControlLock),
     ),
 )
