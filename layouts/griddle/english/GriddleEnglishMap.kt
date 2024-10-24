@@ -118,8 +118,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishH = button_1_0.replaceGesturesWith(
-        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, gestureTheme = shiftIndicatorColorTheme, isIndicator = true),
-        gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, gestureTheme = unShiftIndicator, isIndicator = true),
+        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, themeTriplet = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, themeTriplet = unShiftIndicator, isIndicator = true),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(BOOMERANG_UP, ToggleCapslock),
@@ -163,7 +163,7 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishR = button_1_2.replaceGesturesWith(
-        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, gestureTheme = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, themeTriplet = shiftIndicatorColorTheme, isIndicator = true),
         //        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
         gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
 
