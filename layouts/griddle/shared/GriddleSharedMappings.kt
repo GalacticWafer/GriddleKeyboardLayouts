@@ -260,7 +260,7 @@ val numericSpaceLeft = space
     // You can write custom logic to remove gestures from a button.
     .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.text }
     // You can change the position and size of an existing button to make a new one.
-    .withPosition(0, 3, 1, 1)
+    .withPosition(colStart = 0, rowStart = 3,  colSpan = 1, rowSpan = 1)
 
 val numericSpaceRight = numericSpaceLeft
     .withPosition(colStart = 2)
