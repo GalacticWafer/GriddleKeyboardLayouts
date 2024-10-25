@@ -15,6 +15,7 @@ import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.domain.operation.pressKey
+import org.galacticware.griddle.domain.operation.SimpleInput
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap

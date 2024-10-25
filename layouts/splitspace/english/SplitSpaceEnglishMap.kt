@@ -2,6 +2,7 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspac
 
 import android.content.Context
 import androidx.compose.ui.unit.IntSize
+import org.galacticware.griddle.domain.button.GestureButtonBuilder
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_RIGHT
@@ -36,7 +37,7 @@ import org.galacticware.griddle.domain.operation.pressTab
 import org.galacticware.griddle.domain.operation.sendNewLineFeed
 //import org.galacticware.griddle.domain.operation.sendNewLineFeed
 import org.galacticware.griddle.domain.operation.sendTab
-import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.SimpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
@@ -91,7 +92,7 @@ object SplitSpaceEnglishMap: SplitSpaceKeyMap() {
     override val layerKind: LayerKind = LayerKind.ALPHA
     override val languageTag = LanguageTag.ENGLISH
 
-    val englishA = button_0_0.replaceGesturesWith(
+    /*val englishA = button_0_0.replaceGesturesWith(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
         gesture(HOLD, simpleInput, oneString = "1"),
         gesture(SWIPE_UP_LEFT, CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
@@ -225,8 +226,8 @@ object SplitSpaceEnglishMap: SplitSpaceKeyMap() {
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = Triple("†", "*", "*")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = Triple("<", ">", ">")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = Triple(">", "<", "<")),
-        gesture(SWIPE_DOWN_RIGHT, sendTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
-        gesture(BOOMERANG_DOWN_RIGHT, pressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
+        gesture(SWIPE_DOWN_RIGHT, sendTab *//*pressKey(KEYCODE_TAB)*//*, threeStrings = triple(TAB_RIGHT)),
+        gesture(BOOMERANG_DOWN_RIGHT, pressTab *//*pressKey(KEYCODE_TAB)*//*, threeStrings = triple(TAB_RIGHT)),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         //        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),
@@ -274,12 +275,12 @@ object SplitSpaceEnglishMap: SplitSpaceKeyMap() {
         gesture(HOLD, simpleInput, threeStrings = caseSensitive("9")),
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("s")),
         gesture(HOLD, simpleInput, threeStrings = reversedCase("9")),
-    )
+    )*/
 
-    override fun allMappings() = mutableSetOf(
-        englishA, englishN, englishI, cursorControlButton,
+    override fun allMappings() = mutableSetOf<GestureButtonBuilder>(
+        /*englishA, englishN, englishI, cursorControlButton,
         englishH, englishO, englishR, NumericLayerToggle,
         englishT, englishE, englishS, backspace,
-        space, enter
+        space, enter*/
     )
 }

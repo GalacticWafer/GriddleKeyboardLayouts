@@ -1,6 +1,8 @@
 package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
 import androidx.compose.ui.unit.IntSize
+import org.galacticware.griddle.domain.gesture.Gesture
+import org.galacticware.griddle.domain.gesture.GestureType
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
 import org.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_RIGHT
@@ -29,11 +31,13 @@ import org.galacticware.griddle.domain.language.LanguageTag
 import org.galacticware.griddle.domain.layer.LayerKind
 import org.galacticware.griddle.domain.operation.CycleAccentCharacters
 import org.galacticware.griddle.domain.operation.CycleShiftState
+import org.galacticware.griddle.domain.operation.Operation
 import org.galacticware.griddle.domain.operation.pressTab
 import org.galacticware.griddle.domain.operation.sendNewLineFeed
 import org.galacticware.griddle.domain.operation.sendTab
-import org.galacticware.griddle.domain.operation.simpleInput
+import org.galacticware.griddle.domain.operation.SimpleInput
 import org.galacticware.griddle.domain.operation.ToggleCapslock
+import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
@@ -164,7 +168,7 @@ object GriddleEnglishMap: GriddleKeyMap() {
 
     val englishR = button_1_2.replaceGesturesWith(
         gesture(SWIPE_UP, CycleShiftState, threeStrings = shiftLegends, themeTriplet = shiftIndicatorColorTheme, isIndicator = true),
-        //        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
+        //        gesture(SWIPE_DOWN, releaseShift("", "▼", "▼")),
         gesture(SWIPE_DOWN, CycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
 
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),

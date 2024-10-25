@@ -4,7 +4,7 @@ import androidx.compose.ui.unit.IntSize
 import org.galacticware.griddle.domain.button.GestureButtonBuilder
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishA
+/*import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishA
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishI
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishN
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishE
@@ -12,7 +12,7 @@ import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishO
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishR
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishS
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishT
+import org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspace.english.SplitSpaceEnglishMap.englishT*/
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.AlphabeticLayerToggle
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button0
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button1
@@ -41,6 +41,8 @@ object SplitSpaceAlphanumericEnglishMap : SplitSpaceKeyMap() {
     override val defalultSize: IntSize = IntSize(45, 35)
 
     override fun allMappings(): MutableSet<GestureButtonBuilder> {
+        return mutableSetOf()
+/*
         return setOf(
             englishA, englishN, englishI,
             englishH, englishO, englishR, cursorControlButton,
@@ -55,5 +57,6 @@ object SplitSpaceAlphanumericEnglishMap : SplitSpaceKeyMap() {
                 // right-side buttons start at column <pivot column + 1> == 4
             ).map { it.withPosition(colStart = 4 + it.gridPosition.colStart) }
         ).toMutableSet()
+*/
     }
 }

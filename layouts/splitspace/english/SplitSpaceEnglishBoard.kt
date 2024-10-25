@@ -2,6 +2,7 @@ package org.galacticware.griddle.keyboarddefinition.opensource.layouts.splitspac
 
 import android.content.Context
 import org.galacticware.griddle.domain.keyboard.Keyboard
+import org.galacticware.griddle.domain.keyboard.KeyboardKind
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionMap
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap
 
@@ -19,6 +20,8 @@ val SplitSpaceEnglishBoard = { context: Context ->
             DefaultFunctionMap,
         )
             .map { it.build(context) }
-            .toMutableSet()
+            .toMutableSet(),
+        "Split-Space English",
+        KeyboardKind.DEFAULT,
     )
 }
