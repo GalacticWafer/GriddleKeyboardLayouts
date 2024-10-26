@@ -211,12 +211,11 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishE = button_2_1.replaceGesturesWith(
-        gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("\"")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive(" ")),
         gesture(SWIPE_UP, simpleInput, threeStrings = caseSensitive("w")),
         gesture(BOOMERANG_UP, simpleInput, threeStrings = reversedCase("W")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("\'")),
-        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = caseSensitive("\'")),
+        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = caseSensitive("\"")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("z")),
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = reversedCase("Z")),
         gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive(":")),
@@ -226,7 +225,6 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(BOOMERANG_DOWN, simpleInput, threeStrings = caseSensitive("…", ".", ".")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(",")),
         gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(",")),
-        gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive(",")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = caseSensitive(",")),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("E")),
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("E")),
@@ -244,7 +242,6 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("°")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
         gesture(SWIPE_DOWN, sendNewLineFeed, appSymbol = AppSymbol.NEW_LINE),
-        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("#")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = caseSensitive(" ")),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("S")),
