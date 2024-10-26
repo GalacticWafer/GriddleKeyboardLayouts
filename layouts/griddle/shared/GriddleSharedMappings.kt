@@ -46,10 +46,9 @@ import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_HOME
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGDN
 import org.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGUP
 import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMERIC_LAYER
-import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMPAD_LAYER
+import org.galacticware.griddle.domain.keybinder.AppSymbol.NUM_LOCK
 import org.galacticware.griddle.domain.keybinder.AppSymbol.PASTE
 import org.galacticware.griddle.domain.keybinder.AppSymbol.REDO
-import org.galacticware.griddle.domain.keybinder.AppSymbol.REPEAT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT
 import org.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED
@@ -68,6 +67,8 @@ import org.galacticware.griddle.domain.modifier.Theme.Companion.modifierThemes
 import org.galacticware.griddle.domain.modifier.ThemeTriplet
 import org.galacticware.griddle.domain.operation.ApplyAlt
 import org.galacticware.griddle.domain.operation.ApplyControl
+import org.galacticware.griddle.domain.operation.ArrowDown
+import org.galacticware.griddle.domain.operation.ArrowUp
 import org.galacticware.griddle.domain.operation.Copy
 import org.galacticware.griddle.domain.operation.Cut
 import org.galacticware.griddle.domain.operation.DeleteWordLeft
@@ -84,7 +85,6 @@ import org.galacticware.griddle.domain.operation.OpenTextReplacerEditor
 import org.galacticware.griddle.domain.operation.Paste
 import org.galacticware.griddle.domain.operation.Redo
 import org.galacticware.griddle.domain.operation.SelectAllToClipboard
-import org.galacticware.griddle.domain.operation.SimpleInput
 import org.galacticware.griddle.domain.operation.StartRecognizingSpeech
 import org.galacticware.griddle.domain.operation.SwapHandedness
 import org.galacticware.griddle.domain.operation.SwitchLayer
@@ -92,19 +92,16 @@ import org.galacticware.griddle.domain.operation.ToggleAltLock
 import org.galacticware.griddle.domain.operation.ToggleControlLock
 import org.galacticware.griddle.domain.operation.ToggleTurboMode
 import org.galacticware.griddle.domain.operation.Undo
-import org.galacticware.griddle.domain.operation.ArrowDown
-import org.galacticware.griddle.domain.operation.ArrowUp
 import org.galacticware.griddle.domain.operation.noOp
 import org.galacticware.griddle.domain.operation.pressEnterKey
 import org.galacticware.griddle.domain.operation.pressKey
 import org.galacticware.griddle.domain.operation.pressSpace
-import org.galacticware.griddle.domain.operation.repeatPreviousOperation
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.operation.spamBackspace
-import org.galacticware.griddle.domain.operation.swapGesture
 import org.galacticware.griddle.domain.operation.swappable
 import org.galacticware.griddle.domain.util.reversedCase
 import org.galacticware.griddle.domain.util.triple
+import org.galacticware.griddle.view.core.AppColor
 
 // Define empty gesture buttons for the main 3x3 keyboard layout template.
 val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1)
@@ -196,6 +193,7 @@ val AlphabeticLayerToggle = gestureButton(
         gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, TEXT_REPLACERS, ),
         gesture(SWIPE_DOWN, Paste, PASTE),
         gesture(CLICK, SwitchLayer(ALPHA_LAYER)),
+        gesture(HOLD, SwitchLayer(NUM_LOCK)),
         gesture(SWIPE_RIGHT, SwapHandedness, SWAP_HANDEDNESS),
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
@@ -213,7 +211,7 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_UP_LEFT, OpenTextReplacerEditor, TEXT_REPLACERS, ),
         gesture(SWIPE_RIGHT, SwapHandedness, SWAP_HANDEDNESS),
         gesture(CLICK, SwitchLayer(NUMERIC_LAYER)),
-        gesture(HOLD, SwitchLayer(NUMPAD_LAYER)),
+        gesture(HOLD, SwitchLayer(NUM_LOCK, isToggleLayer = true)),
         gesture(CIRCLE_ANTI_CLOCKWISE, SelectAllToClipboard, SELECT_ALL_TEXT),
         gesture(CIRCLE_CLOCKWISE, SelectAllToClipboard, SELECT_ALL_TEXT),
         gesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, MICROPHONE_CHAR),
@@ -223,11 +221,17 @@ val NumericLayerToggle = gestureButton(
 
 val altIndicator = modifierThemes(ALT.text, kind = ModifierKeyKind.ALT)
 val controlIndicator = modifierThemes(CONTROL.text, kind = ModifierKeyKind.CONTROL)
+val numLockIndicator = ThemeTriplet.allSameText(NUM_LOCK.text)
+    .followingModifier(ModifierKeyKind.NUM)
+    .withTextColorSet(Color.Black)
+    .withPrimaryBackgroundColorSet(AppColor.MEOK_LIGHT_GRAY, AppColor.HIGHLIGHTER_GREEN, AppColor.HIGHLIGHTER_GREEN)
 val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressEnterKey, GO),
         gesture(SWIPE_UP_LEFT, ApplyAlt, themeTriplet = altIndicator, isIndicator = true),
+        gesture(SWIPE_UP, noOp, themeTriplet = numLockIndicator, isIndicator = true),
+        gesture(BOOMERANG_UP, SwitchLayer(NUM_LOCK, isToggleLayer = true), themeTriplet = numLockIndicator, isIndicator = true),
         gesture(BOOMERANG_UP_LEFT, ToggleAltLock),
         gesture(SWIPE_UP_RIGHT, ApplyControl, themeTriplet = controlIndicator, isIndicator = true),
         gesture(BOOMERANG_UP_RIGHT, ToggleControlLock),

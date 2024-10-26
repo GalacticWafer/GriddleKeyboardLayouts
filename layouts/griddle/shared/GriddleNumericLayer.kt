@@ -9,13 +9,15 @@ import android.view.KeyEvent.KEYCODE_6
 import android.view.KeyEvent.KEYCODE_8
 import android.view.KeyEvent.KEYCODE_9
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.domain.gesture.GestureType.CLICK
 import org.galacticware.griddle.domain.button.GestureButtonBuilder.Companion.gestureButton
+import org.galacticware.griddle.domain.gesture.GestureType.CLICK
+import org.galacticware.griddle.domain.gesture.GestureType.HOLD
+import org.galacticware.griddle.domain.keybinder.AppSymbol.NUMERIC_LAYER
 import org.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import org.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import org.galacticware.griddle.domain.layer.LayerKind
+import org.galacticware.griddle.domain.operation.SwitchLayer
 import org.galacticware.griddle.domain.operation.pressKey
-import org.galacticware.griddle.domain.operation.SimpleInput
 import org.galacticware.griddle.domain.operation.simpleInput
 import org.galacticware.griddle.domain.util.caseSensitive
 import org.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleKeyMap
@@ -73,7 +75,8 @@ object DefaultNumericMap: GriddleKeyMap() {
     override fun allMappings() = mutableSetOf(
         button1, button2, button3, button4, button5, button6, button7, button8, button9, button0,
         cursorControlButton,
-        AlphabeticLayerToggle,
+        AlphabeticLayerToggle
+            .withGesture(gesture(HOLD, SwitchLayer(NUMERIC_LAYER))),
         backspace,
         enter,
         numericSpaceLeft,

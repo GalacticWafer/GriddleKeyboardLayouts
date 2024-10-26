@@ -41,11 +41,12 @@ object MessageaseNumbersWithSymbolsMap : GriddleKeyMap() {
             numpadGestures.combinedWith(englishGestures.withoutLetters().gestureSet)
         }.plus(
             setOf(
-                button0,
-                cursorControlButton,
-                AlphabeticLayerToggle, backspace,
-                space, enter,
+                button0, cursorControlButton, backspace, enter,
+                AlphabeticLayerToggle
             )
-        ).toMutableSet()
+        ).plus(
+            setOf(numericSpaceLeft, numericSpaceRight,)
+        )
+            .toMutableSet()
     }
 }
