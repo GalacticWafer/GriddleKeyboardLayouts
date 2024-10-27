@@ -135,8 +135,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
     val englishH = button_1_0.replaceGesturesWith(
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
-        gesture(SWIPE_UP, simpleInput, threeStrings = Triple ("_", "¬", "¬")),
-        gesture(BOOMERANG_UP, simpleInput, threeStrings = Triple( "¬", "_", "_")),
+        gesture(SWIPE_UP, simpleInput, threeStrings = Triple ("-", "¬", "¬")),
+        gesture(BOOMERANG_UP, simpleInput, threeStrings = Triple( "¬", "-", "-")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("z")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = reversedCase("z")),
         gesture(SWIPE_RIGHT, simpleInput, oneString = "$"),
@@ -267,8 +267,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = reversedCase("ø")),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = Triple("-", "–", "–")),
 
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = reversedCase(";")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive(":")),
+        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = Triple(";", ":", ":")),
+        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = Triple(":", ";", ";")),
 
         gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive(".", "…", "…")),
         gesture(BOOMERANG_DOWN, simpleInput, threeStrings = reversedCase("…", ".", ".")),
