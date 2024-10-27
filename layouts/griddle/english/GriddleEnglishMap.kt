@@ -112,8 +112,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
         //gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("/", "—", "—")),
 
     val englishI = button_0_2.replaceGesturesWith(
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = Triple("\u03B7", "Η", "Η")), // greek h "eta"
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = Triple("Η", "\u03B7", "\u03B7")),
+        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = caseSensitive("ŋ")),
+        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = reversedCase("ŋ")),
 
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("i")),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = triple("°")),
@@ -135,8 +135,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
     val englishH = button_1_0.replaceGesturesWith(
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
-        gesture(SWIPE_UP, simpleInput, threeStrings = Triple ("-", "¬", "¬")),
-        gesture(BOOMERANG_UP, simpleInput, threeStrings = Triple( "¬", "-", "-")),
+        gesture(SWIPE_UP, simpleInput, threeStrings = Triple ("-", "–", "–")),
+        gesture(BOOMERANG_UP, simpleInput, threeStrings = Triple( "¬", "¬", "-")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("z")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = reversedCase("z")),
         gesture(SWIPE_RIGHT, simpleInput, oneString = "$"),
@@ -265,10 +265,11 @@ object GriddleEnglishMap: GriddleKeyMap() {
 
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("ø")),
         gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = reversedCase("ø")),
-        gesture(SWIPE_RIGHT, simpleInput, threeStrings = Triple("-", "–", "–")),
+        gesture(SWIPE_RIGHT, simpleInput, threeStrings = Triple("-", "÷", "÷")),
+        gesture(BOOMERANG_UP_RIGHT, simpleInput, threeStrings = Triple("÷", "-", "-")),
 
-        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = Triple(";", ":", ":")),
-        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = Triple(":", ";", ";")),
+        gesture(SWIPE_DOWN_RIGHT, simpleInput, threeStrings = Triple(":", ";", ";")),
+        gesture(BOOMERANG_DOWN_RIGHT, simpleInput, threeStrings = Triple(";", ":", ":")),
 
         gesture(SWIPE_DOWN, simpleInput, threeStrings = caseSensitive(".", "…", "…")),
         gesture(BOOMERANG_DOWN, simpleInput, threeStrings = reversedCase("…", ".", ".")),
@@ -319,6 +320,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = Triple("<", ">", ">")),
 
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
+        gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = reversedCase(";")),
+
         gesture(SWIPE_DOWN, sendNewLineFeed, appSymbol = AppSymbol.NEW_LINE),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = Triple("+", "×", "×")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = Triple("×", "+", "+")),
