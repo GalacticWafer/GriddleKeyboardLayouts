@@ -49,27 +49,27 @@ object DefaultNumericMap: GriddleKeyMap() {
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_3, respectShift = false), oneString = "3")
 
-    val button4 = button_1_0
+    val button4 = button_0_3
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_4, respectShift = false), oneString = "4")
 
-    val button5 = button_1_1
+    val button5 = button_1_0
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_5, respectShift = false), oneString = "5")
 
-    val button6 = button_1_2
+    val button6 = button_1_1
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_6, respectShift = false), oneString = "6")
 
-    val button7 = button_2_0
+    val button7 = button_1_2
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_6, respectShift = false), oneString = "7")
 
-    val button8 = button_2_1
+    val button8 = button_1_3
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_8, respectShift = false), oneString = "8")
 
-    val button9 = button_2_2
+    val button9 = button_1_4
         .withoutLetters()
         .withGesture(CLICK, pressKey(KEYCODE_9, respectShift = false), oneString = "9")
     override fun allMappings() = mutableSetOf(

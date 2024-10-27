@@ -104,15 +104,29 @@ import org.galacticware.griddle.domain.util.triple
 import org.galacticware.griddle.view.core.AppColor
 
 // Define empty gesture buttons for the main 3x3 keyboard layout template.
-val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_0_1 get() = gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_0_2 get() = gestureButton(rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1, isPeripheral = true)
-val button_1_0 get() = gestureButton(rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_1_1 get() = gestureButton(rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_1_2 get() = gestureButton(rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1)
-val button_2_0 get() = gestureButton(rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_2_1 get() = gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_2_2 get() = gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1)
+val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 4, colSpan = 4)
+val button_0_1 get() = gestureButton(rowStart = 0, colStart = 4, rowSpan = 4, colSpan = 6)
+val button_0_2 get() = gestureButton(rowStart = 0, colStart = 10, rowSpan = 4, colSpan = 6, isPeripheral = true)
+val button_0_3 get() = gestureButton(rowStart = 0, colStart = 16, rowSpan = 4, colSpan = 4)
+
+val button_1_0 get() = gestureButton(rowStart = 4, colStart = 0, rowSpan = 4, colSpan = 4)
+val button_1_1 get() = gestureButton(rowStart = 4, colStart = 4, rowSpan = 4, colSpan = 4)
+val button_1_2 get() = gestureButton(rowStart = 4, colStart = 8, rowSpan = 4, colSpan = 4)
+val button_1_3 get() = gestureButton(rowStart = 4, colStart = 12, rowSpan = 4, colSpan = 4)
+val button_1_4 get() = gestureButton(rowStart = 4, colStart = 16, rowSpan = 4, colSpan = 4)
+
+val button_2_0 get() = gestureButton(rowStart = 8, colStart = 0, rowSpan = 4, colSpan = 3)
+val button_2_1 get() = gestureButton(rowStart = 8, colStart = 3, rowSpan = 4, colSpan = 4)
+val button_2_2 get() = gestureButton(rowStart = 8, colStart = 7, rowSpan = 5, colSpan = 6)
+val button_2_3 get() = gestureButton(rowStart = 8, colStart = 13, rowSpan = 4, colSpan = 4)
+val button_2_4 get() = gestureButton(rowStart = 8, colStart = 17, rowSpan = 4, colSpan = 3)
+
+val button_3_0 get() = gestureButton(rowStart = 12, colStart = 0, rowSpan = 4, colSpan = 3)
+val button_3_1 get() = gestureButton(rowStart = 12, colStart = 3, rowSpan = 4, colSpan = 4)
+val button_3_2 get() = gestureButton(rowStart = 13, colStart = 7, rowSpan = 3, colSpan = 6)
+val button_3_3 get() = gestureButton(rowStart = 12, colStart = 13, rowSpan = 4, colSpan = 4)
+val button_3_4 get() = gestureButton(rowStart = 12, colStart = 17, rowSpan = 4, colSpan = 3)
+
 
 // A theme is 3 states of a button, which will change based on the modifier state.
 // If the theme should not change, then define the same state for all three.
