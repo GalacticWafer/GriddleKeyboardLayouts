@@ -230,5 +230,5 @@ List of GriddleOperations:
 - cycleShiftState
 
 
-helpful helpers in package (`org.galacticware.griddle.layouts.griddle.english.default`):
-- shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
+helpful helpers in package (`com.galacticware.griddle.layouts.griddle.english.default`):
+- shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value , UNSHIFTED.value)

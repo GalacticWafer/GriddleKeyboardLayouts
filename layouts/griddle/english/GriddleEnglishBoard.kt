@@ -1,9 +1,10 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
+package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
 import android.content.Context
-import org.galacticware.griddle.domain.keyboard.Keyboard
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionMap
-import org.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap
+import com.galacticware.griddle.domain.keyboard.Keyboard
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionMap
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicMap
 
 
 val GriddleEnglishBoard = { context: Context ->
@@ -15,6 +16,7 @@ val GriddleEnglishBoard = { context: Context ->
         layers = listOf(
             GriddleEnglishMap,
             DefaultNumericMap,
+            DefaultNumeroSymbolicMap,
             GriddleAlphanumericEnglishMap,
             DefaultFunctionMap,
         )

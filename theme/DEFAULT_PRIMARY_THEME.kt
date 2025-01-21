@@ -1,9 +1,9 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.theme
+package com.galacticware.griddle.keyboarddefinition.opensource.theme
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
-import org.galacticware.griddle.domain.modifier.ModifierTheme
-import org.galacticware.griddle.view.core.AppColor
+import com.galacticware.griddle.domain.modifier.ModifierTheme
+import com.galacticware.griddle.view.core.AppColor
 
 val DEFAULT_PRIMARY_THEME = ModifierTheme(
     primaryTextColor = AppColor.MEOK_DEFAULT_YELLOW.color,

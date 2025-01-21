@@ -1,6 +1,6 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.layouts.converter
+package com.galacticware.griddle.keyboarddefinition.opensource.layouts.converter
 
-import org.galacticware.griddle.keyboarddefinition.layouts.converter.KeyboardConverter
+import com.galacticware.griddle.keyboarddefinition.layouts.converter.KeyboardConverter
 import java.io.File
 
 abstract class MatrixKeyboardConverter: KeyboardConverter {
