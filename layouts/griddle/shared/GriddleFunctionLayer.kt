@@ -31,9 +31,9 @@ import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.domain.operation.pressKey
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleKeyMap
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 
-object DefaultFunctionMap: GriddleKeyMap() {
+object DefaultFunctionMap: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
     override val layerKind: LayerKind = LayerKind.FUNCTION

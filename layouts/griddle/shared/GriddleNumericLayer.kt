@@ -3,10 +3,10 @@ package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.s
 import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleKeyMap
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 
-object DefaultNumericMap: GriddleKeyMap() {
+object DefaultNumericMap: GriddleLayerBuilder() {
 //    override val name = this::class.simpleName
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)

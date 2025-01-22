@@ -1,6 +1,5 @@
 package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english
 
-import android.content.Context
 import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN
 import com.galacticware.griddle.domain.gesture.GestureType.BOOMERANG_DOWN_LEFT
@@ -27,20 +26,18 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.language.LanguageTag
-import com.galacticware.griddle.domain.layer.LayerDefinable
 import com.galacticware.griddle.domain.layer.LayerKind
-import com.galacticware.griddle.domain.operation.cycleAccentCharacters
-import com.galacticware.griddle.domain.operation.cycleShiftState
-import com.galacticware.griddle.domain.operation.pressTab
-import com.galacticware.griddle.domain.operation.sendNewLineFeed
-import com.galacticware.griddle.domain.operation.sendTab
+import com.galacticware.griddle.domain.operation.CycleAccentCharacters
+import com.galacticware.griddle.domain.operation.PressTab
+import com.galacticware.griddle.domain.operation.SendNewLineFeed
+import com.galacticware.griddle.domain.operation.SendTab
+import com.galacticware.griddle.domain.operation.applyShift
 import com.galacticware.griddle.domain.operation.simpleInput
 import com.galacticware.griddle.domain.operation.toggleCapslock
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
 import com.galacticware.griddle.domain.util.triple
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.CreateLayout
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GridKeyMapper
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.NumericLayerToggle
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.button_0_0
@@ -60,30 +57,8 @@ import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftIndicator
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.unShiftLegends
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import java.util.Locale
 
-/***
- * The definitions for English keys, roughly-based on the MessagEase layout.
- * Alphas and numerics are in the same place, with the same possible gestures for them.
- */
-abstract class GriddleKeyMap: GridKeyMapper {
-    private val nameRegex = Regex("(?<=[a-z])(?=[A-Z])")
-    override val name = this::class.simpleName!!.split(nameRegex).dropLast(1).joinToString(" ") { s ->
-        s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
-    }
-    override fun build(context: Context): LayerDefinable = CreateLayout(
-        context,
-        name,
-        allMappings(),
-        keyboardHandedness,
-        defalultSize,
-        isPrimary,
-        layerKind,
-        languageTag,
-    )
-}
-
-object GriddleEnglishMap: GriddleKeyMap() {
+object GriddleEnglishLayerBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = true
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
     override val defalultSize: IntSize = DEFAULT_SIZE
@@ -93,7 +68,7 @@ object GriddleEnglishMap: GriddleKeyMap() {
     val englishA = button_0_0.replaceGesturesWith(
         gesture(CLICK, simpleInput, threeStrings = caseSensitive("a")),
         gesture(HOLD, simpleInput, oneString = "1"),
-        gesture(SWIPE_UP_LEFT, cycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
+        gesture(SWIPE_UP_LEFT, CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS),
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive("-", "÷", "÷")),
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = reversedCase("÷", "-", "-")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive("$")),
@@ -143,8 +118,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishH = button_1_0.replaceGesturesWith(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
-        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, modifierThemeSet = unShiftIndicator, isIndicator = true),
+        gesture(SWIPE_UP, applyShift, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_DOWN, applyShift, threeStrings = unShiftLegends, modifierThemeSet = unShiftIndicator, isIndicator = true),
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = Triple("{", "}", "}")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = Triple("}", "{", "{")),
         gesture(BOOMERANG_UP, toggleCapslock),
@@ -188,9 +163,9 @@ object GriddleEnglishMap: GriddleKeyMap() {
     )
 
     val englishR = button_1_2.replaceGesturesWith(
-        gesture(SWIPE_UP, cycleShiftState, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
+        gesture(SWIPE_UP, applyShift, threeStrings = shiftLegends, modifierThemeSet = shiftIndicatorColorTheme, isIndicator = true),
         //        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
-        gesture(SWIPE_DOWN, cycleShiftState, threeStrings = unShiftLegends, isIndicator = true),
+        gesture(SWIPE_DOWN, applyShift, threeStrings = unShiftLegends, isIndicator = true),
 
         gesture(SWIPE_UP_LEFT, simpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         gesture(BOOMERANG_UP_LEFT, simpleInput, threeStrings = caseSensitive("\\", "|", "|")),
@@ -224,8 +199,8 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(BOOMERANG_RIGHT, simpleInput, threeStrings = Triple("†", "*", "*")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = Triple("<", ">", ">")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = Triple(">", "<", "<")),
-        gesture(SWIPE_DOWN_RIGHT, sendTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
-        gesture(BOOMERANG_DOWN_RIGHT, pressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
+        gesture(SWIPE_DOWN_RIGHT, SendTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
+        gesture(BOOMERANG_DOWN_RIGHT, PressTab /*pressKey(KEYCODE_TAB)*/, threeStrings = triple(TAB_RIGHT)),
         gesture(CIRCLE_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         gesture(CIRCLE_ANTI_CLOCKWISE, simpleInput, threeStrings = reversedCase("T")),
         //        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),
@@ -264,7 +239,7 @@ object GriddleEnglishMap: GriddleKeyMap() {
         gesture(SWIPE_RIGHT, simpleInput, threeStrings = caseSensitive(">")),
         gesture(SWIPE_UP_RIGHT, simpleInput, threeStrings = caseSensitive("°")),
         gesture(SWIPE_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
-        gesture(SWIPE_DOWN, sendNewLineFeed, appSymbol = AppSymbol.NEW_LINE),
+        gesture(SWIPE_DOWN, SendNewLineFeed, appSymbol = AppSymbol.NEW_LINE),
         gesture(BOOMERANG_DOWN_LEFT, simpleInput, threeStrings = caseSensitive(";")),
         gesture(SWIPE_LEFT, simpleInput, threeStrings = caseSensitive("#")),
         gesture(BOOMERANG_LEFT, simpleInput, threeStrings = caseSensitive(" ")),

@@ -18,9 +18,9 @@ import com.galacticware.griddle.domain.operation.pressKey
 import com.galacticware.griddle.domain.operation.simpleInput
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleKeyMap
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 
-object DefaultNumeroSymbolicMap: GriddleKeyMap() {
+object DefaultNumeroSymbolicMap: GriddleLayerBuilder() {
 //    override val name = this::class.simpleName
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
