@@ -1,6 +1,5 @@
 package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared
 
-import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_A
 import android.view.KeyEvent.KEYCODE_DEL
 import android.view.KeyEvent.KEYCODE_DPAD_LEFT
@@ -84,7 +83,7 @@ import com.galacticware.griddle.domain.operation.pressSpace
 import com.galacticware.griddle.domain.operation.RemappedSymbolLookup
 import com.galacticware.griddle.domain.operation.SelectAll
 import com.galacticware.griddle.domain.operation.SimpleInput
-import com.galacticware.griddle.domain.operation.spamBackspace
+import com.galacticware.griddle.domain.operation.SpamBackspace
 import com.galacticware.griddle.domain.operation.StartRecognizingSpeech
 import com.galacticware.griddle.domain.operation.SwapHandedness
 import com.galacticware.griddle.domain.operation.swappable
@@ -152,7 +151,7 @@ val multiKey: Gesture =  gesture(CLICK, swappable(
 val backspace = gestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        gesture(HOLD, /*swapGesture(multiKey)*/spamBackspace),
+        gesture(HOLD, /*swapGesture(multiKey)*/SpamBackspace),
         multiKey,
         gesture(SWIPE_LEFT, pressKey(KEYCODE_DEL)),
         gesture(SWIPE_UP_LEFT, pressKey(KEYCODE_DEL)),
