@@ -49,7 +49,7 @@ fun CreateLayout(
  */
 abstract class GriddleLayerBuilder: LayerBuilder {
     private val nameRegex = Regex("(?<=[a-z])(?=[A-Z])")
-    override val name = this::class.simpleName!!.split(nameRegex).dropLast(1).joinToString(" ") { s ->
+    override val name get() = this::class.simpleName!!.split(nameRegex).dropLast(1).joinToString(" ") { s ->
         s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
     }
     override fun build(context: Context): LayerDefinable = CreateLayout(
