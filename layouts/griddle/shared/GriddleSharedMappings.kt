@@ -64,8 +64,8 @@ import com.galacticware.griddle.domain.modifier.ModifierKeyKind
 import com.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
 import com.galacticware.griddle.domain.modifier.ModifierThemeSet
 import com.galacticware.griddle.domain.operation.MoveDown
-import com.galacticware.griddle.domain.operation.applyAlt
-import com.galacticware.griddle.domain.operation.applyControl
+import com.galacticware.griddle.domain.operation.ApplyAlt
+import com.galacticware.griddle.domain.operation.ApplyControl
 import com.galacticware.griddle.domain.operation.MoveEnd
 import com.galacticware.griddle.domain.operation.MoveHome
 import com.galacticware.griddle.domain.operation.MoveLeft
@@ -76,20 +76,22 @@ import com.galacticware.griddle.domain.operation.MoveWordRight
 import com.galacticware.griddle.domain.operation.NoOp
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.OpenMacroEditor
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.OpenMultiClipboard
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.OpenSettings
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.OpenUserSettings
 import com.galacticware.griddle.domain.operation.PressEnterKey
+import com.galacticware.griddle.domain.operation.Redo
 import com.galacticware.griddle.domain.operation.pressKey
 import com.galacticware.griddle.domain.operation.pressSpace
 import com.galacticware.griddle.domain.operation.RemappedSymbolLookup
 import com.galacticware.griddle.domain.operation.SelectAll
-import com.galacticware.griddle.domain.operation.simpleInput
+import com.galacticware.griddle.domain.operation.SimpleInput
 import com.galacticware.griddle.domain.operation.spamBackspace
 import com.galacticware.griddle.domain.operation.StartRecognizingSpeech
 import com.galacticware.griddle.domain.operation.SwapHandedness
 import com.galacticware.griddle.domain.operation.swappable
-import com.galacticware.griddle.domain.operation.switchLayer
-import com.galacticware.griddle.domain.operation.toggleAltLock
-import com.galacticware.griddle.domain.operation.toggleControlLock
+import com.galacticware.griddle.domain.operation.SwitchLayer
+import com.galacticware.griddle.domain.operation.ToggleAltLock
+import com.galacticware.griddle.domain.operation.ToggleControlLock
+import com.galacticware.griddle.domain.operation.Undo
 import com.galacticware.griddle.domain.operation.toggleTurboMode
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
@@ -118,12 +120,12 @@ val cursorControlButton = gestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, NoOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
-        gesture(HOLD, OpenSettings),
-        gesture(SWIPE_LEFT, pressKey(KeyEvent.KEYCODE_Z, control), threeStrings = triple(AppSymbol.UNDO.name)),
-        gesture(SWIPE_RIGHT, pressKey(KeyEvent.KEYCODE_Y, control), threeStrings = triple(AppSymbol.REDO.name)),
+        gesture(HOLD, OpenUserSettings),
+        gesture(SWIPE_LEFT, Undo, appSymbol = AppSymbol.UNDO),
+        gesture(SWIPE_RIGHT, Redo, appSymbol = AppSymbol.REDO),
         gesture(SWIPE_UP, toggleTurboMode),
-        gesture(CIRCLE_ANTI_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
-        gesture(CIRCLE_CLOCKWISE, switchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
+        gesture(CIRCLE_ANTI_CLOCKWISE, SwitchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
+        gesture(CIRCLE_CLOCKWISE, SwitchLayer, appSymbol = UNIFIED_ALPHA_NUMERIC_LAYER),
     ),
 )
 
@@ -173,7 +175,7 @@ val AlphabeticLayerToggle = gestureButton(
         gesture(SWIPE_LEFT, RemappedSymbolLookup, appSymbol = CUT),
         gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
         gesture(SWIPE_DOWN, RemappedSymbolLookup, appSymbol = PASTE),
-        gesture(CLICK, switchLayer, appSymbol = ALPHA_LAYER),
+        gesture(CLICK, SwitchLayer, appSymbol = ALPHA_LAYER),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         gesture(CIRCLE_ANTI_CLOCKWISE, pressKey(KEYCODE_A, control)),
         gesture(CIRCLE_CLOCKWISE, pressKey(KEYCODE_A, control)),
@@ -190,7 +192,7 @@ val NumericLayerToggle = gestureButton(
         gesture(SWIPE_DOWN, RemappedSymbolLookup, appSymbol = PASTE),
         gesture(SWIPE_UP_LEFT, OpenMacroEditor, appSymbol = MACRO, ),
         gesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
-        gesture(CLICK, switchLayer, appSymbol = NUMERIC_LAYER),
+        gesture(CLICK, SwitchLayer, appSymbol = NUMERIC_LAYER),
         gesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
         gesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
@@ -202,10 +204,10 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         gesture(CLICK, PressEnterKey, appSymbol = GO),
-        gesture(SWIPE_UP_LEFT, applyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
-        gesture(BOOMERANG_UP_LEFT, toggleAltLock),
-        gesture(SWIPE_UP_RIGHT, applyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
-        gesture(BOOMERANG_UP_RIGHT, toggleControlLock),
+        gesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
+        gesture(BOOMERANG_UP_LEFT, ToggleAltLock),
+        gesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
+        gesture(BOOMERANG_UP_RIGHT, ToggleControlLock),
     ),
 )
 
@@ -213,9 +215,9 @@ val space = gestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
     gestureSet = mutableSetOf(
         gesture(CLICK, pressSpace),
-        gesture(SWIPE_DOWN_LEFT, switchLayer, appSymbol = FUNCTION_LAYER),
+        gesture(SWIPE_DOWN_LEFT, SwitchLayer, appSymbol = FUNCTION_LAYER),
         //gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
-        gesture(HOLD, simpleInput, threeStrings = reversedCase("0")),
+        gesture(HOLD, SimpleInput, threeStrings = reversedCase("0")),
         gesture(SWIPE_LEFT, MoveLeft, appSymbol = AppSymbol.LEFT_ARROW),
         gesture(BOOMERANG_LEFT, MoveWordLeft),
         gesture(SWIPE_RIGHT, MoveRight, appSymbol = RIGHT_ARROW),

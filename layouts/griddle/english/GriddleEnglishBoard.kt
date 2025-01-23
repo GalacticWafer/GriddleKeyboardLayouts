@@ -11,7 +11,7 @@ import com.galacticware.griddle.view.composable.screen.UserSwitchableScreen
 val OpenMacroEditor = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.MACRO_EDITOR)
 val OpenMultiClipboard = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.CLIPBOARD)
 val OpenAutoFixers = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.AUTO_FIXERS)
-val OpenSettings = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.USER_SETTINGS)
+val OpenUserSettings = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.USER_SETTINGS)
 val OpenLanguagePreferences = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.LANGUAGE_SELECTION)
 val OpenKeyboardDesigner = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.BUILD_YOUR_OWN_KEYBOARD)
 val OpenWordPrediction = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.WORD_PREDICTION)

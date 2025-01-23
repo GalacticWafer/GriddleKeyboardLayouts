@@ -15,7 +15,7 @@ import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.gesture
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.domain.operation.pressKey
-import com.galacticware.griddle.domain.operation.simpleInput
+import com.galacticware.griddle.domain.operation.SimpleInput
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
@@ -31,7 +31,7 @@ object DefaultNumeroSymbolicMap: GriddleLayerBuilder() {
     val button0 = gestureButton(
         rowStart = 3, colStart = 1, rowSpan = 1, colSpan = 1,
         gestureSet = mutableSetOf(
-            gesture(CLICK, simpleInput, threeStrings = caseSensitive("0"))
+            gesture(CLICK, SimpleInput, threeStrings = caseSensitive("0"))
         ),
     )
 
