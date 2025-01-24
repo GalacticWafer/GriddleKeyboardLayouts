@@ -2,20 +2,20 @@ package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 
 import android.content.Context
 import com.galacticware.griddle.domain.keyboard.Keyboard
-import com.galacticware.griddle.domain.operation.makeSwitchNestedKeyboardScreenArgs
+import com.galacticware.griddle.domain.operation.SwitchScreenArgs
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionMap
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicMap
-import com.galacticware.griddle.view.composable.screen.UserSwitchableScreen
+import com.galacticware.griddle.view.composable.screen.SwitchableScreen
 
-val OpenMacroEditor = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.MACRO_EDITOR)
-val OpenMultiClipboard = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.CLIPBOARD)
-val OpenAutoFixers = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.AUTO_FIXERS)
-val OpenUserSettings = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.USER_SETTINGS)
-val OpenLanguagePreferences = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.LANGUAGE_SELECTION)
-val OpenKeyboardDesigner = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.BUILD_YOUR_OWN_KEYBOARD)
-val OpenWordPrediction = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.WORD_PREDICTION)
-val OpenEmojis = makeSwitchNestedKeyboardScreenArgs(UserSwitchableScreen.EMOJI)
+val OpenMacroEditor = SwitchScreenArgs(SwitchableScreen.MACRO_EDITOR)
+val OpenMultiClipboard = SwitchScreenArgs(SwitchableScreen.CLIPBOARD)
+val OpenAutoFixers = SwitchScreenArgs(SwitchableScreen.AUTO_FIXERS)
+val OpenGriddleSetting = SwitchScreenArgs(SwitchableScreen.USER_SETTINGS)
+val OpenLanguagePreferences = SwitchScreenArgs(SwitchableScreen.LANGUAGE_SELECTION)
+val OpenKeyboardDesigner = SwitchScreenArgs(SwitchableScreen.BUILD_YOUR_OWN_KEYBOARD)
+val OpenWordPrediction = SwitchScreenArgs(SwitchableScreen.WORD_PREDICTION)
+val OpenEmojis = SwitchScreenArgs(SwitchableScreen.EMOJI)
 val GriddleEnglishBoard = { context: Context ->
     Keyboard(
         context,
