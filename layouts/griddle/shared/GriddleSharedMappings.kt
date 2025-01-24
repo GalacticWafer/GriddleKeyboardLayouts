@@ -145,9 +145,9 @@ val cycleEmojisRight = cycleEmojisLeft
     .withPosition(rowStart = 3, colStart=2, rowSpan = 1, colSpan = 1,)
 
 val multiKey: Gesture =  gesture(CLICK, swappable(
-    Triple(PressKey, KEYCODE_DEL, triple(BACKSPACE)),
+    gesture(CLICK, PressKey, keycode = KEYCODE_DEL, threeStrings = triple(BACKSPACE)),
 //    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT),
-), threeStrings = triple(BACKSPACE))
+))
 
 val backspace = gestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
