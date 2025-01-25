@@ -41,7 +41,7 @@ object GriddleAlphanumericEnglishMap : GriddleLayerBuilder() {
     override val languageTag = null
     override val defalultSize: IntSize = IntSize(45, 35)
 
-    override fun allMappings(): MutableSet<GestureButtonBuilder> {
+    override fun buttonBuilders(): MutableSet<GestureButtonBuilder> {
         return setOf(
             englishA, englishN, englishI,
             englishH, englishO, englishR, cursorControlButton,

@@ -17,7 +17,7 @@ interface LayerBuilder {
     val isPrimary: Boolean
     val keyboardHandedness: KeyboardHandedness
     val defalultSize: IntSize
-    fun allMappings(): MutableSet<GestureButtonBuilder>
+    fun buttonBuilders(): MutableSet<GestureButtonBuilder>
     fun build(context: Context): LayerDefinable
 }
 
@@ -55,7 +55,7 @@ abstract class GriddleLayerBuilder: LayerBuilder {
     override fun build(context: Context): LayerDefinable = CreateLayout(
         context,
         name,
-        allMappings(),
+        buttonBuilders(),
         keyboardHandedness,
         defalultSize,
         isPrimary,

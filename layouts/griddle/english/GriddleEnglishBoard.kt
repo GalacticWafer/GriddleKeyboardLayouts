@@ -8,14 +8,14 @@ import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicMap
 import com.galacticware.griddle.view.composable.screen.SwitchableScreen
 
-val OpenMacroEditor = SwitchScreenArgs(SwitchableScreen.MACRO_EDITOR)
-val OpenMultiClipboard = SwitchScreenArgs(SwitchableScreen.CLIPBOARD)
-val OpenAutoFixers = SwitchScreenArgs(SwitchableScreen.AUTO_FIXERS)
-val OpenGriddleSetting = SwitchScreenArgs(SwitchableScreen.USER_SETTINGS)
-val OpenLanguagePreferences = SwitchScreenArgs(SwitchableScreen.LANGUAGE_SELECTION)
-val OpenKeyboardDesigner = SwitchScreenArgs(SwitchableScreen.BUILD_YOUR_OWN_KEYBOARD)
-val OpenWordPrediction = SwitchScreenArgs(SwitchableScreen.WORD_PREDICTION)
-val OpenEmojis = SwitchScreenArgs(SwitchableScreen.EMOJI)
+val OpenMacroEditor = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_MACRO_EDITOR)
+val OpenMultiClipboard = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_CLIPBOARD)
+val OpenAutoFixers = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_AUTO_FIXERS)
+val OpenGriddleSetting = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_USER_CHANGEABLE_SETTINGS)
+val OpenLanguagePreferences = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_LANGUAGE_SELECTION)
+val OpenKeyboardDesigner = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_BUILD_YOUR_OWN_KEYBOARD)
+val OpenWordPrediction = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_WORD_PREDICTION)
+val OpenEmojis = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_EMOJI)
 val GriddleEnglishBoard = { context: Context ->
     Keyboard(
         context,
