@@ -8,23 +8,23 @@ import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 
-object DefaultNumericMap: GriddleLayerBuilder() {
+object DefaultNumericBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
     override val layerKind: LayerKind = LayerKind.NUMERIC
     override val languageTag = null
     override val defalultSize: IntSize = DEFAULT_SIZE
 
-    val button0 = DefaultNumeroSymbolicMap.button0.withoutSymbols()
-    val button1 = DefaultNumeroSymbolicMap.button1.withoutSymbols()
-    val button2 = DefaultNumeroSymbolicMap.button2.withoutSymbols()
-    val button3 = DefaultNumeroSymbolicMap.button3.withoutSymbols()
-    val button4 = DefaultNumeroSymbolicMap.button4.withoutSymbols()
-    val button5 = DefaultNumeroSymbolicMap.button5.withoutSymbols()
-    val button6 = DefaultNumeroSymbolicMap.button6.withoutSymbols()
-    val button7 = DefaultNumeroSymbolicMap.button7.withoutSymbols()
-    val button8 = DefaultNumeroSymbolicMap.button8.withoutSymbols()
-    val button9 = DefaultNumeroSymbolicMap.button9.withoutSymbols()
+    val button0 = DefaultNumeroSymbolicBuilder.button0.withoutSymbols()
+    val button1 = DefaultNumeroSymbolicBuilder.button1.withoutSymbols()
+    val button2 = DefaultNumeroSymbolicBuilder.button2.withoutSymbols()
+    val button3 = DefaultNumeroSymbolicBuilder.button3.withoutSymbols()
+    val button4 = DefaultNumeroSymbolicBuilder.button4.withoutSymbols()
+    val button5 = DefaultNumeroSymbolicBuilder.button5.withoutSymbols()
+    val button6 = DefaultNumeroSymbolicBuilder.button6.withoutSymbols()
+    val button7 = DefaultNumeroSymbolicBuilder.button7.withoutSymbols()
+    val button8 = DefaultNumeroSymbolicBuilder.button8.withoutSymbols()
+    val button9 = DefaultNumeroSymbolicBuilder.button9.withoutSymbols()
 
     override fun buttonBuilders() = mutableSetOf(
         button1, button2, button3,

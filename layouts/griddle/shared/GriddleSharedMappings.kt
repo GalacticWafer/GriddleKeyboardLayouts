@@ -33,10 +33,8 @@ import com.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP
 import com.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import com.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import com.galacticware.griddle.domain.keybinder.AppSymbol
-import com.galacticware.griddle.domain.keybinder.AppSymbol.ALT
 import com.galacticware.griddle.domain.keybinder.AppSymbol.BACKSPACE
 import com.galacticware.griddle.domain.keybinder.AppSymbol.CAPSLOCKED
-import com.galacticware.griddle.domain.keybinder.AppSymbol.CONTROL
 import com.galacticware.griddle.domain.keybinder.AppSymbol.COPY
 import com.galacticware.griddle.domain.keybinder.AppSymbol.CUT
 import com.galacticware.griddle.domain.keybinder.AppSymbol.DOWN_ARROW
@@ -54,6 +52,7 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW
+import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.applyModifier
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeUserSetting
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.pressKey
@@ -63,26 +62,25 @@ import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.switchScree
 import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import com.galacticware.griddle.domain.modifier.ModifierKeyKind
-import com.galacticware.griddle.domain.modifier.ModifierTheme.Companion.modifierThemes
 import com.galacticware.griddle.domain.modifier.ModifierThemeSet
-import com.galacticware.griddle.domain.operation.ApplyAlt
-import com.galacticware.griddle.domain.operation.ApplyControl
-import com.galacticware.griddle.domain.operation.MoveEnd
-import com.galacticware.griddle.domain.operation.MoveHome
-import com.galacticware.griddle.domain.operation.MoveLeft
-import com.galacticware.griddle.domain.operation.MoveRight
-import com.galacticware.griddle.domain.operation.MoveWordLeft
-import com.galacticware.griddle.domain.operation.MoveWordRight
-import com.galacticware.griddle.domain.operation.NoOp
-import com.galacticware.griddle.domain.operation.PressEnterKey
-import com.galacticware.griddle.domain.operation.SelectAll
-import com.galacticware.griddle.domain.operation.SimpleInput
-import com.galacticware.griddle.domain.operation.SpamBackspace
-import com.galacticware.griddle.domain.operation.StartRecognizingSpeech
-import com.galacticware.griddle.domain.operation.SwapHandedness
-import com.galacticware.griddle.domain.operation.ToggleAltLock
-import com.galacticware.griddle.domain.operation.ToggleControlLock
-import com.galacticware.griddle.domain.operation.swappable
+import com.galacticware.griddle.domain.operation.implementation.changemodifier.ApplyAlt
+import com.galacticware.griddle.domain.operation.implementation.changemodifier.ApplyControl
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveEnd
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveHome
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveLeft
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveRight
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveWordLeft
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveWordRight
+import com.galacticware.griddle.domain.operation.implementation.noop.NoOp
+import com.galacticware.griddle.domain.operation.implementation.presskey.PressEnterKey
+import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.SelectAll
+import com.galacticware.griddle.domain.operation.implementation.noargs.SimpleInput
+import com.galacticware.griddle.domain.operation.implementation.backspace.SpamBackspace
+import com.galacticware.griddle.domain.operation.implementation.noargs.StartRecognizingSpeech
+import com.galacticware.griddle.domain.operation.implementation.noargs.SwapHandedness
+import com.galacticware.griddle.domain.operation.implementation.changemodifier.ToggleAltLock
+import com.galacticware.griddle.domain.operation.implementation.changemodifier.ToggleControlLock
+import com.galacticware.griddle.domain.operation.implementation.noargs.swappable
 import com.galacticware.griddle.domain.usercontolled.GriddleSetting.TURBO_MODE_CHOICE
 import com.galacticware.griddle.domain.usercontolled.IncrementalAdjustmentType.TOGGLE
 import com.galacticware.griddle.domain.util.caseSensitive
@@ -122,7 +120,7 @@ private const val RESPECT_SHIFT = true
 val cursorControlButton = gestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        bindGesture(CLICK, NoOp, remappedSymbol = TOGGLE_SETTINGS, isIndicator = true),
+        bindGesture(CLICK, NoOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
         switchScreens(HOLD, SWITCH_TO_BASE_SETTINGS),
         pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
         pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
@@ -150,7 +148,8 @@ val cycleEmojisRight = cycleEmojisLeft
 val multiKey: Gesture =  bindGesture(CLICK, swappable(
     pressKey(CLICK, KEYCODE_DEL, appSymbol = BACKSPACE),
 //    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT),
-))
+)
+)
 
 val backspace = gestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
@@ -180,10 +179,10 @@ val AlphabeticLayerToggle = gestureButton(
         remappedSymbolLookup(SWIPE_DOWN, PASTE),
         switchLayer(CLICK, LayerKind.ALPHA),
         switchLayer(HOLD, LayerKind.NUMERIC),
-        bindGesture(SWIPE_RIGHT, SwapHandedness, remappedSymbol = SWAP_HANDEDNESS),
+        bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
         pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
-        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, remappedSymbol = MICROPHONE_CHAR),
+        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
         switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
     ),
 )
@@ -195,12 +194,12 @@ val NumericLayerToggle = gestureButton(
         remappedSymbolLookup(SWIPE_LEFT, CUT),
         remappedSymbolLookup(SWIPE_DOWN, PASTE),
         switchScreens(SWIPE_UP_LEFT, SWITCH_TO_MACRO_EDITOR),
-        bindGesture(SWIPE_RIGHT, SwapHandedness, remappedSymbol = SWAP_HANDEDNESS),
+        bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         switchLayer(CLICK, LayerKind.NUMERO_SYMBOLIC),
         switchLayer(HOLD, LayerKind.NUMERIC),
-        bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, remappedSymbol = SELECT_ALL_TEXT),
-        bindGesture(CIRCLE_CLOCKWISE, SelectAll, remappedSymbol = SELECT_ALL_TEXT),
-        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, remappedSymbol = MICROPHONE_CHAR),
+        bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
+        bindGesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
+        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
         switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
     ),
 )
@@ -208,11 +207,11 @@ val NumericLayerToggle = gestureButton(
 val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
-        bindGesture(CLICK, PressEnterKey, remappedSymbol = GO),
-        bindGesture(SWIPE_UP_LEFT, ApplyAlt, modifierThemeSet = modifierThemes(ALT.value, kind = ModifierKeyKind.ALT), isIndicator = true),
-        bindGesture(BOOMERANG_UP_LEFT, ToggleAltLock),
-        bindGesture(SWIPE_UP_RIGHT, ApplyControl, modifierThemeSet = modifierThemes(CONTROL.value, kind = ModifierKeyKind.CONTROL), isIndicator = true),
-        bindGesture(BOOMERANG_UP_RIGHT, ToggleControlLock),
+        bindGesture(CLICK, PressEnterKey, appSymbol = GO),
+        applyModifier(SWIPE_UP_LEFT, ApplyAlt),
+        applyModifier(BOOMERANG_UP_LEFT, ToggleAltLock),
+        applyModifier(SWIPE_UP_RIGHT, ApplyControl),
+        applyModifier(BOOMERANG_UP_RIGHT, ToggleControlLock),
     ),
 )
 
@@ -223,9 +222,9 @@ val space = gestureButton(
         switchLayer(SWIPE_DOWN_LEFT, LayerKind.FUNCTION),
         //gesture(BOOMERANG_DOWN_RIGHT, /* clearLogs */noOp),
         bindGesture(HOLD, SimpleInput, threeStrings = reversedCase("0")),
-        bindGesture(SWIPE_LEFT, MoveLeft, remappedSymbol = AppSymbol.LEFT_ARROW),
+        bindGesture(SWIPE_LEFT, MoveLeft, appSymbol = AppSymbol.LEFT_ARROW),
         bindGesture(BOOMERANG_LEFT, MoveWordLeft),
-        bindGesture(SWIPE_RIGHT, MoveRight, remappedSymbol = RIGHT_ARROW),
+        bindGesture(SWIPE_RIGHT, MoveRight, appSymbol = RIGHT_ARROW),
         bindGesture(BOOMERANG_RIGHT, MoveWordRight),
         pressKey(SWIPE_UP, KEYCODE_DPAD_UP, appSymbol = UP_ARROW),
         pressKey(BOOMERANG_UP, KEYCODE_PAGE_UP, appSymbol = MOVE_PGUP),

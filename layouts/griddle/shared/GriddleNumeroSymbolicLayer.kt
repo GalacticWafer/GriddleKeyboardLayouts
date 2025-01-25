@@ -2,11 +2,9 @@ package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.s
 
 import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.domain.gesture.GestureType.CLICK
-import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.simpleInput
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
-import com.galacticware.griddle.domain.operation.SimpleInput
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishA
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishE
@@ -19,7 +17,7 @@ import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.en
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishT
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 
-object DefaultNumeroSymbolicMap: GriddleLayerBuilder() {
+object DefaultNumeroSymbolicBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
     override val layerKind: LayerKind = LayerKind.NUMERO_SYMBOLIC

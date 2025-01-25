@@ -2,10 +2,10 @@ package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 
 import android.content.Context
 import com.galacticware.griddle.domain.keyboard.Keyboard
-import com.galacticware.griddle.domain.operation.SwitchScreenArgs
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionMap
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicMap
+import com.galacticware.griddle.domain.operation.implementation.switchscreens.SwitchScreenArgs
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionBuilder
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicBuilder
 import com.galacticware.griddle.view.composable.screen.SwitchableScreen
 
 val OpenMacroEditor = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_MACRO_EDITOR)
@@ -16,6 +16,23 @@ val OpenLanguagePreferences = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_LANGUA
 val OpenKeyboardDesigner = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_BUILD_YOUR_OWN_KEYBOARD)
 val OpenWordPrediction = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_WORD_PREDICTION)
 val OpenEmojis = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_EMOJI)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 val GriddleEnglishBoard = { context: Context ->
     Keyboard(
         context,
@@ -25,10 +42,10 @@ val GriddleEnglishBoard = { context: Context ->
         // build its own.
         layers = listOf(
             GriddleEnglishLayerBuilder,
-            DefaultNumericMap,
-            DefaultNumeroSymbolicMap,
-            GriddleAlphanumericEnglishMap,
-            DefaultFunctionMap,
+            DefaultNumericBuilder,
+            DefaultNumeroSymbolicBuilder,
+            GriddleAlphanumericEnglishBuilder,
+            DefaultFunctionBuilder,
         )
             .map { it.build(context) }
             .toMutableSet()

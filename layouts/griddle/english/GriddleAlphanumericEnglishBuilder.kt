@@ -15,16 +15,16 @@ import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.en
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishS
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishT
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.AlphabeticLayerToggle
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button0
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button1
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button2
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button3
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button4
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button5
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button6
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button7
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button8
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericMap.button9
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button0
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button1
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button2
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button3
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button4
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button5
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button6
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button7
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button8
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder.button9
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.backspace
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.cursorControlButton
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.enter
@@ -34,7 +34,7 @@ import com.galacticware.griddle.keyboarddefinition.system.layerkind.AbstractKeyb
 /**
  * All language layers should have the  [AbstractKeyboardLayer.layerKind] property set to [LayerKind.ALPHA].
  */
-object GriddleAlphanumericEnglishMap : GriddleLayerBuilder() {
+object GriddleAlphanumericEnglishBuilder : GriddleLayerBuilder() {
     override val isPrimary: Boolean = false
     override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 3)
     override val layerKind: LayerKind = LayerKind.UNIFIED_ALPHA_NUMERIC
