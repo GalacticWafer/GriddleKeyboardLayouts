@@ -52,8 +52,8 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW
-import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.applyModifier
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
+import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeModifier
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeUserSetting
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.pressKey
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.remappedSymbolLookup
@@ -71,38 +71,35 @@ import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcon
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveWordLeft
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveWordRight
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.SelectAll
+import com.galacticware.griddle.domain.operation.implementation.noargs.noop.NoOp
 import com.galacticware.griddle.domain.operation.implementation.noargs.repeatoperation.RepeatPreviousOperation
 import com.galacticware.griddle.domain.operation.implementation.noargs.simpleinput.SimpleInput
 import com.galacticware.griddle.domain.operation.implementation.noargs.speechtotext.SpeechToText
 import com.galacticware.griddle.domain.operation.implementation.noargs.swaphandedness.SwapHandedness
-import com.galacticware.griddle.domain.operation.implementation.noargs.noop.NoOp
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ForwardCycleAlt
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ForwardCycleControl
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleAltRepeat
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleControlRepeat
+import com.galacticware.griddle.domain.operation.implementation.someargs.changeusersettings.ChangeUserSettingArgs.Companion.ToggleTurboMode
 import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.PressEnterKey
-import com.galacticware.griddle.domain.usercontolled.GriddleSetting.TURBO_MODE_CHOICE
-import com.galacticware.griddle.domain.usercontolled.IncrementalAdjustmentType.TOGGLE
+import com.galacticware.griddle.domain.operation.implementation.someargs.switchscreens.SwitchScreenArgs
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
 import com.galacticware.griddle.domain.util.triple
-import com.galacticware.griddle.view.composable.screen.SwitchableScreen.SWITCH_TO_BASE_SETTINGS
-import com.galacticware.griddle.view.composable.screen.SwitchableScreen.SWITCH_TO_CLIPBOARD
-import com.galacticware.griddle.view.composable.screen.SwitchableScreen.SWITCH_TO_MACRO_EDITOR
 
 /**
  * These are blank GestureButtonBuilders positioned in the traditional MessagEase layout positions.
  * You can use the builder methods to add appropriate gestures and themes.
  */
-val button_0_0 get() = gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_0_1 get() = gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_0_2 get() = gestureButton(rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1, isPeripheral = true)
-val button_1_0 get() = gestureButton(rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_1_1 get() = gestureButton(rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_1_2 get() = gestureButton(rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1)
-val button_2_0 get() = gestureButton(rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1)
-val button_2_1 get() = gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1)
-val button_2_2 get() = gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1)
+val button_0_0 by lazy { gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) }
+val button_0_1 by lazy { gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) }
+val button_0_2 by lazy { gestureButton(rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1, isPeripheral = true) }
+val button_1_0 by lazy { gestureButton(rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) }
+val button_1_1 by lazy { gestureButton(rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1) }
+val button_1_2 by lazy { gestureButton(rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) }
+val button_2_0 by lazy { gestureButton(rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) }
+val button_2_1 by lazy { gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) }
+val button_2_2 by lazy { gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) }
 
 val shiftIndicatorTheme = ModifierThemeSet
     .forModifierWithDefaultTheme(SHIFT.value, UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
@@ -121,10 +118,10 @@ val cursorControlButton = gestureButton(
     rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         bindGesture(CLICK, NoOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
-        switchScreens(HOLD, SWITCH_TO_BASE_SETTINGS),
+        switchScreens(HOLD, SwitchScreenArgs.OpenBaseSettings),
         pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
         pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
-        changeUserSetting(SWIPE_UP, TURBO_MODE_CHOICE, TOGGLE),
+        changeUserSetting(SWIPE_UP, ToggleTurboMode),
         switchLayer(CIRCLE_ANTI_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
         switchLayer(CIRCLE_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
     ),
@@ -146,17 +143,20 @@ val cycleEmojisLeft = gestureButton(
 val cycleEmojisRight = cycleEmojisLeft
     .withPosition(rowStart = 3, colStart=2, rowSpan = 1, colSpan = 1,)
 
-val multiKey: Gesture =  bindGesture(CLICK, RepeatPreviousOperation.swappable(
-    pressKey(CLICK, KEYCODE_DEL, appSymbol = BACKSPACE),
-//    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT),
+/*
+val multiKey: Gesture =  bindGesture(
+    CLICK, RepeatPreviousOperation.swappable(
+        pressKey(CLICK, KEYCODE_DEL, appSymbol = BACKSPACE),
+    //    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT),
+    )
 )
-)
+*/
 
 val backspace = gestureButton(
     rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         bindGesture(HOLD, /*swapGesture(multiKey)*/SpamBackspace),
-        pressKey(CLICK, KEYCODE_DEL, appSymbol = BACKSPACE)/*multiKey*/,
+        remappedSymbolLookup(CLICK, BACKSPACE)/*multiKey*/,
         pressKey(SWIPE_LEFT, KEYCODE_DEL),
         pressKey(SWIPE_UP_LEFT, KEYCODE_DEL),
         pressKey(SWIPE_DOWN_LEFT, KEYCODE_DEL),
@@ -176,7 +176,7 @@ val AlphabeticLayerToggle = gestureButton(
     gestureSet = mutableSetOf(
         remappedSymbolLookup(SWIPE_UP, COPY),
         remappedSymbolLookup(SWIPE_LEFT, CUT),
-        switchScreens(SWIPE_UP_LEFT, SWITCH_TO_MACRO_EDITOR),
+        switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
         remappedSymbolLookup(SWIPE_DOWN, PASTE),
         switchLayer(CLICK, LayerKind.ALPHA),
         switchLayer(HOLD, LayerKind.NUMERIC),
@@ -184,7 +184,7 @@ val AlphabeticLayerToggle = gestureButton(
         pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
         pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
         bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
-        switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
+        switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
     ),
 )
 
@@ -194,14 +194,14 @@ val NumericLayerToggle = gestureButton(
         remappedSymbolLookup(SWIPE_UP, COPY),
         remappedSymbolLookup(SWIPE_LEFT, CUT),
         remappedSymbolLookup(SWIPE_DOWN, PASTE),
-        switchScreens(SWIPE_UP_LEFT, SWITCH_TO_MACRO_EDITOR),
+        switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
         bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         switchLayer(CLICK, LayerKind.NUMERO_SYMBOLIC),
         switchLayer(HOLD, LayerKind.NUMERIC),
         bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
         bindGesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
         bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
-        switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
+        switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
     ),
 )
 
@@ -209,10 +209,10 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         bindGesture(CLICK, PressEnterKey, appSymbol = GO),
-        applyModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
-        applyModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
-        applyModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
-        applyModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
+        changeModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
+        changeModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
+        changeModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
+        changeModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
     ),
 )
 

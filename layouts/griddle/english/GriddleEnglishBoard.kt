@@ -8,7 +8,7 @@ import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.sh
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicBuilder
 import com.galacticware.griddle.view.composable.screen.SwitchableScreen
 
-val OpenMacroEditor = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_MACRO_EDITOR)
+val OpenTextReplacementEditor = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_TEXT_REPLACEMENT_EDITOR)
 val OpenMultiClipboard = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_CLIPBOARD)
 val OpenAutoFixers = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_AUTO_FIXERS)
 val OpenGriddleSetting = SwitchScreenArgs(SwitchableScreen.SWITCH_TO_USER_CHANGEABLE_SETTINGS)

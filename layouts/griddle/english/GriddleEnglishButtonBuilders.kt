@@ -23,7 +23,7 @@ import com.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_LEFT
 import com.galacticware.griddle.domain.gesture.GestureType.SWIPE_UP_RIGHT
 import com.galacticware.griddle.domain.keybinder.AppSymbol
 import com.galacticware.griddle.domain.keybinder.AppSymbol.TAB_RIGHT
-import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.applyModifier
+import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeModifier
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.language.LanguageTag
@@ -116,11 +116,11 @@ object GriddleEnglishButtonBuilders: GriddleLayerBuilder() {
     )
 
     val englishH = button_1_0.replaceGesturesWith(
-        applyModifier(SWIPE_UP, ForwardCycleShift),
-        applyModifier(SWIPE_DOWN, ReleaseShift),
+        changeModifier(SWIPE_UP, ForwardCycleShift),
+        changeModifier(SWIPE_DOWN, ReleaseShift),
         bindGesture(SWIPE_UP_LEFT, SimpleInput, threeStrings = Triple("{", "}", "}")),
         bindGesture(BOOMERANG_UP_LEFT, SimpleInput, threeStrings = Triple("}", "{", "{")),
-        applyModifier(BOOMERANG_UP, ToggleShiftRepeat),
+        changeModifier(BOOMERANG_UP, ToggleShiftRepeat),
         bindGesture(SWIPE_UP_RIGHT, SimpleInput, threeStrings = Triple("%", "‰", "‰")),
         bindGesture(BOOMERANG_UP_RIGHT, SimpleInput, threeStrings = Triple("‰", "%", "%")),
         bindGesture(SWIPE_RIGHT, SimpleInput, threeStrings = caseSensitive("k")),
@@ -161,13 +161,13 @@ object GriddleEnglishButtonBuilders: GriddleLayerBuilder() {
     )
 
     val englishR = button_1_2.replaceGesturesWith(
-        applyModifier(SWIPE_UP, ForwardCycleShift),
+        changeModifier(SWIPE_UP, ForwardCycleShift),
         //        gesture(SWIPE_DOWN, releaseShift, threeStrings = caseSensitive("", "▼", "▼")),
-        applyModifier(SWIPE_DOWN, ReleaseShift),
+        changeModifier(SWIPE_DOWN, ReleaseShift),
 
         bindGesture(SWIPE_UP_LEFT, SimpleInput, threeStrings = caseSensitive("|", "\\", "\\")),
         bindGesture(BOOMERANG_UP_LEFT, SimpleInput, threeStrings = caseSensitive("\\", "|", "|")),
-        applyModifier(BOOMERANG_UP, ToggleShiftRepeat),
+        changeModifier(BOOMERANG_UP, ToggleShiftRepeat),
         bindGesture(SWIPE_UP_RIGHT, SimpleInput, threeStrings = caseSensitive("}", "{", "{")),
         bindGesture(BOOMERANG_UP_RIGHT, SimpleInput, threeStrings = caseSensitive("{", "}", "}")),
         bindGesture(SWIPE_RIGHT, SimpleInput, threeStrings = caseSensitive(")", "(", "(")),
@@ -197,8 +197,16 @@ object GriddleEnglishButtonBuilders: GriddleLayerBuilder() {
         bindGesture(BOOMERANG_RIGHT, SimpleInput, threeStrings = Triple("†", "*", "*")),
         bindGesture(SWIPE_LEFT, SimpleInput, threeStrings = Triple("<", ">", ">")),
         bindGesture(BOOMERANG_LEFT, SimpleInput, threeStrings = Triple(">", "<", "<")),
-        bindGesture(SWIPE_DOWN_RIGHT, SendTab /*PressKey, keycode = KEYCODE_TAB*/, threeStrings = triple(TAB_RIGHT)),
-        bindGesture(BOOMERANG_DOWN_RIGHT, PressTab /*PressKey, keycode = KEYCODE_TAB*/, threeStrings = triple(TAB_RIGHT)),
+        bindGesture(
+            SWIPE_DOWN_RIGHT,
+            SendTab /*PressKey, keycode = KEYCODE_TAB*/,
+            threeStrings = triple(TAB_RIGHT)
+        ),
+        bindGesture(
+            BOOMERANG_DOWN_RIGHT,
+            PressTab /*PressKey, keycode = KEYCODE_TAB*/,
+            threeStrings = triple(TAB_RIGHT)
+        ),
         bindGesture(CIRCLE_CLOCKWISE, SimpleInput, threeStrings = reversedCase("T")),
         bindGesture(CIRCLE_ANTI_CLOCKWISE, SimpleInput, threeStrings = reversedCase("T")),
         //        gesture(SWIPE_DOWN, repeatPreviousOperation, appSymbol = AppSymbol.REPEAT),

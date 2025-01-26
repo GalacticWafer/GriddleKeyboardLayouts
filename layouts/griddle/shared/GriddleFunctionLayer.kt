@@ -41,40 +41,100 @@ object DefaultFunctionBuilder: GriddleLayerBuilder() {
     override val defalultSize: IntSize = DEFAULT_SIZE
 
     val f1 get() = DefaultNumericBuilder.button1
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F1, appSymbol = F1_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F1_SYMBOL,
+            keycode = KEYCODE_F1
+        ))
 
     val f2 get() = DefaultNumericBuilder.button2
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F2, appSymbol = F2_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F2_SYMBOL,
+            keycode = KEYCODE_F2
+        ))
 
     val f3 get() = DefaultNumericBuilder.button3
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F3, appSymbol = F3_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F3_SYMBOL,
+            keycode = KEYCODE_F3
+        ))
 
     val f4 get() = DefaultNumericBuilder.button4
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F4, appSymbol = F4_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F4_SYMBOL,
+            keycode = KEYCODE_F4
+        ))
 
     val f5 get() = DefaultNumericBuilder.button5
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F5, appSymbol = F5_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F5_SYMBOL,
+            keycode = KEYCODE_F5
+        ))
 
     val f6 get() = DefaultNumericBuilder.button6
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F6, appSymbol = F6_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F6_SYMBOL,
+            keycode = KEYCODE_F6
+        ))
 
     val f7 get() = DefaultNumericBuilder.button7
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F7, appSymbol = F7_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F7_SYMBOL,
+            keycode = KEYCODE_F7
+        ))
 
     val f8 get() = DefaultNumericBuilder.button8
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F8, appSymbol = F8_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F8_SYMBOL,
+            keycode = KEYCODE_F8
+        ))
 
     val f9 get() = DefaultNumericBuilder.button9
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F9, appSymbol = F9_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F9_SYMBOL,
+            keycode = KEYCODE_F9
+        ))
 
     val f10 = numericSpaceLeft
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F10, appSymbol = F10_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F10_SYMBOL,
+            keycode = KEYCODE_F10
+        ))
 
     val f11 get() = DefaultNumericBuilder.button0
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F11, appSymbol = F11_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F11_SYMBOL,
+            keycode = KEYCODE_F11
+        ))
 
     val f12 get() = numericSpaceRight
-        .replaceGesturesWith(bindGesture(CLICK, PressKey, keycode = KEYCODE_F12, appSymbol = F12_SYMBOL))
+        .replaceGesturesWith(bindGesture(
+            CLICK,
+            PressKey,
+            appSymbol = F12_SYMBOL,
+            keycode = KEYCODE_F12
+        ))
 
     override fun buttonBuilders() = mutableSetOf(
         f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12,
