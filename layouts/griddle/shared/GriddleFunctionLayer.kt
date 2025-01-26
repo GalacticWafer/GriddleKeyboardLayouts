@@ -29,7 +29,7 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.F9_SYMBOL
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
-import com.galacticware.griddle.domain.operation.implementation.presskey.PressKey
+import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.PressKey
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
 

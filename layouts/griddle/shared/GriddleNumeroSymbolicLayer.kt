@@ -6,15 +6,15 @@ import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.simpleInput
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.GriddleLayerBuilder
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishA
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishE
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishH
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishI
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishN
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishO
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishR
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishS
-import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishLayerBuilder.englishT
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishA
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishE
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishH
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishI
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishN
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishO
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishR
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishS
+import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.english.GriddleEnglishButtonBuilders.englishT
 import com.galacticware.griddle.keyboarddefinition.opensource.theme.DEFAULT_SIZE
 
 object DefaultNumeroSymbolicBuilder: GriddleLayerBuilder() {

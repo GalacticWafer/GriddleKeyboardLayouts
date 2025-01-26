@@ -47,7 +47,7 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.MOVE_PGUP
 import com.galacticware.griddle.domain.keybinder.AppSymbol.PASTE
 import com.galacticware.griddle.domain.keybinder.AppSymbol.RIGHT_ARROW
 import com.galacticware.griddle.domain.keybinder.AppSymbol.SELECT_ALL_TEXT
-import com.galacticware.griddle.domain.keybinder.AppSymbol.SHIFTED
+import com.galacticware.griddle.domain.keybinder.AppSymbol.SHIFT
 import com.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED
@@ -63,24 +63,24 @@ import com.galacticware.griddle.domain.layer.LayerKind
 import com.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
 import com.galacticware.griddle.domain.modifier.ModifierKeyKind
 import com.galacticware.griddle.domain.modifier.ModifierThemeSet
-import com.galacticware.griddle.domain.operation.implementation.changemodifier.ApplyAlt
-import com.galacticware.griddle.domain.operation.implementation.changemodifier.ApplyControl
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveEnd
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveHome
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveLeft
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveRight
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveWordLeft
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.MoveWordRight
-import com.galacticware.griddle.domain.operation.implementation.noop.NoOp
-import com.galacticware.griddle.domain.operation.implementation.presskey.PressEnterKey
-import com.galacticware.griddle.domain.operation.implementation.cursorcontrol.SelectAll
-import com.galacticware.griddle.domain.operation.implementation.noargs.SimpleInput
-import com.galacticware.griddle.domain.operation.implementation.backspace.SpamBackspace
-import com.galacticware.griddle.domain.operation.implementation.noargs.StartRecognizingSpeech
-import com.galacticware.griddle.domain.operation.implementation.noargs.SwapHandedness
-import com.galacticware.griddle.domain.operation.implementation.changemodifier.ToggleAltLock
-import com.galacticware.griddle.domain.operation.implementation.changemodifier.ToggleControlLock
-import com.galacticware.griddle.domain.operation.implementation.noargs.swappable
+import com.galacticware.griddle.domain.operation.implementation.noargs.backspace.SpamBackspace
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveEnd
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveHome
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveLeft
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveRight
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveWordLeft
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveWordRight
+import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.SelectAll
+import com.galacticware.griddle.domain.operation.implementation.noargs.repeatoperation.RepeatPreviousOperation
+import com.galacticware.griddle.domain.operation.implementation.noargs.simpleinput.SimpleInput
+import com.galacticware.griddle.domain.operation.implementation.noargs.speechtotext.SpeechToText
+import com.galacticware.griddle.domain.operation.implementation.noargs.swaphandedness.SwapHandedness
+import com.galacticware.griddle.domain.operation.implementation.noargs.noop.NoOp
+import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ForwardCycleAlt
+import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ForwardCycleControl
+import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleAltRepeat
+import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleControlRepeat
+import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.PressEnterKey
 import com.galacticware.griddle.domain.usercontolled.GriddleSetting.TURBO_MODE_CHOICE
 import com.galacticware.griddle.domain.usercontolled.IncrementalAdjustmentType.TOGGLE
 import com.galacticware.griddle.domain.util.caseSensitive
@@ -105,7 +105,7 @@ val button_2_1 get() = gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, co
 val button_2_2 get() = gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1)
 
 val shiftIndicatorTheme = ModifierThemeSet
-    .forModifierWithDefaultTheme(SHIFTED.value, UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
+    .forModifierWithDefaultTheme(SHIFT.value, UNSHIFTED.value, UNSHIFTED.value, kind = ModifierKeyKind.SHIFT)
     .withTextColorSet(Color.White, Color.Yellow, Color.Red)
     .withTransparentBackground()
 
@@ -131,9 +131,10 @@ val cursorControlButton = gestureButton(
 )
 
 // you can define a triple of text that will be re-used in multiple gestures
-val shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value , UNSHIFTED.value)
-val unShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
-
+val applyShiftLegends = Triple(SHIFT.value, CAPSLOCKED.value , UNSHIFTED.value)
+val unApplyShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
+val altLegends = triple(AppSymbol.ALT.value)
+val controlLegends = triple(AppSymbol.CONTROL.value)
 
 val cycleEmojisLeft = gestureButton(
     rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
@@ -145,7 +146,7 @@ val cycleEmojisLeft = gestureButton(
 val cycleEmojisRight = cycleEmojisLeft
     .withPosition(rowStart = 3, colStart=2, rowSpan = 1, colSpan = 1,)
 
-val multiKey: Gesture =  bindGesture(CLICK, swappable(
+val multiKey: Gesture =  bindGesture(CLICK, RepeatPreviousOperation.swappable(
     pressKey(CLICK, KEYCODE_DEL, appSymbol = BACKSPACE),
 //    repeatPreviousOperation to withSymbol(AppSymbol.REPEAT),
 )
@@ -182,7 +183,7 @@ val AlphabeticLayerToggle = gestureButton(
         bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
         pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
         pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
-        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
         switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
     ),
 )
@@ -199,7 +200,7 @@ val NumericLayerToggle = gestureButton(
         switchLayer(HOLD, LayerKind.NUMERIC),
         bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
         bindGesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
-        bindGesture(SWIPE_DOWN_RIGHT, StartRecognizingSpeech, appSymbol = MICROPHONE_CHAR),
+        bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
         switchScreens(BOOMERANG_DOWN, SWITCH_TO_CLIPBOARD),
     ),
 )
@@ -208,10 +209,10 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         bindGesture(CLICK, PressEnterKey, appSymbol = GO),
-        applyModifier(SWIPE_UP_LEFT, ApplyAlt),
-        applyModifier(BOOMERANG_UP_LEFT, ToggleAltLock),
-        applyModifier(SWIPE_UP_RIGHT, ApplyControl),
-        applyModifier(BOOMERANG_UP_RIGHT, ToggleControlLock),
+        applyModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
+        applyModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
+        applyModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
+        applyModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
     ),
 )
 

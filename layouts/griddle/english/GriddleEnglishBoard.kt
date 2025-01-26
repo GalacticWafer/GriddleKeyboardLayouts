@@ -2,7 +2,7 @@ package com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.e
 
 import android.content.Context
 import com.galacticware.griddle.domain.keyboard.Keyboard
-import com.galacticware.griddle.domain.operation.implementation.switchscreens.SwitchScreenArgs
+import com.galacticware.griddle.domain.operation.implementation.someargs.switchscreens.SwitchScreenArgs
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultFunctionBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumericBuilder
 import com.galacticware.griddle.keyboarddefinition.opensource.layouts.griddle.shared.DefaultNumeroSymbolicBuilder
@@ -41,7 +41,7 @@ val GriddleEnglishBoard = { context: Context ->
         // the alphanumeric layer, because it uses their mappings to
         // build its own.
         layers = listOf(
-            GriddleEnglishLayerBuilder,
+            GriddleEnglishButtonBuilders,
             DefaultNumericBuilder,
             DefaultNumeroSymbolicBuilder,
             GriddleAlphanumericEnglishBuilder,
