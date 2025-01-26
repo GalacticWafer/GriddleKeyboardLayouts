@@ -52,7 +52,7 @@ import com.galacticware.griddle.domain.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.TOGGLE_SETTINGS
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UNSHIFTED
 import com.galacticware.griddle.domain.keybinder.AppSymbol.UP_ARROW
-import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.applyModifier
+import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeModifier
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.changeUserSetting
 import com.galacticware.griddle.domain.keybinder.KeyBinder.Companion.pressKey
@@ -80,9 +80,8 @@ import com.galacticware.griddle.domain.operation.implementation.someargs.changem
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ForwardCycleControl
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleAltRepeat
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.base.ChangeModifierArgs.Companion.ToggleControlRepeat
+import com.galacticware.griddle.domain.operation.implementation.someargs.changeusersettings.ChangeUserSettingArgs.Companion.ToggleTurboMode
 import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.PressEnterKey
-import com.galacticware.griddle.domain.usercontolled.GriddleSetting.TURBO_MODE_CHOICE
-import com.galacticware.griddle.domain.usercontolled.IncrementalAdjustmentType.TOGGLE
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
 import com.galacticware.griddle.domain.util.triple
@@ -124,7 +123,7 @@ val cursorControlButton = gestureButton(
         switchScreens(HOLD, SWITCH_TO_BASE_SETTINGS),
         pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
         pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
-        changeUserSetting(SWIPE_UP, TURBO_MODE_CHOICE, TOGGLE),
+        changeUserSetting(SWIPE_UP, ToggleTurboMode),
         switchLayer(CIRCLE_ANTI_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
         switchLayer(CIRCLE_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
     ),
@@ -209,10 +208,10 @@ val enter = gestureButton(
     rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
     gestureSet = mutableSetOf(
         bindGesture(CLICK, PressEnterKey, appSymbol = GO),
-        applyModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
-        applyModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
-        applyModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
-        applyModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
+        changeModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
+        changeModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
+        changeModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
+        changeModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
     ),
 )
 
