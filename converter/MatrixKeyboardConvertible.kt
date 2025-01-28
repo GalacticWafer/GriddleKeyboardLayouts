@@ -1,9 +1,9 @@
-package org.galacticware.griddle.keyboarddefinition.opensource.layouts.converter
+package com.galacticware.griddle.model.keyboard.definition.converter
 
-import org.galacticware.griddle.keyboarddefinition.layouts.converter.KeyboardConverter
 import java.io.File
 
-abstract class MatrixKeyboardConverter: KeyboardConverter {
+abstract class MatrixKeyboardConvertible:
+    KeyboardConvertible {
     /**
      * Provide a file path to the directory containing the layout files, and they will be output to an adjacent
      * directory with the same name, but with the current date and time appended to the name.

@@ -4,231 +4,102 @@ This document allows developers to contribute custom keyboard layouts for differ
 
 ## Open Source Files Overview
 
-Griddle is partially open sourced, to allow programmers to create default layouts. These files define the default 
-layers and boards for the Griddle English keyboard. Developers can use these as templates or extend them for other languages:
+In Griddle, anyone can design their own keyboard layout. 
 
-- **`GriddleEnglishAlphaLayer`**: Defines the default alphabetic layer.
-- **`GriddleEnglishBoard.kt`**: Defines the set of layers for the keyboard.
-- **`GriddleSharedKeys.kt`**: Manages key configurations and mappings.
-- **`GriddleEnglishKeys.kt`**: Manages key configurations and mappings.
-- **`GriddleEnglishDefaultUnifiedAlphaNumericLayer`**: Defines a unified alphanumeric layer, including both letters and numbers.
-- **`GriddleEnglishDefaultFunctionLayer`**: Handles function keys (e.g., Shift, Control).
-- **`GriddleEnglishDefaultNumericLayer`**: Manages the numeric keypad.
+Griddle keyboards are made from nesting information like so:
+- `Keyboard`s have a name and one or more `Layer`s.
+    - `Layer`s have a name, some defaults for buttons which all children object omit information for, and one or more `Button`s.
+      - `Buttons` have information about their position, size, a defaults theme for `Buttons` and `Gesture`s that omit it, and zero or more `Gestures`.
+        - `Gesture`s have information describing how to accomplish some action that you've chosen, and a `ModifierThemeSet`[][][].
+          - `ModifierThemeSet`s have three `ModifierTheme`s holding display information on color and text for a specific gesture,
+               and the `AppModifierKey` allows one of ,the three themes to be in use depending on the Keyboard's `AppModifierState`[][][].
 
-## API Documentation for Developers
+## Make an example keyboard with code.
 
-### Class: `KeyboardLayer`
-Base class for creating keyboard layers. All layers (e.g., alpha, numeric) must extend this class.
+To make a Keyboard named "FooBar" that supports alphabet + numbers
 
-- **Property: `definition`**  
-  Defines the layer type (e.g., `ALPHA`, `NUMERIC`). Use `LayerDefinition.ALPHA` for alphabetic layers and `LayerDefinition.ALPHA_NUMERIC_UNIFIED` for layers that include both letters and numbers.
-
-- **Property: `gestureBoxBuilders`**  
-  Set of `GestureBoxBuilder` instances that define the gestures and their associated operations for this layer.
-
-- **Function: `default()`**  
-  Returns the singleton instance of the layer.
-
-### Class: `ModifierTheme`
-Defines the appearance and behavior of a gesture's visual representation.
-
-- **Function: `withText(s: String)`**  
-  Returns a copy of the `ModifierTheme`, updating the displayed text.
-
-- **Function: `withBoxBackgroundColor(color: Color)`**  
-  Returns a copy of the `ModifierTheme`, updating the background color.
-
-- **Function: `withTextSize(sp: TextUnit)`**  
-  Returns a copy of the `ModifierTheme`, updating the text size.
-
-### Class: `ModifierThemeSet`
-Manages themes for modifier keys across different states (e.g., `NONE`, `ONCE`, `REPEAT`).
-
-- **Function: `forModifierWithDefaultTheme(noneStateText: String, onceStateText: String, repeatStateText: String, kind: ModifierKeyKind)`**  
-  Creates a `ModifierThemeSet` with default themes for each state.
-
-- **Function: `withThemeForState(newColorSet: ModifierTheme, modifierKeyState: ModifierKeyState)`**  
-  Returns a copy of the `ModifierThemeSet` with an updated theme for the specified state.
-
-### Enum: `ModifierKeyKind`
-Defines the types of modifier keys (e.g., `SHIFT`, `CONTROL`, `ALT`).
-
-### Enum: `ModifierKeyState`
-Represents the state of a modifier key (e.g., `NONE`, `ONCE`, `REPEAT`).
-
-### Enum: `GestureType`
-Represents the 20 supported gestures on a MessagEase-style swipe keyboard.
-```kt
-enum class GestureType {
-    CLICK,
-    HOLD,
-    SWIPE_DOWN,
-    SWIPE_DOWN_LEFT,
-    SWIPE_DOWN_RIGHT,
-    SWIPE_LEFT,
-    SWIPE_RIGHT,
-    SWIPE_UP,
-    SWIPE_UP_LEFT,
-    SWIPE_UP_RIGHT,
-    BOOMERANG_DOWN,
-    BOOMERANG_DOWN_LEFT,
-    BOOMERANG_DOWN_RIGHT,
-    BOOMERANG_LEFT,
-    BOOMERANG_RIGHT,
-    BOOMERANG_UP,
-    BOOMERANG_UP_LEFT,
-    BOOMERANG_UP_RIGHT,
-    CIRCLE_CLOCKWISE,
-    CIRCLE_ANTI_CLOCKWISE,
-;
-```
-
-## Guidelines for Contributors
-
-To contribute a new keyboard layout, follow these steps:
-
-1. **Create a New Layer Class**:
-    - Extend `KeyboardLayer`.
-    - Set the `definition` property to the appropriate `LayerDefinition`.
-    - Define `gestureBoxBuilders` to specify the keys and gestures.
-
-2. **Customize the Board**:
-    - Extend the `Keyboard` class to define the board layout.
-    - Ensure the class name follows the convention `<LayoutName><Language>DefaultBoard`. Keep in mind that:
-      - all KeyboardLayer classes should be in the same package as the default board.
-      - If you don't like the button arrangements of the Griddle layout, the you can make a new one by creating a new
-        package in the `layouts` package and creating a new class that extends `Keyboard`
-      - All layouts must have:
-        - a unique <LayoutName>
-        - all alpha characters for the specified language available on the alpha layer
-        - all numeric characters for the specified language available on the numeric layer
-        - all function keys on the function layer
-        - all alpha and numeric characters on the unified alpha numeric layer
-      - The unified alphanumeric layer is not required, but it is recommended for ease of use.
-      - you can mix and match layers from any layout, allowing multi-language boards. 
-
-3. **Modify Themes and Gestures**:
-    - Use `ModifierTheme` and `ModifierThemeSet` to customize the appearance of keys.
-    - Utilize the `bind` function to associate gestures with specific operations.
-
-4. **Test and Document**:
-    - Thoroughly test the new layout.
-    - Provide clear documentation for any custom classes or functions.
-
-# Function Documentation: `bind`
-
-## Overview
-
-The `bind` function is used to create a gesture for a custom keyboard. A gesture is a specific user action (like a swipe or tap) that performs a predefined operation. This function lets you define what happens when the gesture is recognized, including the visual appearance of the key and its behavior.
-
-## Parameters
-
-### `gestureType: GestureType`
-- **Description**: Specifies the type of gesture (e.g., swipe, tap) that the user will perform.
-- **Example**: `GestureType.SWIPE_UP`
-
-### `griddleOperation: GriddleOperation`
-- **Description**: Defines the operation that should be executed when the gesture is detected. This could be inserting text, executing a command, etc.
-- **Example**: `sendInput`
-
-### `appSymbol: AppSymbol?`
-- **Description**: An optional symbol associated with the gesture. If not provided, the `char` parameter will be used instead.
-- **Example**: `AppSymbol("★")`
-
-### `char: String?`
-- **Description**: The character to be input or displayed on the key when the gesture is recognized. Defaults to the value of `appSymbol` if provided.
-- **Example**: `"A"`
-
-### `threeStrings: Triple<String, String, String>`
-- **Description**: A set of three characters representing different states (e.g., normal, shifted, caps lock). This helps in displaying different characters based on the state of the keyboard.
-- **Example**: `Triple("a", "A", "AA")`
-
-### `foregroundColor: Color?`
-- **Description**: The color of the text or symbol on the key. If not set, it uses the default color.
-- **Example**: `Color.White`
-
-### `backgroundColor: Color?`
-- **Description**: The background color of the key. Defaults to transparent if not provided.
-- **Example**: `Color.Black`
-
-### `borderColor: Color?`
-- **Description**: The color of the key's border. If not specified, it will be transparent.
-- **Example**: `Color.Gray`
-
-### `fontSize: TextUnit?`
-- **Description**: The size of the text displayed on the key. Defaults to a size appropriate for the gesture type if not provided.
-- **Example**: `16.sp`
-
-### `modifierTheme: ModifierTheme?`
-- **Description**: Defines the visual theme of the gesture key, including text color, background color, and font size. If not provided, a default theme is used.
-- **Example**:
-  ```kotlin
-  ModifierTheme(
-      textColor = Color.White,
-      backgroundColor = Color.Black,
-      borderColor = Color.Gray,
-      fontSizeHint = 16.sp,
-      text = "A"
-  )
-
-# Class Documentation: `GriddleEnglishDefaultAlphaLayer`
-
-## Overview
-
-The `GriddleEnglishDefaultAlphaLayer` class represents the default alpha (letter) layer for the Griddle keyboard layout in English. It extends the `KeyboardLayer` class and configures how the alpha keys (letters) are displayed and behave on the keyboard.
-
-## Constructor
-
-The `GriddleEnglishDefaultAlphaLayer` class is initialized with the following parameters:
-
-- **`definition: LayerDefinition`**: Specifies that this layer is an alpha layer. The value is set to `LayerDefinition.ALPHA`.
-- **`gestureBoxBuilders: Set<GestureBoxBuilder>`**: A set of `GestureBoxBuilder` instances used to construct the `GestureBox`es for this layer.
-- **`borderColor: Color`**: The default color for the border of the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
-- **`backgroundColor: Color`**: The default background color for the layer. If not provided for a `GestureBox`, it defaults to `Color.Black`.
-- **`textColor: Color`**: The default color of the text on the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
-- **`fontSize: TextUnit`**: The default font size for the text on the layer. It is calculated using `EnglishDefaultBoard.defaultModifierTheme.calculateFontSize` based on the available space.
-- **`layerKind: LayerKind`**: Specifies the type of layer. For this class, it is set to `LayerDefinition.ALPHA`.
-
-## Companion Object
-
-### `boxBuilders`
-- **Description**: A set of `GestureBoxBuilder` instances used to construct the `GestureBox`es for this layer.
-- you can mix and match boxes from any layout, allowing multi-language boards.
-
-### `instance`
-- **Description**: A singleton instance of the `GriddleEnglishDefaultAlphaLayer` class.
-
-## Methods
-
-### `default()`
-- **Description**: Returns the singleton instance of the `GriddleEnglishDefaultAlphaLayer` class.
-- **Return Type**: `GriddleEnglishDefaultAlphaLayer`
-- **Usage**: This method provides a way to access the default instance of this layer, ensuring a consistent configuration across the application.
-
-## Usage Example
-
-To create a new instance of the `GriddleEnglishDefaultAlphaLayer` and use it in your keyboard setup, you can do the following:
-
-```kotlin
-val alphaLayer = GriddleEnglishDefaultAlphaLayer()
-
-List of GriddleOperations:
-- sendInput
-- deleteWordLeft
-- deleteWordRight
-- moveLeft
-- moveRight
-- moveUp
-- moveDown
-- copy
-- cut
-- paste
-- selectAll
-- undo
-- redo
-- `pressKey(keycode: Int, vararg modifierKeys: ModifierKeyKind)`
-- cycleShiftState
-
-
-helpful helpers in package (`org.galacticware.griddle.layouts.griddle.english.default`):
-- shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
+You can accomplish this by following these steps:
+- Create a directory lowercase-named `foobar` in your repository clone at `app/src/main/kotlin/com/galacticware/griddle/model/keyboard/builders/designs/foobar`
+- Within your new directory, create the directories `/buttonbuilders`, `/english` and `/shared`, then create all of these files:
+  - **`/buttonbuilders/FooBarEnglishBoardBuilder.kt`**: Defines fields to build a keyboard.
+  - **`/buttonbuilders/FooBarSharedButtonBuilders.kt`**: Defines buttons that are used on more than one layer.
+  - **`/english/FooBarAlphanumericEnglishLayerBuilder.kt`**: Defines fields to build buttons with English and numbers.
+- In the `FooBarEnglishButtonBuilders` file, amke an empty button named button_<rowStart>_<colStart> describing the location of each button.
+    These empty buttons can be reused to build finalized buttons in the correct location.
+  ```kt
+  val button_0_0 by lazy { gestureButton(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) }
+  val button_0_1 by lazy { gestureButton(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) }
+  val button_1_0 by lazy { gestureButton(rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) }
+  val button_1_1 by lazy { gestureButton(rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1) }
+  val button_2_0 by lazy { gestureButton(rowStart = 0, colStart = 2, rowSpan = 2, colSpan = 1) }
+  ```
+  This keyboard will have 2 rows and 3 columns - a 2x2 grid of board plus one a button on the right.
+- For each button builder you just made, and for each layer, create new buttons with meaningful names.
+  - Put buttons that only exist on the alpha layer in `FooBarEnglishButtonBuilders.kt`
+  - Put buttons that will be used on multiple layers in `FooBarSharedButtonBuilders.kt`
+      For example, a button that handles arrow keys and cursor movement:
+    ```kt
+    val cursorControlButton = button_0_0.replaceGesturesWith(
+      mutableSetOf(
+        bindGesture(SWIPE_LEFT, MoveLeft, appSymbol = AppSymbol.LEFT_ARROW),
+        bindGesture(BOOMERANG_LEFT, MoveWordLeft),
+        bindGesture(SWIPE_RIGHT, MoveRight, appSymbol = RIGHT_ARROW),
+        bindGesture(BOOMERANG_RIGHT, MoveWordRight),
+        pressKey(SWIPE_UP, KEYCODE_DPAD_UP, appSymbol = UP_ARROW),
+        pressKey(BOOMERANG_UP, KEYCODE_PAGE_UP, appSymbol = MOVE_PGUP),
+        pressKey(BOOMERANG_UP_RIGHT, KEYCODE_DPAD_UP, modifiers = setOf(control)),
+        pressKey(SWIPE_DOWN_RIGHT, KEYCODE_DPAD_RIGHT),
+        bindGesture(BOOMERANG_RIGHT, MoveWordRight),
+        pressKey(SWIPE_UP_LEFT, KEYCODE_DPAD_LEFT),
+        pressKey(SWIPE_DOWN_LEFT, KEYCODE_DPAD_LEFT),
+        bindGesture(BOOMERANG_LEFT, MoveWordLeft),
+        pressKey(SWIPE_DOWN, KEYCODE_DPAD_UP, appSymbol = DOWN_ARROW),
+        pressKey(BOOMERANG_DOWN, KEYCODE_PAGE_DOWN, appSymbol = MOVE_PGDN),
+        bindGesture(CIRCLE_CLOCKWISE, MoveEnd, threeStrings = triple(MOVE_END)),
+        bindGesture(CIRCLE_ANTI_CLOCKWISE, MoveHome, threeStrings = triple(MOVE_HOME)),
+      ),
+    )
+    ```
+- In each of the `FooBarAlphanumericEnglishLayerBuilder.kt` file, add the appropriate ButtonBuilders that you just made.
+    ```kt
+    object FooBarAlphanumericEnglishLayerBuilder : FooBarLayerBuilder() {
+        override val isPrimary: Boolean = false
+        override val keyboardHandedness = KeyboardHandedness(hasHandedness = true, pivotColumn = 1)
+        override val layerKind: LayerKind = LayerKind.UNIFIED_ALPHA_NUMERIC
+        override val languageTag = null
+        override val defalultSize: IntSize = IntSize(45, 35)
+    
+        override fun buttonBuilders(): MutableSet<GestureButtonBuilder> {
+            return setOf(
+                englishABCDEFGHI, englishJKLMNOPQR, englishSTUVWXYZ,
+                backspaceAndSpace, enter
+            ).plus(
+                setOf(
+                    button1234, button5678, button9,
+                    button0.withPosition(colStart = 0, colSpan = 3),
+                    // right-side buttons start at column <pivot column + 1> == 2
+                ).map { it.withPosition(colStart = 2 + it.gridPosition.colStart) }
+            ).toMutableSet()
+        }
+    }
+    ```
+  You can add more layers later on by creating another file like this one.
+- Now define the `builder/FooBarBoardBuilder.kt` file
+    ```kt
+    val FooBarEnglishBoardBuilder = { context: Context ->
+        Keyboard(
+            context,
+            name = "FooBarEnglishBoard",
+            layers = setOf(
+                FooBarEnglishLayerBuilder,
+                FooBarNumericLayerBuilder,
+                FooBarNumeroSymbolicLayerBuilder,
+                FooBarAlphanumericEnglishLayerBuilder,
+                FooBarFunctionLayerBuilder,
+            )
+            .map { it.build(context) }
+            .toMutableSet()
+        )
+    }
+    ```
+- That's it! You're ready to submit your new design for a PR! For details on advanced usage on all the helper methods you can call to build buttons, see the [Button Builder guide(TODO)].
