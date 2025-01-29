@@ -122,7 +122,6 @@ val unApplyShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
 val altLegends = triple(AppSymbol.ALT.value)
 val controlLegends = triple(AppSymbol.CONTROL.value)
 
-val DeleteWordLeft = DeleteWordLeftGesture.editorOperation
 val backspace by lazy {
     gestureButton(
         rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
