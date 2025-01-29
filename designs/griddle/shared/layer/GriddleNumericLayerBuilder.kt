@@ -1,18 +1,18 @@
-package com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared
+package com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer
 
 import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.model.gesture.GestureType.HOLD
 import com.galacticware.griddle.model.keybinder.KeyBinder.Companion.switchLayer
 import com.galacticware.griddle.model.keyboard.KeyboardHandedness
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.AlphabeticLayerToggle
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.backspace
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.cursorControlButton
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.enter
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.numericSpaceLeft
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder.numericSpaceRight
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.AlphabeticLayerToggle
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.backspace
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.cursorControlButton
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.enter
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceLeft
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceRight
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.keyboard.definition.theme.DEFAULT_SIZE
-import com.galacticware.griddle.model.layer.GriddleLayerBuilder
+import com.galacticware.griddle.model.keyboard.definition.designs.base.GriddleLayerBuilder
 
 object GriddleNumericLayerBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false

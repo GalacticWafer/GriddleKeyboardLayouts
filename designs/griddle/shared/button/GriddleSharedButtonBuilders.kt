@@ -1,4 +1,4 @@
-package com.galacticware.griddle.model.keyboard.definition.designs.griddle.builder
+package com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button
 
 import android.view.KeyEvent.KEYCODE_A
 import android.view.KeyEvent.KEYCODE_DEL
@@ -63,8 +63,9 @@ import com.galacticware.griddle.model.keybinder.KeyBinder.Companion.switchScreen
 import com.galacticware.griddle.model.keyboard.definition.designs.constant.IGNORE_SHIFT
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.modifier.AppModifierKey.Companion.control
-import com.galacticware.griddle.model.operation.implementation.noargs.backspace.SpamBackspace
+import com.galacticware.griddle.model.operation.implementation.noargs.backspace.Backspace
 import com.galacticware.griddle.model.operation.implementation.noargs.changeinputmethod.ChangeInputMethod
+import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.DeleteWordLeftGesture
 import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.MoveEnd
 import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.MoveHome
 import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.MoveLeft
@@ -83,7 +84,6 @@ import com.galacticware.griddle.model.operation.implementation.someargs.changemo
 import com.galacticware.griddle.model.operation.implementation.someargs.changeusersettings.ChangeUserSettingArgs.Companion.ToggleTurboMode
 import com.galacticware.griddle.model.operation.implementation.someargs.presskey.PressEnterKey
 import com.galacticware.griddle.model.operation.implementation.someargs.switchscreens.SwitchScreenArgs
-import com.galacticware.griddle.model.util.caseSensitive
 import com.galacticware.griddle.model.util.reversedCase
 import com.galacticware.griddle.model.util.triple
 
@@ -101,119 +101,144 @@ val button_2_0 by lazy { gestureButton(rowStart = 2, colStart = 0, rowSpan = 1, 
 val button_2_1 by lazy { gestureButton(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) }
 val button_2_2 by lazy { gestureButton(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) }
 
-val cursorControlButton = gestureButton(
-    rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        bindGesture(CLICK, NoOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
-        switchScreens(HOLD, SwitchScreenArgs.OpenBaseSettings),
-        pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
-        pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
-        changeUserSetting(SWIPE_UP, ToggleTurboMode),
-        switchLayer(CIRCLE_ANTI_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
-        switchLayer(CIRCLE_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
-    ),
-)
+val cursorControlButton by lazy {
+    gestureButton(
+        rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
+        gestureSet = mutableSetOf(
+            bindGesture(CLICK, NoOp, appSymbol = TOGGLE_SETTINGS, isIndicator = true),
+            switchScreens(HOLD, SwitchScreenArgs.OpenBaseSettings),
+            pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
+            pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
+            changeUserSetting(SWIPE_UP, ToggleTurboMode),
+            switchLayer(CIRCLE_ANTI_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
+            switchLayer(CIRCLE_CLOCKWISE, LayerKind.UNIFIED_ALPHA_NUMERIC),
+        ),
+    )
+}
 
-// you can define a triple of text that will be re-used in multiple gestures
+// you can define a triple of text that will be reused in multiple gestures
 val applyShiftLegends = Triple(SHIFT.value, CAPSLOCKED.value , UNSHIFTED.value)
 val unApplyShiftLegends = Triple(" ", UNSHIFTED.value, UNSHIFTED.value)
 val altLegends = triple(AppSymbol.ALT.value)
 val controlLegends = triple(AppSymbol.CONTROL.value)
 
-val backspace = gestureButton(
-    rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        bindGesture(HOLD, /*swapGesture(multiKey)*/SpamBackspace),
-        remappedSymbolLookup(CLICK, BACKSPACE)/*multiKey*/,
-        pressKey(SWIPE_LEFT, KEYCODE_DEL),
-        pressKey(SWIPE_UP_LEFT, KEYCODE_DEL),
-        pressKey(SWIPE_DOWN_LEFT, KEYCODE_DEL),
-        pressKey(BOOMERANG_LEFT, KEYCODE_DEL, setOf(control)),
-        pressKey(SWIPE_RIGHT, KEYCODE_FORWARD_DEL),
-        pressKey(SWIPE_UP_RIGHT, KEYCODE_FORWARD_DEL),
-        pressKey(SWIPE_DOWN_RIGHT, KEYCODE_FORWARD_DEL),
-        pressKey(BOOMERANG_RIGHT, KEYCODE_FORWARD_DEL, setOf(control))
-    ),
-)
+val DeleteWordLeft = DeleteWordLeftGesture.editorOperation
+val backspace by lazy {
+    gestureButton(
+        rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
+        gestureSet = mutableSetOf(
+            bindGesture(HOLD, Backspace),
+            remappedSymbolLookup(CLICK, BACKSPACE),
+            pressKey(SWIPE_LEFT, KEYCODE_DEL),
+            pressKey(SWIPE_UP_LEFT, KEYCODE_DEL),
+            pressKey(SWIPE_DOWN_LEFT, KEYCODE_DEL),
+            bindGesture(BOOMERANG_LEFT, Backspace, modifiers = setOf(control)),
+            pressKey(SWIPE_RIGHT, KEYCODE_FORWARD_DEL),
+            pressKey(SWIPE_UP_RIGHT, KEYCODE_FORWARD_DEL),
+            pressKey(SWIPE_DOWN_RIGHT, KEYCODE_FORWARD_DEL),
+            pressKey(BOOMERANG_RIGHT, KEYCODE_FORWARD_DEL, setOf(control))
+        ),
+    )
+}
 
-val AlphabeticLayerToggle = gestureButton(
-    rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        remappedSymbolLookup(SWIPE_UP, COPY),
-        remappedSymbolLookup(SWIPE_LEFT, CUT),
-        switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
-        remappedSymbolLookup(SWIPE_DOWN, PASTE),
-        bindGesture(SWIPE_DOWN_LEFT, ChangeInputMethod, appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD),
-        switchLayer(CLICK, LayerKind.ALPHA),
-        switchLayer(HOLD, LayerKind.NUMERIC),
-        bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
-        pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
-        pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
-        bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
-        switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
-    ),
-)
+val AlphabeticLayerToggle by lazy {
+    gestureButton(
+        rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
+        gestureSet = mutableSetOf(
+            remappedSymbolLookup(SWIPE_UP, COPY),
+            remappedSymbolLookup(SWIPE_LEFT, CUT),
+            switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
+            remappedSymbolLookup(SWIPE_DOWN, PASTE),
+            bindGesture(
+                SWIPE_DOWN_LEFT,
+                ChangeInputMethod,
+                appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD
+            ),
+            switchLayer(CLICK, LayerKind.ALPHA),
+            switchLayer(HOLD, LayerKind.NUMERIC),
+            bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
+            pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
+            pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
+            bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
+            switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
+        ),
+    )
+}
 
-val NumericLayerToggle = gestureButton(
-    rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        remappedSymbolLookup(SWIPE_UP, COPY),
-        remappedSymbolLookup(SWIPE_LEFT, CUT),
-        remappedSymbolLookup(SWIPE_DOWN, PASTE),
-        bindGesture(SWIPE_DOWN_LEFT, ChangeInputMethod, appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD),
-        switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
-        bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
-        switchLayer(CLICK, LayerKind.NUMERO_SYMBOLIC),
-        switchLayer(HOLD, LayerKind.NUMERIC),
-        bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
-        bindGesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
-        bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
-        switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
-    ),
-)
+val NumericLayerToggle by lazy {
+    gestureButton(
+        rowStart = 1, colStart = 3, rowSpan = 1, colSpan = 1,
+        gestureSet = mutableSetOf(
+            remappedSymbolLookup(SWIPE_UP, COPY),
+            remappedSymbolLookup(SWIPE_LEFT, CUT),
+            remappedSymbolLookup(SWIPE_DOWN, PASTE),
+            bindGesture(
+                SWIPE_DOWN_LEFT,
+                ChangeInputMethod,
+                appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD
+            ),
+            switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
+            bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
+            switchLayer(CLICK, LayerKind.NUMERO_SYMBOLIC),
+            switchLayer(HOLD, LayerKind.NUMERIC),
+            bindGesture(CIRCLE_ANTI_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
+            bindGesture(CIRCLE_CLOCKWISE, SelectAll, appSymbol = SELECT_ALL_TEXT),
+            bindGesture(SWIPE_DOWN_RIGHT, SpeechToText, appSymbol = MICROPHONE_CHAR),
+            switchScreens(BOOMERANG_DOWN, SwitchScreenArgs.OpenClipboard),
+        ),
+    )
+}
 
-val enter = gestureButton(
-    rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
-    gestureSet = mutableSetOf(
-        bindGesture(CLICK, PressEnterKey, appSymbol = GO),
-        changeModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
-        changeModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
-        changeModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
-        changeModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
-    ),
-)
+val enter by lazy {
+    gestureButton(
+        rowStart = 3, colStart = 3, rowSpan = 1, colSpan = 1,
+        gestureSet = mutableSetOf(
+            bindGesture(CLICK, PressEnterKey, appSymbol = GO),
+            changeModifier(SWIPE_UP_LEFT, ForwardCycleAlt),
+            changeModifier(BOOMERANG_UP_LEFT, ToggleAltRepeat),
+            changeModifier(SWIPE_UP_RIGHT, ForwardCycleControl),
+            changeModifier(BOOMERANG_UP_RIGHT, ToggleControlRepeat),
+        ),
+    )
+}
 
-val space = gestureButton(
-    rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
-    gestureSet = mutableSetOf(
-        pressKey(CLICK, KEYCODE_SPACE, respectShift = IGNORE_SHIFT),
-        switchLayer(SWIPE_DOWN_LEFT, LayerKind.FUNCTION),
-        bindGesture(HOLD, SimpleInput, threeStrings = reversedCase("0")),
-        bindGesture(SWIPE_LEFT, MoveLeft, appSymbol = AppSymbol.LEFT_ARROW),
-        bindGesture(BOOMERANG_LEFT, MoveWordLeft),
-        bindGesture(SWIPE_RIGHT, MoveRight, appSymbol = RIGHT_ARROW),
-        bindGesture(BOOMERANG_RIGHT, MoveWordRight),
-        pressKey(SWIPE_UP, KEYCODE_DPAD_UP, appSymbol = UP_ARROW),
-        pressKey(BOOMERANG_UP, KEYCODE_PAGE_UP, appSymbol = MOVE_PGUP),
-        pressKey(SWIPE_UP_RIGHT, KEYCODE_DPAD_UP),
-        pressKey(BOOMERANG_UP_RIGHT, KEYCODE_DPAD_UP, modifiers = setOf(control)),
-        pressKey(SWIPE_DOWN_RIGHT, KEYCODE_DPAD_RIGHT),
-        bindGesture(BOOMERANG_RIGHT, MoveWordRight),
-        pressKey(SWIPE_UP_LEFT, KEYCODE_DPAD_LEFT),
-        pressKey(SWIPE_DOWN_LEFT, KEYCODE_DPAD_LEFT),
-        bindGesture(BOOMERANG_LEFT, MoveWordLeft),
-        pressKey(SWIPE_DOWN, KEYCODE_DPAD_DOWN, appSymbol = DOWN_ARROW),
-        pressKey(BOOMERANG_DOWN, KEYCODE_PAGE_DOWN, appSymbol = MOVE_PGDN),
-        bindGesture(CIRCLE_CLOCKWISE, MoveEnd, threeStrings = triple(MOVE_END)),
-        bindGesture(CIRCLE_ANTI_CLOCKWISE, MoveHome, threeStrings = triple(MOVE_HOME)),
-    ),
-)
+val space by lazy {
+    gestureButton(
+        rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 3,
+        gestureSet = mutableSetOf(
+            pressKey(CLICK, KEYCODE_SPACE, respectShift = IGNORE_SHIFT),
+            switchLayer(SWIPE_DOWN_LEFT, LayerKind.FUNCTION),
+            bindGesture(HOLD, SimpleInput, threeStrings = reversedCase("0")),
+            bindGesture(SWIPE_LEFT, MoveLeft, appSymbol = AppSymbol.LEFT_ARROW),
+            bindGesture(BOOMERANG_LEFT, MoveWordLeft),
+            bindGesture(SWIPE_RIGHT, MoveRight, appSymbol = RIGHT_ARROW),
+            bindGesture(BOOMERANG_RIGHT, MoveWordRight),
+            pressKey(SWIPE_UP, KEYCODE_DPAD_UP, appSymbol = UP_ARROW),
+            pressKey(BOOMERANG_UP, KEYCODE_PAGE_UP, appSymbol = MOVE_PGUP),
+            pressKey(SWIPE_UP_RIGHT, KEYCODE_DPAD_UP),
+            pressKey(BOOMERANG_UP_RIGHT, KEYCODE_DPAD_UP, modifiers = setOf(control)),
+            pressKey(SWIPE_DOWN_RIGHT, KEYCODE_DPAD_RIGHT),
+            bindGesture(BOOMERANG_RIGHT, MoveWordRight),
+            pressKey(SWIPE_UP_LEFT, KEYCODE_DPAD_LEFT),
+            pressKey(SWIPE_DOWN_LEFT, KEYCODE_DPAD_LEFT),
+            bindGesture(BOOMERANG_LEFT, MoveWordLeft),
+            pressKey(SWIPE_DOWN, KEYCODE_DPAD_DOWN, appSymbol = DOWN_ARROW),
+            pressKey(BOOMERANG_DOWN, KEYCODE_PAGE_DOWN, appSymbol = MOVE_PGDN),
+            bindGesture(CIRCLE_CLOCKWISE, MoveEnd, threeStrings = triple(MOVE_END)),
+            bindGesture(CIRCLE_ANTI_CLOCKWISE, MoveHome, threeStrings = triple(MOVE_HOME)),
+        ),
+    )
+}
 
-val numericSpaceLeft = space
-    .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.value }
-    .withPosition(0, 3, 1, 1)
+val numericSpaceLeft by lazy {
+    space
+        .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.value }
+        .reposition(0, 3, 1, 1)
+}
 
-val numericSpaceRight = numericSpaceLeft
-    .withPosition(colStart = 2)
+val numericSpaceRight by lazy {
+    numericSpaceLeft
+        .reposition(colStart = 2)
+}
 
 
