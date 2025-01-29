@@ -84,7 +84,7 @@ You can accomplish this by following these steps:
     }
     ```
   You can add more layers later on by creating another file like this one.
-- Now define the `builder/FooBarBoardBuilder.kt` file
+- Now define the `builder/FooBarEnglishBoardBuilder.kt` file
     ```kt
     val FooBarEnglishBoardBuilder = { context: Context ->
         Keyboard(
