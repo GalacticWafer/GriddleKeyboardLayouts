@@ -24,7 +24,7 @@ object GriddleEnglishLayerBuilder: GriddleLayerBuilder() {
                 it.englishA, it.englishN, it.englishI, it.settingsButton,
                 it.englishH, it.englishO, it.englishR, it.NumericLayerToggle,
                 it.englishT, it.englishE, it.englishS, it.backspace,
-                it.space, it.enter, it.repeat
+                it.space3u, it.enter
             )
         }
     }

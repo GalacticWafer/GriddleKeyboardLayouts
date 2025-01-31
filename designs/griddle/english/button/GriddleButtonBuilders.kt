@@ -53,7 +53,6 @@ import com.galacticware.griddle.model.keybinder.AppSymbol.SETTINGS
 import com.galacticware.griddle.model.keybinder.AppSymbol.SHIFT
 import com.galacticware.griddle.model.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.model.keybinder.AppSymbol.TAB_RIGHT
-import com.galacticware.griddle.model.keybinder.AppSymbol.TOGGLE_SETTINGS
 import com.galacticware.griddle.model.keybinder.AppSymbol.UNSHIFTED
 import com.galacticware.griddle.model.keybinder.AppSymbol.UP_ARROW
 import com.galacticware.griddle.model.keybinder.KeyBinder.Companion.bindGesture
@@ -68,6 +67,7 @@ import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.modifier.AppModifierKey.Companion.control
 import com.galacticware.griddle.model.operation.implementation.noargs.accentchars.CycleAccentCharacters
 import com.galacticware.griddle.model.operation.implementation.noargs.backspace.Backspace
+import com.galacticware.griddle.model.operation.implementation.noargs.backspace.HotSwapControlBackspace
 import com.galacticware.griddle.model.operation.implementation.noargs.changeinputmethod.ChangeInputMethod
 import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.MoveEnd
 import com.galacticware.griddle.model.operation.implementation.noargs.cursorcontrol.MoveHome
@@ -346,11 +346,11 @@ object GriddleButtonBuilders {
             rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
             gestureSet = mutableSetOf(
                 bindGesture(HOLD, Backspace),
-                remappedSymbolLookup(CLICK, BACKSPACE),
+                remappedSymbolLookup(CLICK, BACKSPACE).apply { swapAssignment = bindGesture(CLICK, Repeat, appSymbol = REPEAT).assignment },
                 pressKey(SWIPE_LEFT, KEYCODE_DEL),
                 pressKey(SWIPE_UP_LEFT, KEYCODE_DEL),
                 pressKey(SWIPE_DOWN_LEFT, KEYCODE_DEL),
-                bindGesture(BOOMERANG_LEFT, Backspace, modifiers = setOf(control)),
+                bindGesture(BOOMERANG_LEFT, HotSwapControlBackspace),
                 pressKey(SWIPE_RIGHT, KEYCODE_FORWARD_DEL),
                 pressKey(SWIPE_UP_RIGHT, KEYCODE_FORWARD_DEL),
                 pressKey(SWIPE_DOWN_RIGHT, KEYCODE_FORWARD_DEL),
@@ -408,7 +408,7 @@ object GriddleButtonBuilders {
             ),
         )
     }
-    val space by lazy {
+    val space2u by lazy {
         gestureButton(
             rowStart = 3, colStart = 1, rowSpan = 1, colSpan = 2,
             gestureSet = mutableSetOf(
@@ -423,16 +423,19 @@ object GriddleButtonBuilders {
                 bindGesture(CIRCLE_ANTI_CLOCKWISE, MoveHome, threeStrings = triple(MOVE_HOME)),            ),
         )
     }
+    val space3u by lazy {
+        space2u.reposition(colStart = 0, colSpan = 3)
+    }
     val repeat by lazy {
         gestureButton(
-            rowStart = 3, colStart = 0, rowSpan = 1, colSpan = 1,
+            rowStart = 2, colStart = 3, rowSpan = 1, colSpan = 1,
             gestureSet = mutableSetOf(
                 bindGesture(CLICK, Repeat, appSymbol = REPEAT),
             )
         )
     }
     val numericSpaceLeft by lazy {
-        space
+        space2u
             .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.value }
             .reposition(0, 3, 1, 1)
     }

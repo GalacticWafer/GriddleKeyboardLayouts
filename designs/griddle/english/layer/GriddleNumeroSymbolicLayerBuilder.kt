@@ -16,7 +16,7 @@ object GriddleNumeroSymbolicLayerBuilder: GriddleLayerBuilder() {
     override val languageTag = null
     override val defalultSize: IntSize = DEFAULT_SIZE
 
-    val button0 by lazy { builders.space.reposition(rowStart = 3, colStart = 1).withGesture(simpleInput(CLICK, "0")) }
+    val button0 by lazy { builders.space2u.reposition(rowStart = 3, colStart = 1).withGesture(simpleInput(CLICK, "0")) }
     val button1 by lazy { builders.englishA.withoutLetters().withGesture(simpleInput(CLICK, "1")) }
     val button2 by lazy { builders.englishN.withoutLetters().withGesture(simpleInput(CLICK, "2")) }
     val button3 by lazy { builders.englishI.withoutLetters().withGesture(simpleInput(CLICK, "3")) }
