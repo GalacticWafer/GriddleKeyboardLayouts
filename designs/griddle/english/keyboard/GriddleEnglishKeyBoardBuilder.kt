@@ -5,9 +5,9 @@ import com.galacticware.griddle.model.keyboard.Keyboard
 import com.galacticware.griddle.model.keyboard.definition.designs.base.KeyboardBuilder
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleAlphanumericEnglishLayerBuilder
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleEnglishLayerBuilder
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleFunctionLayerBuilder
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumeroSymbolicLayerBuilder
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumeroSymbolicLayerBuilder
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleFunctionLayerBuilder
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer
+package com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer
 
 import android.view.KeyEvent.KEYCODE_F
 import android.view.KeyEvent.KEYCODE_F1
@@ -30,19 +30,14 @@ import com.galacticware.griddle.model.keybinder.AppSymbol.F9_SYMBOL
 import com.galacticware.griddle.model.keybinder.KeyBinder.Companion.bindGesture
 import com.galacticware.griddle.model.keyboard.KeyboardHandedness
 import com.galacticware.griddle.model.keyboard.definition.designs.base.GriddleLayerBuilder
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.AlphabeticLayerToggle
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.backspace
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.cursorControlButton
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.enter
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceLeft
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceRight
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button1
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button2
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button3
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button4
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button5
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button6
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button8
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.button.GriddleButtonBuilders as buttonBuilders
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button1
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button2
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button3
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button4
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button5
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button6
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button8
 import com.galacticware.griddle.model.keyboard.definition.theme.DEFAULT_SIZE
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.operation.implementation.someargs.presskey.PressKey
@@ -59,15 +54,15 @@ object GriddleFunctionLayerBuilder: GriddleLayerBuilder() {
     val f1 by lazy { makeFunctionButton(CLICK, PressKey, F1_SYMBOL, KEYCODE_F1, button1) }
     val f2 by lazy { makeFunctionButton(CLICK, PressKey, F2_SYMBOL, KEYCODE_F2, button2) }
     val f3 by lazy { makeFunctionButton(CLICK, PressKey, F3_SYMBOL, KEYCODE_F3, button3) }
-    val f4 by lazy { makeFunctionButton(CLICK, PressKey, F4_SYMBOL, KEYCODE_F4, cursorControlButton) }
+    val f4 by lazy { makeFunctionButton(CLICK, PressKey, F4_SYMBOL, KEYCODE_F4, buttonBuilders.settingsButton) }
     val f5 by lazy { makeFunctionButton(CLICK, PressKey, F5_SYMBOL, KEYCODE_F5, button4) }
     val f6 by lazy { makeFunctionButton(CLICK, PressKey, F6_SYMBOL, KEYCODE_F6, button5) }
     val f7 by lazy { makeFunctionButton(CLICK, PressKey, F7_SYMBOL, KEYCODE_F7, button6) }
-    val f8 by lazy { makeFunctionButton(CLICK, PressKey, F8_SYMBOL, KEYCODE_F8, AlphabeticLayerToggle) }
-    val f9 by lazy { makeFunctionButton(CLICK, PressKey, F9_SYMBOL, KEYCODE_F9, numericSpaceLeft) }
+    val f8 by lazy { makeFunctionButton(CLICK, PressKey, F8_SYMBOL, KEYCODE_F8, buttonBuilders.AlphabeticLayerToggle) }
+    val f9 by lazy { makeFunctionButton(CLICK, PressKey, F9_SYMBOL, KEYCODE_F9, buttonBuilders.numericSpaceLeft) }
     val f10 by lazy { makeFunctionButton(CLICK, PressKey, F10_SYMBOL, KEYCODE_F, button8) }
-    val f11 by lazy { makeFunctionButton(CLICK, PressKey, F11_SYMBOL, KEYCODE_F, numericSpaceRight) }
-    val f12 by lazy { makeFunctionButton(CLICK, PressKey, F12_SYMBOL, KEYCODE_F, enter) }
+    val f11 by lazy { makeFunctionButton(CLICK, PressKey, F11_SYMBOL, KEYCODE_F, buttonBuilders.numericSpaceRight) }
+    val f12 by lazy { makeFunctionButton(CLICK, PressKey, F12_SYMBOL, KEYCODE_F, buttonBuilders.enter) }
 
     private fun makeFunctionButton(
         click: GestureType,
@@ -84,9 +79,9 @@ object GriddleFunctionLayerBuilder: GriddleLayerBuilder() {
 
     override fun buttonBuilders() = mutableSetOf(
         f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12,
-        cursorControlButton,
-        AlphabeticLayerToggle,
-        backspace,
-        enter,
+        buttonBuilders.settingsButton,
+        buttonBuilders.AlphabeticLayerToggle,
+        buttonBuilders.backspace,
+        buttonBuilders.enter,
     )
 }

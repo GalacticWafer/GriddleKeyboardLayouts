@@ -4,16 +4,6 @@ import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.model.button.GestureButtonBuilder
 import com.galacticware.griddle.model.keyboard.KeyboardHandedness
 import com.galacticware.griddle.model.keyboard.definition.designs.base.GriddleLayerBuilder
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button0
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button1
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button2
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button3
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button4
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button5
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button6
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button7
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button8
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer.GriddleNumericLayerBuilder.button9
 import com.galacticware.griddle.model.keyboard.system.layerkind.AbstractKeyboardLayer
 import com.galacticware.griddle.model.layer.LayerKind
 
@@ -27,16 +17,17 @@ object GriddleAlphanumericEnglishLayerBuilder : GriddleLayerBuilder() {
     override val languageTag = null
     override val defalultSize: IntSize = IntSize(45, 35)
 
-    override fun buttonBuilders(): MutableSet<GestureButtonBuilder> {
-        return GriddleEnglishLayerBuilder.buttonBuilders()
-            .minus(button0).plus(button0.reposition(colStart = 0, colSpan = 3),
+    private val _buttonBuilders = GriddleEnglishLayerBuilder.buttonBuilders()
+        // button0 needs to be moved, so we need to remove the old version and add a new one.
+        .minus(GriddleNumericLayerBuilder.button0).plus(
+            GriddleNumericLayerBuilder.button0.reposition(colStart = 0, colSpan = 3),
         ).plus(
             setOf(
-                button1, button2, button3,
-                button4, button5, button6,
-                button7, button8, button9,
+                GriddleNumericLayerBuilder.buttonBuilders()
+                    .minus(GriddleNumericLayerBuilder.button0)
                 // right-side buttons start at column <pivot column + 1> == 4
-            ).map { it.reposition(colStart = 4 + it.gridPosition.colStart) }
+            ).flatten().map { it.reposition(colStart = 4 + it.gridPosition.colStart) }
         ).toMutableSet()
-    }
+
+    override fun buttonBuilders(): MutableSet<GestureButtonBuilder> = _buttonBuilders
 }

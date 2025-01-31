@@ -1,18 +1,13 @@
-package com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.layer
+package com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer
 
 import androidx.compose.ui.unit.IntSize
 import com.galacticware.griddle.model.gesture.GestureType.HOLD
 import com.galacticware.griddle.model.keybinder.KeyBinder.Companion.switchLayer
 import com.galacticware.griddle.model.keyboard.KeyboardHandedness
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.AlphabeticLayerToggle
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.backspace
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.cursorControlButton
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.enter
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceLeft
-import com.galacticware.griddle.model.keyboard.definition.designs.griddle.shared.button.numericSpaceRight
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.keyboard.definition.theme.DEFAULT_SIZE
 import com.galacticware.griddle.model.keyboard.definition.designs.base.GriddleLayerBuilder
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.button.GriddleButtonBuilders as buttonBuilders
 
 object GriddleNumericLayerBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false
@@ -36,11 +31,11 @@ object GriddleNumericLayerBuilder: GriddleLayerBuilder() {
         button1, button2, button3,
         button4, button5, button6,
         button7, button8, button9, button0,
-        cursorControlButton,
-        AlphabeticLayerToggle.withGesture(switchLayer(HOLD, LayerKind.NUMERO_SYMBOLIC)),
-        backspace,
-        enter,
-        numericSpaceLeft,
-        numericSpaceRight,
+        buttonBuilders.settingsButton,
+        buttonBuilders.AlphabeticLayerToggle.withGesture(switchLayer(HOLD, LayerKind.NUMERO_SYMBOLIC)),
+        buttonBuilders.backspace,
+        buttonBuilders.enter,
+        buttonBuilders.numericSpaceLeft,
+        buttonBuilders.numericSpaceRight,
     )
 }
