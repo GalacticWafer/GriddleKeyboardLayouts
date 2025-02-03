@@ -1,7 +1,9 @@
 package com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer
 
-import android.view.KeyEvent.KEYCODE_F
 import android.view.KeyEvent.KEYCODE_F1
+import android.view.KeyEvent.KEYCODE_F10
+import android.view.KeyEvent.KEYCODE_F11
+import android.view.KeyEvent.KEYCODE_F12
 import android.view.KeyEvent.KEYCODE_F2
 import android.view.KeyEvent.KEYCODE_F3
 import android.view.KeyEvent.KEYCODE_F4
@@ -37,7 +39,9 @@ import com.galacticware.griddle.model.keyboard.definition.designs.griddle.englis
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button4
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button5
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button6
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button7
 import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button8
+import com.galacticware.griddle.model.keyboard.definition.designs.griddle.english.layer.GriddleNumericLayerBuilder.button9
 import com.galacticware.griddle.model.keyboard.definition.theme.DEFAULT_SIZE
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.operation.implementation.someargs.presskey.PressKey
@@ -51,31 +55,32 @@ object GriddleFunctionLayerBuilder: GriddleLayerBuilder() {
     override val defalultSize: IntSize = DEFAULT_SIZE
 
 
-    val f1 by lazy { makeFunctionButton(CLICK, PressKey, F1_SYMBOL, KEYCODE_F1, button1) }
-    val f2 by lazy { makeFunctionButton(CLICK, PressKey, F2_SYMBOL, KEYCODE_F2, button2) }
-    val f3 by lazy { makeFunctionButton(CLICK, PressKey, F3_SYMBOL, KEYCODE_F3, button3) }
-    val f4 by lazy { makeFunctionButton(CLICK, PressKey, F4_SYMBOL, KEYCODE_F4, buttonBuilders.settingsButton) }
-    val f5 by lazy { makeFunctionButton(CLICK, PressKey, F5_SYMBOL, KEYCODE_F5, button4) }
-    val f6 by lazy { makeFunctionButton(CLICK, PressKey, F6_SYMBOL, KEYCODE_F6, button5) }
-    val f7 by lazy { makeFunctionButton(CLICK, PressKey, F7_SYMBOL, KEYCODE_F7, button6) }
-    val f8 by lazy { makeFunctionButton(CLICK, PressKey, F8_SYMBOL, KEYCODE_F8, buttonBuilders.AlphabeticLayerToggle) }
-    val f9 by lazy { makeFunctionButton(CLICK, PressKey, F9_SYMBOL, KEYCODE_F9, buttonBuilders.numericSpaceLeft) }
-    val f10 by lazy { makeFunctionButton(CLICK, PressKey, F10_SYMBOL, KEYCODE_F, button8) }
-    val f11 by lazy { makeFunctionButton(CLICK, PressKey, F11_SYMBOL, KEYCODE_F, buttonBuilders.numericSpaceRight) }
-    val f12 by lazy { makeFunctionButton(CLICK, PressKey, F12_SYMBOL, KEYCODE_F, buttonBuilders.enter) }
+    val f1 by lazy { makeFunctionButton(CLICK, F1_SYMBOL, KEYCODE_F1, button1) }
+    val f2 by lazy { makeFunctionButton(CLICK, F2_SYMBOL, KEYCODE_F2, button2) }
+    val f3 by lazy { makeFunctionButton(CLICK, F3_SYMBOL, KEYCODE_F3, button3) }
+    val f4 by lazy { makeFunctionButton(CLICK, F4_SYMBOL, KEYCODE_F4, button4) }
+    val f5 by lazy { makeFunctionButton(CLICK, F5_SYMBOL, KEYCODE_F5, button5) }
+    val f6 by lazy { makeFunctionButton(CLICK, F6_SYMBOL, KEYCODE_F6, button6) }
+    val f7 by lazy { makeFunctionButton(CLICK, F7_SYMBOL, KEYCODE_F7, button7) }
+    val f8 by lazy { makeFunctionButton(CLICK, F8_SYMBOL, KEYCODE_F8, button8) }
+    val f9 by lazy { makeFunctionButton(CLICK, F9_SYMBOL, KEYCODE_F9, button9) }
+    val f10 by lazy { makeFunctionButton(CLICK, F10_SYMBOL, KEYCODE_F10, button7.reposition(rowStart = 3)) }
+    val f11 by lazy { makeFunctionButton(CLICK, F11_SYMBOL, KEYCODE_F11, button8.reposition(rowStart = 3)) }
+    val f12 by lazy { makeFunctionButton(CLICK, F12_SYMBOL, KEYCODE_F12, button9.reposition(rowStart = 3)) }
 
     private fun makeFunctionButton(
-        click: GestureType,
-        pressKey: PressKey,
+        gestureType: GestureType,
         appSymbol: AppSymbol,
         keycode: Int,
         buttonWithCorrectPosition: GestureButtonBuilder,
-    ) = buttonWithCorrectPosition.replaceGesturesWith(bindGesture(
-        CLICK,
-        PressKey,
-        appSymbol = F4_SYMBOL,
-        keycode = KEYCODE_F4
-    ))
+    ) = buttonWithCorrectPosition.replaceGesturesWith(
+        bindGesture(
+            gestureType,
+            PressKey,
+            appSymbol = appSymbol,
+            keycode = keycode
+        )
+    )
 
     override fun buttonBuilders() = mutableSetOf(
         f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12,
