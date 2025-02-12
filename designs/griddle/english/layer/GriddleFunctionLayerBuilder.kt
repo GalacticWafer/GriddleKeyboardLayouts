@@ -45,7 +45,6 @@ import com.galacticware.griddle.model.keyboard.definition.designs.griddle.englis
 import com.galacticware.griddle.model.keyboard.definition.theme.DEFAULT_SIZE
 import com.galacticware.griddle.model.layer.LayerKind
 import com.galacticware.griddle.model.operation.implementation.someargs.presskey.PressKey
-data class X(val a:GestureButtonBuilder,val b:GestureButtonBuilder,val c:GestureButtonBuilder,val d:GestureButtonBuilder,val e:GestureButtonBuilder,val f:GestureButtonBuilder,val g:GestureButtonBuilder)
 
 object GriddleFunctionLayerBuilder: GriddleLayerBuilder() {
     override val isPrimary: Boolean = false

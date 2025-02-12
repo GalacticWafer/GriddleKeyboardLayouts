@@ -49,7 +49,7 @@ import com.galacticware.griddle.model.keybinder.AppSymbol.PASTE
 import com.galacticware.griddle.model.keybinder.AppSymbol.REPEAT
 import com.galacticware.griddle.model.keybinder.AppSymbol.RIGHT_ARROW
 import com.galacticware.griddle.model.keybinder.AppSymbol.SELECT_ALL_TEXT
-import com.galacticware.griddle.model.keybinder.AppSymbol.SETTINGS
+import com.galacticware.griddle.model.keybinder.AppSymbol.GLOBAL_SETTINGS
 import com.galacticware.griddle.model.keybinder.AppSymbol.SHIFT
 import com.galacticware.griddle.model.keybinder.AppSymbol.SWAP_HANDEDNESS
 import com.galacticware.griddle.model.keybinder.AppSymbol.TAB_RIGHT
@@ -331,7 +331,7 @@ object GriddleButtonBuilders {
         gestureButton(
             rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1,
             gestureSet = mutableSetOf(
-                bindGesture(CLICK, NoOp, appSymbol = SETTINGS, isIndicator = true),
+                bindGesture(CLICK, NoOp, appSymbol = GLOBAL_SETTINGS, isIndicator = true),
                 switchScreens(HOLD, SwitchScreenArgs.OpenBaseSettings),
                 pressKey(SWIPE_LEFT, KEYCODE_Z, setOf(control), IGNORE_SHIFT, AppSymbol.UNDO),
                 pressKey(SWIPE_RIGHT, KEYCODE_Y, setOf(control), IGNORE_SHIFT, AppSymbol.REDO),
@@ -369,6 +369,7 @@ object GriddleButtonBuilders {
                 bindGesture(SWIPE_DOWN_LEFT, ChangeInputMethod, appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD),
                 switchLayer(CLICK, LayerKind.ALPHA),
                 switchLayer(HOLD, LayerKind.NUMERIC),
+                switchScreens(SWIPE_UP_RIGHT, SwitchScreenArgs.OpenEmoji),
                 bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
                 pressKey(CIRCLE_ANTI_CLOCKWISE, KEYCODE_A, setOf(control)),
                 pressKey(CIRCLE_CLOCKWISE, KEYCODE_A, setOf(control)),
@@ -386,6 +387,7 @@ object GriddleButtonBuilders {
                 remappedSymbolLookup(SWIPE_DOWN, PASTE),
                 bindGesture(SWIPE_DOWN_LEFT, ChangeInputMethod, appSymbol = CHOOSE_DIFFERENT_INPUT_METHOD),
                 switchScreens(SWIPE_UP_LEFT, SwitchScreenArgs.OpenTextReplacementEditor),
+                switchScreens(SWIPE_UP_RIGHT, SwitchScreenArgs.OpenEmoji),
                 bindGesture(SWIPE_RIGHT, SwapHandedness, appSymbol = SWAP_HANDEDNESS),
                 switchLayer(CLICK, LayerKind.NUMERO_SYMBOLIC),
                 switchLayer(HOLD, LayerKind.NUMERIC),
@@ -436,7 +438,7 @@ object GriddleButtonBuilders {
     }
     val numericSpaceLeft by lazy {
         space2u
-            .withoutGesture { g: Gesture -> g.currentText == AppSymbol.SETTINGS.value }
+            .withoutGesture { g: Gesture -> g.currentText == AppSymbol.GLOBAL_SETTINGS.value }
             .reposition(0, 3, 1, 1)
     }
     val numericSpaceRight by lazy {
