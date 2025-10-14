@@ -41,7 +41,7 @@ abstract class CharSet(
      */
     open val layerTags: SortedSet<LayerTag> = layerTags.toList().plus(layerTag).toSortedSet()
 
-    val languageTag by lazy { layerTags.firstOrNull { it.isAlphabetic } }
+    val languageTag by lazy { this.layerTags.firstOrNull { it.isAlphabetic } }
     val isAlphabetical by lazy { languageTag != null }
 
     override val name get() = toString()

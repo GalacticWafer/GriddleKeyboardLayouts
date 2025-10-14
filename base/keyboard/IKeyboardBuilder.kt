@@ -19,7 +19,6 @@ interface IKeyboardBuilder: (IMEService) -> Keyboard {
     val keyboardColorScheme: IKeyboardColorScheme
 
     override fun invoke(imeService: IMEService) = Keyboard(
-        imeService,
         name,
         layers = sortedSetOf<LayerDefinable>().apply {
             addAll(layers.map { it(imeService) }.toMutableSet())
