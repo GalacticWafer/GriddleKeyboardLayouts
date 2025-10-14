@@ -1,234 +1,94 @@
-# Griddle Keyboard Contribution
+# Griddle Language Layer Contribution
 
-This document allows developers to contribute custom keyboard layouts for different languages to the IME project. Below is a guide to the open-source files, the classes and functions available in the API, and instructions for creating new keyboard layouts.
+This document allows people to contribute custom keyboard layouts for different languages.
 
-## Open Source Files Overview
+In Griddle, a "layer" is all the buttons you see at one time on the screen. You don't have to know how to code to declare your own language layer. Just follow these four steps:
 
-Griddle is partially open sourced, to allow programmers to create default layouts. These files define the default 
-layers and boards for the Griddle English keyboard. Developers can use these as templates or extend them for other languages:
-
-- **`GriddleEnglishAlphaLayer`**: Defines the default alphabetic layer.
-- **`GriddleEnglishBoard.kt`**: Defines the set of layers for the keyboard.
-- **`GriddleSharedKeys.kt`**: Manages key configurations and mappings.
-- **`GriddleEnglishKeys.kt`**: Manages key configurations and mappings.
-- **`GriddleEnglishDefaultUnifiedAlphaNumericLayer`**: Defines a unified alphanumeric layer, including both letters and numbers.
-- **`GriddleEnglishDefaultFunctionLayer`**: Handles function keys (e.g., Shift, Control).
-- **`GriddleEnglishDefaultNumericLayer`**: Manages the numeric keypad.
-
-## API Documentation for Developers
-
-### Class: `KeyboardLayer`
-Base class for creating keyboard layers. All layers (e.g., alpha, numeric) must extend this class.
-
-- **Property: `definition`**  
-  Defines the layer type (e.g., `ALPHA`, `NUMERIC`). Use `LayerDefinition.ALPHA` for alphabetic layers and `LayerDefinition.ALPHA_NUMERIC_UNIFIED` for layers that include both letters and numbers.
-
-- **Property: `gestureBoxBuilders`**  
-  Set of `GestureBoxBuilder` instances that define the gestures and their associated operations for this layer.
-
-- **Function: `default()`**  
-  Returns the singleton instance of the layer.
-
-### Class: `ModifierTheme`
-Defines the appearance and behavior of a gesture's visual representation.
-
-- **Function: `withText(s: String)`**  
-  Returns a copy of the `ModifierTheme`, updating the displayed text.
-
-- **Function: `withBoxBackgroundColor(color: Color)`**  
-  Returns a copy of the `ModifierTheme`, updating the background color.
-
-- **Function: `withTextSize(sp: TextUnit)`**  
-  Returns a copy of the `ModifierTheme`, updating the text size.
-
-### Class: `ModifierThemeSet`
-Manages themes for modifier keys across different states (e.g., `NONE`, `ONCE`, `REPEAT`).
-
-- **Function: `forModifierWithDefaultTheme(noneStateText: String, onceStateText: String, repeatStateText: String, kind: ModifierKeyKind)`**  
-  Creates a `ModifierThemeSet` with default themes for each state.
-
-- **Function: `withThemeForState(newColorSet: ModifierTheme, modifierKeyState: ModifierKeyState)`**  
-  Returns a copy of the `ModifierThemeSet` with an updated theme for the specified state.
-
-### Enum: `ModifierKeyKind`
-Defines the types of modifier keys (e.g., `SHIFT`, `CONTROL`, `ALT`).
-
-### Enum: `ModifierKeyState`
-Represents the state of a modifier key (e.g., `NONE`, `ONCE`, `REPEAT`).
-
-### Enum: `GestureType`
-Represents the 20 supported gestures on a MessagEase-style swipe keyboard.
-```kt
-enum class GestureType {
-    CLICK,
-    HOLD,
-    SWIPE_DOWN,
-    SWIPE_DOWN_LEFT,
-    SWIPE_DOWN_RIGHT,
-    SWIPE_LEFT,
-    SWIPE_RIGHT,
-    SWIPE_UP,
-    SWIPE_UP_LEFT,
-    SWIPE_UP_RIGHT,
-    BOOMERANG_DOWN,
-    BOOMERANG_DOWN_LEFT,
-    BOOMERANG_DOWN_RIGHT,
-    BOOMERANG_LEFT,
-    BOOMERANG_RIGHT,
-    BOOMERANG_UP,
-    BOOMERANG_UP_LEFT,
-    BOOMERANG_UP_RIGHT,
-    CIRCLE_CLOCKWISE,
-    CIRCLE_ANTI_CLOCKWISE,
-;
-```
-
-## Guidelines for Contributors
-
-To contribute a new keyboard layout, follow these steps:
-
-1. **Create a New Layer Class**:
-    - Extend `KeyboardLayer`.
-    - Set the `definition` property to the appropriate `LayerDefinition`.
-    - Define `gestureBoxBuilders` to specify the keys and gestures.
-
-2. **Customize the Board**:
-    - Extend the `Keyboard` class to define the board layout.
-    - Ensure the class name follows the convention `<LayoutName><Language>DefaultBoard`. Keep in mind that:
-      - all KeyboardLayer classes should be in the same package as the default board.
-      - If you don't like the button arrangements of the Griddle layout, the you can make a new one by creating a new
-        package in the `layouts` package and creating a new class that extends `Keyboard`
-      - All layouts must have:
-        - a unique <LayoutName>
-        - all alpha characters for the specified language available on the alpha layer
-        - all numeric characters for the specified language available on the numeric layer
-        - all function keys on the function layer
-        - all alpha and numeric characters on the unified alpha numeric layer
-      - The unified alphanumeric layer is not required, but it is recommended for ease of use.
-      - you can mix and match layers from any layout, allowing multi-language boards. 
-
-3. **Modify Themes and Gestures**:
-    - Use `ModifierTheme` and `ModifierThemeSet` to customize the appearance of keys.
-    - Utilize the `bind` function to associate gestures with specific operations.
-
-4. **Test and Document**:
-    - Thoroughly test the new layout.
-    - Provide clear documentation for any custom classes or functions.
-
-# Function Documentation: `bind`
-
-## Overview
-
-The `bind` function is used to create a gesture for a custom keyboard. A gesture is a specific user action (like a swipe or tap) that performs a predefined operation. This function lets you define what happens when the gesture is recognized, including the visual appearance of the key and its behavior.
-
-## Parameters
-
-### `gestureType: GestureType`
-- **Description**: Specifies the type of gesture (e.g., swipe, tap) that the user will perform.
-- **Example**: `GestureType.SWIPE_UP`
-
-### `griddleOperation: GriddleOperation`
-- **Description**: Defines the operation that should be executed when the gesture is detected. This could be inserting text, executing a command, etc.
-- **Example**: `sendInput`
-
-### `appSymbol: AppSymbol?`
-- **Description**: An optional symbol associated with the gesture. If not provided, the `char` parameter will be used instead.
-- **Example**: `AppSymbol("★")`
-
-### `char: String?`
-- **Description**: The character to be input or displayed on the key when the gesture is recognized. Defaults to the value of `appSymbol` if provided.
-- **Example**: `"A"`
-
-### `threeStrings: Triple<String, String, String>`
-- **Description**: A set of three characters representing different states (e.g., normal, shifted, caps lock). This helps in displaying different characters based on the state of the keyboard.
-- **Example**: `Triple("a", "A", "AA")`
-
-### `foregroundColor: Color?`
-- **Description**: The color of the text or symbol on the key. If not set, it uses the default color.
-- **Example**: `Color.White`
-
-### `backgroundColor: Color?`
-- **Description**: The background color of the key. Defaults to transparent if not provided.
-- **Example**: `Color.Black`
-
-### `borderColor: Color?`
-- **Description**: The color of the key's border. If not specified, it will be transparent.
-- **Example**: `Color.Gray`
-
-### `fontSize: TextUnit?`
-- **Description**: The size of the text displayed on the key. Defaults to a size appropriate for the gesture type if not provided.
-- **Example**: `16.sp`
-
-### `modifierTheme: ModifierTheme?`
-- **Description**: Defines the visual theme of the gesture key, including text color, background color, and font size. If not provided, a default theme is used.
-- **Example**:
-  ```kotlin
-  ModifierTheme(
-      textColor = Color.White,
-      backgroundColor = Color.Black,
-      borderColor = Color.Gray,
-      fontSizeHint = 16.sp,
-      text = "A"
-  )
-
-# Class Documentation: `GriddleEnglishDefaultAlphaLayer`
-
-## Overview
-
-The `GriddleEnglishDefaultAlphaLayer` class represents the default alpha (letter) layer for the Griddle keyboard layout in English. It extends the `KeyboardLayer` class and configures how the alpha keys (letters) are displayed and behave on the keyboard.
-
-## Constructor
-
-The `GriddleEnglishDefaultAlphaLayer` class is initialized with the following parameters:
-
-- **`definition: LayerDefinition`**: Specifies that this layer is an alpha layer. The value is set to `LayerDefinition.ALPHA`.
-- **`gestureBoxBuilders: Set<GestureBoxBuilder>`**: A set of `GestureBoxBuilder` instances used to construct the `GestureBox`es for this layer.
-- **`borderColor: Color`**: The default color for the border of the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
-- **`backgroundColor: Color`**: The default background color for the layer. If not provided for a `GestureBox`, it defaults to `Color.Black`.
-- **`textColor: Color`**: The default color of the text on the layer. If not provided for a `GestureBox`, it defaults to the `textColor` from `EnglishDefaultBoard.defaultModifierTheme`.
-- **`fontSize: TextUnit`**: The default font size for the text on the layer. It is calculated using `EnglishDefaultBoard.defaultModifierTheme.calculateFontSize` based on the available space.
-- **`layerKind: LayerKind`**: Specifies the type of layer. For this class, it is set to `LayerDefinition.ALPHA`.
-
-## Companion Object
-
-### `boxBuilders`
-- **Description**: A set of `GestureBoxBuilder` instances used to construct the `GestureBox`es for this layer.
-- you can mix and match boxes from any layout, allowing multi-language boards.
-
-### `instance`
-- **Description**: A singleton instance of the `GriddleEnglishDefaultAlphaLayer` class.
-
-## Methods
-
-### `default()`
-- **Description**: Returns the singleton instance of the `GriddleEnglishDefaultAlphaLayer` class.
-- **Return Type**: `GriddleEnglishDefaultAlphaLayer`
-- **Usage**: This method provides a way to access the default instance of this layer, ensuring a consistent configuration across the application.
-
-## Usage Example
-
-To create a new instance of the `GriddleEnglishDefaultAlphaLayer` and use it in your keyboard setup, you can do the following:
-
-```kotlin
-val alphaLayer = GriddleEnglishDefaultAlphaLayer()
-
-List of GriddleOperations:
-- sendInput
-- deleteWordLeft
-- deleteWordRight
-- moveLeft
-- moveRight
-- moveUp
-- moveDown
-- copy
-- cut
-- paste
-- selectAll
-- undo
-- redo
-- `pressKey(keycode: Int, vararg modifierKeys: ModifierKeyKind)`
-- cycleShiftState
-
-
-helpful helpers in package (`org.galacticware.griddle.layouts.griddle.english.default`):
-- shiftLegends = Triple(SHIFTED.value, CAPSLOCKED.value, UNSHIFTED.value)
+1. Rename a copy of [A4N7_EnglishButtons.kt](implementation/alpha4x4alnum7x4/A4N7_EnglishButtons.kt) `A4N7_Yourlanguage` (replace "Yourlanguage" with the name of your language, first letter capitalized.)
+2. Change the names of the buttons from `englishA` to `<yourlanguage><CenterKey>` where `<yourlanguage>` is the all lowercase name of your language, and `<Centerkey>` is the capitalized name of the language.
+3. To assign a gesture, choose a combination of button palette, gesture palette, gesture type, and operation
+    - **button palette** - describes the background color. Choose one of:
+        - MultiColorButtonTemplate
+        - BrightMonochromeTemplate
+        - DarkMonochromeTemplate
+    - **gesture palette** - describes the foreground color. Choose one of:
+        - CentralAlphanumericColor
+        - NonCentralAlphanumericColor
+        - PeripheralSymbolicColor
+        - BrightMonochromeColor
+        - DarkMonochromeColor
+        - NoColor
+    - **gesture type** - these are the possible gestures in Griddle. Choose one of:
+        - Click
+        - Hold
+        - SmallCircleClockwise
+        - BigCircleClockwise
+        - SmallCircleCounterClockwise
+        - BigCircleCounterClockwise
+        - ShortSwipeNorth
+        - LongSwipeNorth
+        - ShortSwipeSouth
+        - LongSwipeSouth
+        - ShortSwipeEast
+        - LongSwipeEast
+        - ShortSwipeWest
+        - LongSwipeWest
+        - ShortSwipeNorthEast
+        - LongSwipeNorthEast
+        - ShortSwipeSouthEast
+        - LongSwipeSouthEast
+        - ShortSwipeNorthWest
+        - LongSwipeNorthWest
+        - ShortSwipeSouthWest
+        - LongSwipeSouthWest
+        - ShortBoomerangNorth
+        - LongBoomerangNorth
+        - ShortBoomerangSouth
+        - LongBoomerangSouth
+        - ShortBoomerangEast
+        - LongBoomerangEast
+        - ShortBoomerangWest
+        - LongBoomerangWest
+        - ShortBoomerangNorthEast
+        - LongBoomerangNorthEast
+        - ShortBoomerangSouthEast
+        - LongBoomerangSouthEast
+        - ShortBoomerangNorthWest
+        - LongBoomerangNorthWest
+        - ShortBoomerangSouthWest
+        - LongBoomerangSouthWest
+    - **operation** - describes the actions that a gesture can invoke in Griddle. Choose one of:
+        - InsertText: Inserts up to 4 characters at the cursor position.
+        - KeyLegendLookup: Performs the action associated with a special key that doesn't have a single-character ASCII representation (such as Tab, Enter, or custom remapped keys).
+        - SwitchScreens: Opens a user-controllable screen, such as Text Replacements, Color options, or Gesture options.
+        - PressKey: Simulates a hardware key press (e.g., Enter, Tab, Arrow keys, etc.).
+        - Backspace: Deletes a character to the left of the cursor. Optimized for rapid or repeated deletion.
+        - DeleteWordLeft: Deletes entire words to the left of the cursor. Repeatable by clicking on the Settings key.
+        - ChangeInputMethod: Opens the system input method picker, allowing the user to switch to a different keyboard app.
+        - SpeechToText: Activates speech recognition, allowing the user to dictate text instead of typing.
+        - SwapHandedness: Switches the keyboard layout between left-handed and right-handed modes.
+        - ResizeBoard: Allows the user to move and resize the keyboard by dragging it on the screen.
+        - ChangeModifier: Changes the state of a modifier key (Shift, Ctrl, or Alt.) according to the specified action (e.g., apply one-shot, toggle, etc.). The user can choose which modifier and what action to apply.
+        - DeleteWordRight: Deletes entire words to the right of the cursor. Repeatable by clicking on the Settings key.
+        - SelectAll: Selects all text in the current input field.
+        - MoveLeft: Moves the cursor one character to the left. Repeatable by clicking on the Settings key.
+        - MoveRight: Moves the cursor one character to the right. Repeatable by clicking on the Settings key.
+        - MoveWordLeft: Moves the cursor one word to the left. Repeatable by clicking on the Settings key.
+        - MoveWordRight: Moves the cursor one word to the right. Repeatable by clicking on the Settings key.
+        - Undo: Undoes the last text operation. Repeatable by clicking on the Settings key.
+        - Redo: Redoes the last undone text operation. Repeatable by clicking on the Settings key.
+        - MoveHome: Moves the cursor to the beginning of the line or field.
+        - MoveUp: Moves the cursor up one line. Repeatable by clicking on the Settings key.
+        - MoveDown: Moves the cursor down one line. Repeatable by clicking on the Settings key.
+        - MoveEnd: Moves the cursor to the end of the line or field.
+        - MovePageUp: Moves the cursor up by one page. Repeatable by clicking on the Settings key.
+        - MovePageDown: Moves the cursor down by one page. Repeatable by clicking on the Settings key.
+        - ToggleGestureCorrection: Toggles gesture correction mode on or off.
+        - SwitchLanguage: Switches to the next or previous language layout.
+        - SwitchLayer: Switches to a different keyboard layer (such as symbols, numbers, or custom layouts).
+        - PressEnterKey: Presses the Enter key, context-sensitive (e.g., triggers 'Next', 'Go', or 'Enter' actions depending on the input field).
+        - SendNewLineFeed: Sends a literal new line (\n) character at the cursor position. Repeatable by clicking on the Settings key.
+        - PressTab: Presses the Tab key (moves focus to the next field or inserts a tab, depending on context). Repeatable by clicking on the Settings key.
+        - PressUnTab: Presses Shift+Tab (moves focus to the previous field or performs an un-indent, depending on context). Repeatable by clicking on the Settings key.
+        - SendTab: Sends a literal tab (\t) character at the cursor position. Repeatable by clicking on the Settings key.
+4. When you are satisfied with your button/gesture definitions, submit a [pull request](https://github.com/GalacticWafer/GriddleKeyboardLayouts/pulls)
