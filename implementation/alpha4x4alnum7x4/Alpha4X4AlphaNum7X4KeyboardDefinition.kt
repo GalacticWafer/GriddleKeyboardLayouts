@@ -1,23 +1,23 @@
-package com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4
+package com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4
 
 import androidx.compose.ui.unit.IntSize
-import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
-import com.galacticware.griddle.domain.design.base.collection.IButtonBuilderSet.Companion.toButtonBuilders
-import com.galacticware.griddle.domain.design.base.keyboard.AbstractKeyboardBuilder.Companion.getKeyboardBuilder
-import com.galacticware.griddle.domain.design.base.keyboard.AbstractKeyboardDefinition
-import com.galacticware.griddle.domain.design.base.keyboard.KeyboardKind
-import com.galacticware.griddle.domain.design.base.layer.AbstractLayerBuilder.Companion.getLayerBuilder
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.colemakoidAlphaLayerButtons
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.colemakoidSymbolicLayerButtons
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.englishAlphaLayerButtons
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.functionLayerButtons
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.numpadLayerButtons
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.symbolicLayerButtons
-import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
-import com.galacticware.griddle.domain.language.LayerTag.*
-import com.galacticware.griddle.domain.modifier.BasicDefaultColorPalettes
-import com.galacticware.griddle.domain.modifier.GestureColors
-import com.galacticware.griddle.domain.view.colorization.Hue
+import com.galacticwarev2.griddle.domain.design.base.collection.ButtonBuilders
+import com.galacticwarev2.griddle.domain.design.base.collection.IButtonBuilderSet.Companion.toButtonBuilders
+import com.galacticwarev2.griddle.domain.design.base.keyboard.AbstractKeyboardBuilder.Companion.getKeyboardBuilder
+import com.galacticwarev2.griddle.domain.design.base.keyboard.AbstractKeyboardDefinition
+import com.galacticwarev2.griddle.domain.design.base.keyboard.KeyboardKind
+import com.galacticwarev2.griddle.domain.design.base.layer.AbstractLayerBuilder.Companion.getLayerBuilder
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.colemakoidAlphaLayerButtons
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.colemakoidSymbolicLayerButtons
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.englishAlphaLayerButtons
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.functionLayerButtons
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.numpadLayerButtons
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition.symbolicLayerButtons
+import com.galacticwarev2.griddle.domain.keyboard.KeyboardHandedness
+import com.galacticwarev2.griddle.domain.language.LayerTag.*
+import com.galacticwarev2.griddle.domain.modifier.SimpleDefaultColorPalettes
+import com.galacticwarev2.griddle.domain.modifier.GestureColors
+import com.galacticwarev2.griddle.domain.view.colorization.Hue
 
 val DEFAULT_PRIMARY_THEME = GestureColors(
     textColorGroup = Hue.Gold,
@@ -25,7 +25,7 @@ val DEFAULT_PRIMARY_THEME = GestureColors(
     borderColorGroup = Hue.LightGray,
 )
 
-val defaultLayerColorization = BasicDefaultColorPalettes.random()
+val defaultLayerColorization = SimpleDefaultColorPalettes.Theme.entries.first().colorScheme
 
 val DEFAULT_SIZE = IntSize(90, 70)
 /**

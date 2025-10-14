@@ -1,54 +1,54 @@
-package com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4
+package com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4
 
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.dsl.invoke
-import com.galacticware.griddle.domain.gesture.Click
-import com.galacticware.griddle.domain.gesture.Hold
-import com.galacticware.griddle.domain.gesture.LongSwipeEast
-import com.galacticware.griddle.domain.gesture.LongSwipeNorth
-import com.galacticware.griddle.domain.gesture.LongSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.LongSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.LongSwipeWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorth
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouth
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeWest
-import com.galacticware.griddle.domain.gesture.SmallCircleClockwise
-import com.galacticware.griddle.domain.gesture.SmallCircleCounterClockwise
-import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.MultiColorButtonTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.CentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NoColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NonCentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.PeripheralSymbolicColor
-import com.galacticware.griddle.domain.model.util.caseSensitive
-import com.galacticware.griddle.domain.model.util.reversedCase
-import com.galacticware.griddle.domain.model.util.triple
-import com.galacticware.griddle.domain.operation.implementation.noargs.accentchars.CycleAccentCharacters
-import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveDown
-import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageDown
-import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageUp
-import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveUp
-import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ForwardCycleShift
-import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ReleaseShift
-import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ToggleShiftRepeat
-import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.child.PressTab
-import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.child.PressUnTab
-import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.child.SendNewLineFeed
+import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.dsl.invoke
+import com.galacticwarev2.griddle.domain.gesture.Click
+import com.galacticwarev2.griddle.domain.gesture.Hold
+import com.galacticwarev2.griddle.domain.gesture.LongSwipeEast
+import com.galacticwarev2.griddle.domain.gesture.LongSwipeNorth
+import com.galacticwarev2.griddle.domain.gesture.LongSwipeNorthWest
+import com.galacticwarev2.griddle.domain.gesture.LongSwipeSouthEast
+import com.galacticwarev2.griddle.domain.gesture.LongSwipeWest
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangEast
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangNorth
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangNorthEast
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangNorthWest
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangSouth
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangSouthEast
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangSouthWest
+import com.galacticwarev2.griddle.domain.gesture.ShortBoomerangWest
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeEast
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeNorth
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeNorthEast
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeNorthWest
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeSouth
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeSouthEast
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeSouthWest
+import com.galacticwarev2.griddle.domain.gesture.ShortSwipeWest
+import com.galacticwarev2.griddle.domain.gesture.SmallCircleClockwise
+import com.galacticwarev2.griddle.domain.gesture.SmallCircleCounterClockwise
+import com.galacticwarev2.griddle.domain.model.type.base.tag.AppSymbol
+import com.galacticwarev2.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.MultiColorButtonTemplate
+import com.galacticwarev2.griddle.domain.model.type.base.tag.GesturePaletteTemplate.CentralAlphanumericColor
+import com.galacticwarev2.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NoColor
+import com.galacticwarev2.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NonCentralAlphanumericColor
+import com.galacticwarev2.griddle.domain.model.type.base.tag.GesturePaletteTemplate.PeripheralSymbolicColor
+import com.galacticwarev2.griddle.domain.util.caseSensitive
+import com.galacticwarev2.griddle.domain.util.reversedCase
+import com.galacticwarev2.griddle.domain.util.triple
+import com.galacticwarev2.griddle.domain.operation.implementation.noargs.accentchars.CycleAccentCharacters
+import com.galacticwarev2.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveDown
+import com.galacticwarev2.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageDown
+import com.galacticwarev2.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageUp
+import com.galacticwarev2.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveUp
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ForwardCycleShift
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ReleaseShift
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ToggleShiftRepeat
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.presskey.child.PressTab
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.presskey.child.PressUnTab
+import com.galacticwarev2.griddle.domain.operation.implementation.someargs.presskey.child.SendNewLineFeed
 
 val englishA by lazy {
-    MultiColorButtonTemplate(rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English A", rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "a")
         }
@@ -56,7 +56,7 @@ val englishA by lazy {
             +ShortSwipeSouthEast.insertText(caseSensitive("v"))
         }
         use(PeripheralSymbolicColor) {
-            +ShortSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_SYMBOL)
+            +ShortSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
             +ShortSwipeEast.insertText(caseSensitive("-", "÷", "÷"))
             +ShortSwipeSouthWest.insertText(caseSensitive("$"))
         }
@@ -67,7 +67,7 @@ val englishA by lazy {
             +ShortBoomerangEast.insertText(reversedCase("÷", "-", "-"))
             +ShortBoomerangSouthWest.insertText(reversedCase("¢"))
             +ShortBoomerangSouthEast.insertText(reversedCase("V"))
-            +LongSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_SYMBOL)
+            +LongSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
             +SmallCircleClockwise.insertText(reversedCase("1"))
             +SmallCircleCounterClockwise.insertText(reversedCase("A"))
         }
@@ -75,7 +75,7 @@ val englishA by lazy {
 }
 
 val englishN by lazy {
-    MultiColorButtonTemplate(rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English N", rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "n")
         }
@@ -108,7 +108,7 @@ val englishN by lazy {
 }
 
 val englishI by lazy {
-    MultiColorButtonTemplate(rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English I", rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "i")
         }
@@ -138,7 +138,7 @@ val englishI by lazy {
 }
 
 val englishH by lazy {
-    MultiColorButtonTemplate(rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English H", rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "h")
         }
@@ -172,7 +172,7 @@ val englishH by lazy {
 }
 
 val englishO by lazy {
-    MultiColorButtonTemplate(rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,) {
+    MultiColorButtonTemplate("English O", rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "o")
         }
@@ -203,7 +203,7 @@ val englishO by lazy {
 }
 
 val englishR by lazy {
-    MultiColorButtonTemplate(rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English R", rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "r")
         }
@@ -238,7 +238,7 @@ val englishR by lazy {
 }
 
 val englishT by lazy {
-    MultiColorButtonTemplate(rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English T", rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "t")
         }
@@ -270,7 +270,7 @@ val englishT by lazy {
 }
 
 val englishE by lazy {
-    MultiColorButtonTemplate(rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English E", rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "e")
         }
@@ -303,7 +303,7 @@ val englishE by lazy {
 }
 
 val englishS by lazy {
-    MultiColorButtonTemplate(rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) {
+    MultiColorButtonTemplate("English S", rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "s")
         }
