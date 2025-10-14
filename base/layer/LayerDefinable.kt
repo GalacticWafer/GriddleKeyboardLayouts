@@ -1,21 +1,21 @@
-package com.galacticwarev2.griddle.domain.design.base.layer
+package com.galacticware.griddle.domain.design.base.layer
 
 import android.content.Context
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import com.galacticwarev2.griddle.domain.design.base.button.IButtonBuilder
-import com.galacticwarev2.griddle.domain.keyboard.KeyboardHandedness
-import com.galacticwarev2.griddle.domain.keyboard.KeyboardOffsetAndSize
-import com.galacticwarev2.griddle.domain.design.base.collection.ButtonBuilders
-import com.galacticwarev2.griddle.domain.geometry.GridPosition
-import com.galacticwarev2.griddle.domain.gesture.GestureData
-import com.galacticwarev2.griddle.domain.language.LayerTag
-import com.galacticwarev2.griddle.domain.layer.AppEntity
-import com.galacticwarev2.griddle.domain.layer.LayerModel
-import com.galacticwarev2.griddle.domain.model.gesture.GestureType
-import com.galacticwarev2.griddle.domain.model.type.base.tag.Colorable
-import com.galacticwarev2.griddle.domain.modifier.GestureColors
-import com.galacticwarev2.griddle.domain.registrar.LayerPositionRegistrationKey
+import com.galacticware.griddle.domain.design.base.button.IButtonBuilder
+import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
+import com.galacticware.griddle.domain.keyboard.KeyboardOffsetAndSize
+import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
+import com.galacticware.griddle.domain.geometry.GridPosition
+import com.galacticware.griddle.domain.gesture.GestureData
+import com.galacticware.griddle.domain.language.LayerTag
+import com.galacticware.griddle.domain.layer.AppEntity
+import com.galacticware.griddle.domain.layer.LayerModel
+import com.galacticware.griddle.domain.model.gesture.GestureType
+import com.galacticware.griddle.domain.model.type.base.tag.Colorable
+import com.galacticware.griddle.domain.modifier.GestureColors
+import com.galacticware.griddle.domain.registrar.LayerPositionRegistrationKey
 
 /**
  * Interface for all layers such that they all provide a singleton instance of their class, and

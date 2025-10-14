@@ -1,6 +1,6 @@
-package com.galacticwarev2.griddle.domain.design.base.collection
+package com.galacticware.griddle.domain.design.base.collection
 
-import com.galacticwarev2.griddle.domain.design.base.button.IButtonBuilder
+import com.galacticware.griddle.domain.design.base.button.IButtonBuilder
 
 open class ButtonBuilders(
     vararg buttonBuilders0: IButtonBuilder,

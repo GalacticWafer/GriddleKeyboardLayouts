@@ -1,11 +1,11 @@
-package com.galacticwarev2.griddle.domain.design.base.keyboard
+package com.galacticware.griddle.domain.design.base.keyboard
 
-import com.galacticwarev2.griddle.domain.design.base.layer.CharSet
-import com.galacticwarev2.griddle.domain.design.base.layer.CharSet.Companion.id
-import com.galacticwarev2.griddle.domain.language.LayerTag
-import com.galacticwarev2.griddle.domain.layer.EntityModel
-import com.galacticwarev2.griddle.domain.model.type.base.tag.VariantTypeTag
-import com.galacticwarev2.griddle.domain.util.toPascalCase
+import com.galacticware.griddle.domain.design.base.layer.CharSet
+import com.galacticware.griddle.domain.design.base.layer.CharSet.Companion.id
+import com.galacticware.griddle.domain.language.LayerTag
+import com.galacticware.griddle.domain.layer.EntityModel
+import com.galacticware.griddle.domain.model.type.base.tag.VariantTypeTag
+import com.galacticware.griddle.domain.util.toPascalCase
 import kotlinx.serialization.Serializable
 
 @Serializable

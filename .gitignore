@@ -1,5 +1,5 @@
 ../../../../../../../../release/baselineProfiles/
 ../../../../../../../../release/Griddle-1.1.21.apk
 implementation/.idea
-implementation/implementation.imlcom/galacticwarev2/griddle/domain/design/.gitignore
-com/galacticwarev2/griddle/domain/design/*
+implementation/implementation.imlcom/galacticware/griddle/domain/design/.gitignore
+com/galacticware/griddle/domain/design/*

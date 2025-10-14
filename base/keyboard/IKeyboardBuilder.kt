@@ -1,10 +1,10 @@
-package com.galacticwarev2.griddle.domain.design.base.keyboard
+package com.galacticware.griddle.domain.design.base.keyboard
 
-import com.galacticwarev2.griddle.domain.input.IMEService
-import com.galacticwarev2.griddle.domain.keyboard.Keyboard
-import com.galacticwarev2.griddle.domain.design.base.layer.ILayerBuilder
-import com.galacticwarev2.griddle.domain.design.base.layer.LayerDefinable
-import com.galacticwarev2.griddle.domain.model.type.base.tag.IKeyboardColorScheme
+import com.galacticware.griddle.domain.input.IMEService
+import com.galacticware.griddle.domain.keyboard.Keyboard
+import com.galacticware.griddle.domain.design.base.layer.ILayerBuilder
+import com.galacticware.griddle.domain.design.base.layer.LayerDefinable
+import com.galacticware.griddle.domain.model.type.base.tag.IKeyboardColorScheme
 
 /**
  * Define a contract for objects that build a [Keyboard].

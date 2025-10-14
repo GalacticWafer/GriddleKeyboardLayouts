@@ -1,13 +1,13 @@
-package com.galacticwarev2.griddle.domain.design.base.layer
+package com.galacticware.griddle.domain.design.base.layer
 
 import androidx.compose.ui.unit.IntSize
-import com.galacticwarev2.griddle.domain.keyboard.KeyboardHandedness
-import com.galacticwarev2.griddle.domain.design.base.collection.ButtonBuilders
-import com.galacticwarev2.griddle.domain.design.base.keyboard.KeyboardDefinable
-import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
-import com.galacticwarev2.griddle.domain.language.LayerTag
-import com.galacticwarev2.griddle.domain.modifier.GestureColors
-import com.galacticwarev2.griddle.domain.registrar.LayerRegistrar
+import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
+import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
+import com.galacticware.griddle.domain.design.base.keyboard.KeyboardDefinable
+import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
+import com.galacticware.griddle.domain.language.LayerTag
+import com.galacticware.griddle.domain.modifier.GestureColors
+import com.galacticware.griddle.domain.registrar.LayerRegistrar
 
 /**
  * This class has implementation sufficient to instantiate an [ILayerBuilder] object.

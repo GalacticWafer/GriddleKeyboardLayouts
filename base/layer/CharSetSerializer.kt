@@ -1,6 +1,6 @@
-package com.galacticwarev2.griddle.domain.design.base.layer
+package com.galacticware.griddle.domain.design.base.layer
 
-import com.galacticwarev2.griddle.domain.language.LayerTag
+import com.galacticware.griddle.domain.language.LayerTag
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.descriptors.SerialDescriptor

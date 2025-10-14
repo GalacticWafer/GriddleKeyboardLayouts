@@ -1,7 +1,7 @@
-package com.galacticwarev2.griddle.domain.design.base.keyboard
+package com.galacticware.griddle.domain.design.base.keyboard
 
-import com.galacticwarev2.griddle.domain.design.base.layer.ILayerBuilder
-import com.galacticwarev2.griddle.domain.model.type.base.tag.IKeyboardColorScheme
+import com.galacticware.griddle.domain.design.base.layer.ILayerBuilder
+import com.galacticware.griddle.domain.model.type.base.tag.IKeyboardColorScheme
 
 /**
  * This class has implementation sufficient to instantiate an [IKeyboardBuilder] object.

@@ -1,4 +1,4 @@
-package com.galacticwarev2.griddle.domain.design.base.button
+package com.galacticware.griddle.domain.design.base.button
 
 /**
  * This class has implementation sufficient to instantiate an [IButtonBuilder] object.

@@ -1,6 +1,6 @@
-package com.galacticwarev2.griddle.domain.design.base.layer
+package com.galacticware.griddle.domain.design.base.layer
 
-import com.galacticwarev2.griddle.domain.button.Button
+import com.galacticware.griddle.domain.button.Button
 
 data class ButtonDisplayInfo(
     val button: Button,

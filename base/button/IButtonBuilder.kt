@@ -1,23 +1,23 @@
-package com.galacticwarev2.griddle.domain.design.base.button
+package com.galacticware.griddle.domain.design.base.button
 
 import androidx.compose.ui.unit.IntSize
-import com.galacticwarev2.griddle.domain.button.Button
-import com.galacticwarev2.griddle.domain.button.ButtonBuilder
-import com.galacticwarev2.griddle.domain.button.ButtonModel
-import com.galacticwarev2.griddle.domain.design.base.layer.CharSet
-import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition
-import com.galacticwarev2.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
-import com.galacticwarev2.griddle.domain.geometry.GridPosition
-import com.galacticwarev2.griddle.domain.gesture.GestureBinding
-import com.galacticwarev2.griddle.domain.gesture.GestureBuilder
-import com.galacticwarev2.griddle.domain.gesture.GestureData
-import com.galacticwarev2.griddle.domain.keyboard.Keyboard
-import com.galacticwarev2.griddle.domain.layer.AppEntity
-import com.galacticwarev2.griddle.domain.model.gesture.GestureType
-import com.galacticwarev2.griddle.domain.model.type.base.tag.ButtonPaletteTemplate
-import com.galacticwarev2.griddle.domain.model.type.base.tag.Colorable
-import com.galacticwarev2.griddle.domain.model.type.base.tag.GesturePaletteTemplate
-import com.galacticwarev2.griddle.domain.modifier.GestureColors
+import com.galacticware.griddle.domain.button.Button
+import com.galacticware.griddle.domain.button.ButtonBuilder
+import com.galacticware.griddle.domain.button.ButtonModel
+import com.galacticware.griddle.domain.design.base.layer.CharSet
+import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition
+import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
+import com.galacticware.griddle.domain.geometry.GridPosition
+import com.galacticware.griddle.domain.gesture.GestureBinding
+import com.galacticware.griddle.domain.gesture.GestureBuilder
+import com.galacticware.griddle.domain.gesture.GestureData
+import com.galacticware.griddle.domain.keyboard.Keyboard
+import com.galacticware.griddle.domain.layer.AppEntity
+import com.galacticware.griddle.domain.model.gesture.GestureType
+import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate
+import com.galacticware.griddle.domain.model.type.base.tag.Colorable
+import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate
+import com.galacticware.griddle.domain.modifier.GestureColors
 
 interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
     val info: ButtonInfo
