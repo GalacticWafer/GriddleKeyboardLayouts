@@ -622,5 +622,5 @@ val colemakoid9 by lazy {
     }
 }
 
-val colemakoidAlphaLayerToggle = alphabeticLayerToggle.addAssignments(Click.switchLayer(Colemakoid()) to CentralAlphanumericColor)
-val colemakoidNumericLayerToggle = numericLayerToggle.addAssignments(Click.switchLayer(Colemakoid(Symbolic)) to CentralAlphanumericColor)
+val colemakoidAlphaLayerToggle = alphabeticLayerToggle.addAssignments(Click.switchLayer(Colemakoid) to CentralAlphanumericColor)
+val colemakoidNumericLayerToggle = numericLayerToggle.addAssignments(Click.switchLayer(Colemakoid, Symbolic) to CentralAlphanumericColor)

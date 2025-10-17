@@ -4,11 +4,10 @@ package com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.d
 import com.galacticware.griddle.domain.design.base.button.IButtonBuilder
 import com.galacticware.griddle.domain.design.base.button.IButtonBuilder.Companion.button
 import com.galacticware.griddle.domain.geometry.GridPosition
-import com.galacticware.griddle.domain.gesture.GestureBinding
+import com.galacticware.griddle.domain.design.base.gesture.GestureBinding
 import com.galacticware.griddle.domain.gesture.GestureData
 import com.galacticware.griddle.domain.model.gesture.GestureMagnitude
 import com.galacticware.griddle.domain.model.gesture.GestureType
-import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
 import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate
 import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate
 import kotlinx.serialization.Serializable

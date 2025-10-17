@@ -1,6 +1,7 @@
 package com.galacticware.griddle.domain.design.base.button
 
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
 import com.galacticware.griddle.domain.button.Button
 import com.galacticware.griddle.domain.button.ButtonBuilder
 import com.galacticware.griddle.domain.button.ButtonModel
@@ -8,7 +9,7 @@ import com.galacticware.griddle.domain.design.base.layer.CharSet
 import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition
 import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
 import com.galacticware.griddle.domain.geometry.GridPosition
-import com.galacticware.griddle.domain.gesture.GestureBinding
+import com.galacticware.griddle.domain.design.base.gesture.GestureBinding
 import com.galacticware.griddle.domain.gesture.GestureBuilder
 import com.galacticware.griddle.domain.gesture.GestureData
 import com.galacticware.griddle.domain.keyboard.Keyboard
@@ -47,6 +48,11 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
             info.name,
         )
     }
+
+
+    fun currentHeight(keyboard: Keyboard) = (rowSpan.toFloat() * keyboard.rowHeight).dp
+
+    fun currentWidth(keyboard: Keyboard) = (colSpan.toFloat() * keyboard.colWidth).dp
 
     operator fun get(prototype: GestureBuilder) = gestureMap[prototype.type]
 
