@@ -60,16 +60,15 @@ val englishA by lazy {
             +ShortSwipeEast.insertText(caseSensitive("-", "÷", "÷"))
             +ShortSwipeSouthWest.insertText(caseSensitive("$"))
         }
-
         use(NoColor) {
+            +LongSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
             +LongSwipeSouthEast.insertText(caseSensitive("v"))
-            +Hold.insertText(unpressedStateText = "1")
             +ShortBoomerangEast.insertText(reversedCase("÷", "-", "-"))
             +ShortBoomerangSouthWest.insertText(reversedCase("¢"))
             +ShortBoomerangSouthEast.insertText(reversedCase("V"))
-            +LongSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
             +SmallCircleClockwise.insertText(reversedCase("1"))
             +SmallCircleCounterClockwise.insertText(reversedCase("A"))
+            +Hold.insertText("1")
         }
     }
 }
@@ -91,9 +90,7 @@ val englishN by lazy {
             +ShortSwipeSouthWest.insertText(caseSensitive("/", "—", "—"))
             +ShortSwipeWest.insertText(caseSensitive("+", "×", "×"))
         }
-
         use(NoColor) {
-            +Hold.insertText(triple("2"))
             +ShortBoomerangNorth.insertText(caseSensitive("ˇ"))
             +ShortBoomerangNorthWest.insertText(caseSensitive("\\", "`", "`"))
             +ShortBoomerangEast.insertText(caseSensitive("¡", "!", "!"))
@@ -102,7 +99,8 @@ val englishN by lazy {
             +ShortBoomerangSouthWest.insertText(caseSensitive("—", "/", "/"))
             +ShortBoomerangWest.insertText(caseSensitive("×", "+", "+"))
             +SmallCircleClockwise.insertText(reversedCase("2"))
-            +SmallCircleCounterClockwise.insertText(reversedCase("n"))
+            +SmallCircleCounterClockwise.insertText(reversedCase("N"))
+            +Hold.insertText("2")
         }
     }
 }
@@ -112,27 +110,24 @@ val englishI by lazy {
         use(CentralAlphanumericColor) {
             +Click.insertText(unpressedStateText = "i")
         }
-
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthWest.insertText("x")
         }
-
         use(PeripheralSymbolicColor) {
             +ShortSwipeSouthEast.insertText(caseSensitive("€", "£", "£"))
             +ShortSwipeSouth.insertText(caseSensitive("=", "±", "±"))
             +ShortSwipeWest.insertText(caseSensitive("?", "¿", "¿"))
             +ShortSwipeNorth.repeat(MoveUp)
         }
-
         use(NoColor) {
+            +ShortBoomerangNorth.repeat(MovePageUp)
             +ShortBoomerangSouthEast.insertText(caseSensitive("£", "€", "€"))
             +ShortBoomerangSouth.insertText(caseSensitive("±", "=", "="))
             +ShortBoomerangSouthWest.insertText(reversedCase("X"))
             +ShortBoomerangWest.insertText(caseSensitive("¿", "?", "?"))
             +SmallCircleClockwise.insertText(reversedCase("3"))
-            +SmallCircleCounterClockwise.reversedCase(reversedCase("I"))
-            +ShortBoomerangNorth.repeat(MovePageUp)
-            +Hold.insertText(triple("3"))
+            +SmallCircleCounterClockwise.insertText(reversedCase("I"))
+            +Hold.insertText("3")
         }
     }
 }
@@ -166,7 +161,7 @@ val englishH by lazy {
             +LongSwipeNorth.changeModifier(ForwardCycleShift)
             +SmallCircleClockwise.insertText(reversedCase("4"))
             +SmallCircleCounterClockwise.insertText(reversedCase("H"))
-            +Hold.insertText(caseSensitive("4"))
+            +Hold.insertText("4")
         }
     }
 }
@@ -197,7 +192,7 @@ val englishO by lazy {
             +ShortBoomerangWest.insertText(reversedCase("C"))
             +SmallCircleCounterClockwise.insertText(reversedCase("O"))
             +SmallCircleClockwise.insertText(reversedCase("5"))
-            +Hold.insertText(reversedCase("5"))
+            +Hold.insertText("5")
         }
     }
 }
@@ -232,7 +227,7 @@ val englishR by lazy {
             +ShortBoomerangWest.insertText(reversedCase("M"))
             +SmallCircleClockwise.insertText(reversedCase("6"))
             +SmallCircleCounterClockwise.insertText(reversedCase("R"))
-            +Hold.insertText(reversedCase("6"))
+            +Hold.insertText("6")
         }
     }
 }
@@ -256,7 +251,6 @@ val englishT by lazy {
             +ShortSwipeSouthWest.assign(PressUnTab)
         }
         use(NoColor) {
-            +Hold.insertText(reversedCase("7"))
             +ShortBoomerangNorth.insertText("˝", "¨", "¨")
             +ShortBoomerangNorthEast.insertText(reversedCase("Y"))
             +ShortBoomerangEast.insertText("†", "*", "*")
@@ -265,6 +259,7 @@ val englishT by lazy {
             +ShortBoomerangSouthWest.repeat(PressTab)
             +SmallCircleClockwise.insertText(reversedCase("7"))
             +SmallCircleCounterClockwise.insertText(reversedCase("T"))
+            +Hold.insertText("7")
         }
     }
 }
@@ -297,7 +292,7 @@ val englishE by lazy {
             +ShortBoomerangWest.insertText(caseSensitive(","))
             +SmallCircleClockwise.insertText(reversedCase("8"))
             +SmallCircleCounterClockwise.insertText(reversedCase("E"))
-            +Hold.insertText(unpressedStateText = "8")
+            +Hold.insertText("8")
         }
     }
 }
@@ -324,9 +319,9 @@ val englishS by lazy {
             +ShortBoomerangWest.insertText(caseSensitive(" "))
             +ShortBoomerangSouth.repeat(MovePageDown)
             +ShortBoomerangEast.insertText("<", "<" ,">")
-            +SmallCircleCounterClockwise.insertText(reversedCase("S"))
             +SmallCircleClockwise.insertText(reversedCase("9"))
-            +Hold.insertText(caseSensitive("9"))
+            +SmallCircleCounterClockwise.insertText(reversedCase("S"))
+            +Hold.insertText("9")
         }
     }
 }
