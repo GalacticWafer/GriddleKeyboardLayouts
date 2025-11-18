@@ -137,7 +137,7 @@ object Alpha4X4AlphaNum7X4KeyboardDefinition: AbstractKeyboardDefinition() {
     }
 
     private fun shiftButtonsForAlphanumericLayer(builders: ButtonBuilders): ButtonBuilders
-    = ButtonBuilders(
+            = ButtonBuilders(
         settingsButton,
         alphabeticLayerToggle,
         backspace,
@@ -246,9 +246,9 @@ val ColemakoidSymbolic7X4LayerBuilder by lazy {
         keyboardDefinable = Alpha4X4AlphaNum7X4KeyboardDefinition,
         keyboardHandedness = Alpha4X4AlphaNum7X4KeyboardDefinition.alphanumeric7x4Handedness,
         buttonBuilders = symbolicLayerButtons
-                .map { it.at(colStart = it.colStart + 4) }
-                .plus(colemakoidAlphaLayerButtons)
-                .toButtonBuilders(),
+            .map { it.at(colStart = it.colStart + 4) }
+            .plus(colemakoidAlphaLayerButtons)
+            .toButtonBuilders(),
     )
 }
 

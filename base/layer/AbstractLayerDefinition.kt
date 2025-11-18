@@ -5,11 +5,15 @@ import com.galacticware.griddle.domain.button.Button
 import com.galacticware.griddle.domain.design.base.button.IButtonBuilder
 import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
 import com.galacticware.griddle.domain.design.base.collection.IButtonBuilderSet.Companion.toButtonBuilders
+import com.galacticware.griddle.domain.design.base.gesture.GestureBinding
+import com.galacticware.griddle.domain.geometry.GridPosition
+import com.galacticware.griddle.domain.gesture.GestureData
 import com.galacticware.griddle.domain.input.IMEService
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.keyboard.KeyboardOffsetAndSize
 import com.galacticware.griddle.domain.language.LayerTag
 import com.galacticware.griddle.domain.layer.LayerModel
+import com.galacticware.griddle.domain.model.gesture.GestureType
 import com.galacticware.griddle.domain.modifier.GestureColors
 import com.galacticware.griddle.domain.util.PreferencesHelper
 import kotlinx.serialization.Transient
@@ -30,7 +34,24 @@ abstract class AbstractLayerDefinition(
     override val layerTags: List<LayerTag>,
     override val languageLayerTag: LayerTag?,
 ): LayerDefinable {
-
+   override fun remap(position: GridPosition, type: GestureType, data: GestureData): LayerDefinable {
+        val incubator = GestureBinding.Incubator(
+            type,
+            data.operation,
+            data.modifiers,
+            data.modifierSets,
+            data.legend,
+            data.overrideMetaState,
+            data.argsJson,
+            data.hotSwapDuration,
+            data.hotSwapType?.first,
+        ) to data.paletteTemplate
+        val oldButton = buttonBuilders.first { it.gridPosition == position }
+        val newButton = oldButton.addAssignments(incubator)
+        return copy(
+            buttonBuilders.minus(oldButton).plus(newButton).toButtonBuilders()
+        )
+    }
     override val model: LayerModel
         get() = LayerModel(
             buttonBuilders.associate {
@@ -66,7 +87,7 @@ abstract class AbstractLayerDefinition(
                 heightRuler = it.size.height,
                 overrideTheme = it.overrideTheme,
                 builder = it,
-                buttonPaletteTemplate = it.buttonPaletteTag,
+                buttonPaletteTemplate = it.buttonPaletteTemplate,
             )
         }
             .associateWith { it.gestureMap }
@@ -113,20 +134,20 @@ abstract class AbstractLayerDefinition(
         name,
         charSet,
         layerTags,
-        layerTags.firstOrNull { it.isAlphabetic },
+        layerTags.firstOrNull { it.isAlphabet },
     ){}
 
-    override fun copy(builders: LinkedHashSet<IButtonBuilder>): LayerDefinable = object: AbstractLayerDefinition(
+    override fun copy(builders: ButtonBuilders): LayerDefinable = object: AbstractLayerDefinition(
         imeService,
         builders.toButtonBuilders(),
         keyboardHandedness,
-        defaultButtonSize, 
+        defaultButtonSize,
         defaultGestureColors,
         isPrimary,
         name,
         charSet,
         layerTags,
-        layerTags.firstOrNull { it.isAlphabetic },
+        layerTags.firstOrNull { it.isAlphabet },
     ){}
 
     override val maxColWidth: Int

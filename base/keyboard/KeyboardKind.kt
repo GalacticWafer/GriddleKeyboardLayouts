@@ -47,7 +47,7 @@ sealed class KeyboardKind(
      * layer tags. This is how we manage support for boards with various logical groupings of both
      * keys and charsets.
      */
-    private val alphaLayerChecker = { it: CharSet -> it.layerTags.first().isAlphabetic }
+    private val alphaLayerChecker = { it: CharSet -> it.layerTags.first().isAlphabet }
     private val symbolLayerChecker = { it: CharSet -> it == id(LayerTag.Symbolic) }
     private val numpadLayerChecker = { it: CharSet -> it == id(LayerTag.Numpad) }
     private val functionLayerChecker = { it: CharSet -> it == id(LayerTag.Function) }

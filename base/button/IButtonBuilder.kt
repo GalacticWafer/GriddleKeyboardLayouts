@@ -8,16 +8,16 @@ import com.galacticware.griddle.domain.design.base.layer.CharSet
 import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.Alpha4X4AlphaNum7X4KeyboardDefinition
 import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.DEFAULT_SIZE
 import com.galacticware.griddle.domain.geometry.GridPosition
-import com.galacticware.griddle.domain.gesture.GestureBinding
-import com.galacticware.griddle.domain.gesture.GestureBuilder
+import com.galacticware.griddle.domain.design.base.gesture.GestureBuilder
 import com.galacticware.griddle.domain.gesture.GestureData
-import com.galacticware.griddle.domain.keyboard.Keyboard
 import com.galacticware.griddle.domain.layer.AppEntity
 import com.galacticware.griddle.domain.model.gesture.GestureType
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.Colorable
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate
+import com.galacticware.griddle.domain.visual.ButtonPaletteTemplate
+import com.galacticware.griddle.domain.visual.Colorable
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate
 import com.galacticware.griddle.domain.modifier.GestureColors
+import com.galacticware.griddle.domain.design.base.gesture.GestureBinding
+import com.galacticware.griddle.domain.design.base.gesture.ViewModelUser
 
 interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
     val info: ButtonInfo
@@ -34,7 +34,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
     val gestureMap: MutableMap<GestureType, GestureData> get() = info.gestureMap
     val size: IntSize get() = info.size
     val overrideTheme: GestureColors get() = info.overrideTheme
-    val buttonPaletteTag: ButtonPaletteTemplate
+    val buttonPaletteTemplate: ButtonPaletteTemplate
 
     override val model: ButtonModel get() {
 
@@ -43,7 +43,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
             gestureMap.toMutableModelMap { Pair(it.key, it.value.model) },
             size,
             overrideTheme,
-            buttonPaletteTag,
+            buttonPaletteTemplate,
             info.name,
         )
     }
@@ -185,7 +185,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
 
     fun copy(
         gestureMap: MutableMap<GestureType, GestureData> = this.gestureMap.entries.associate { it.key.copy() to it.value.copy() }.toMutableMap(),
-        paletteType: ButtonPaletteTemplate = this.buttonPaletteTag,
+        paletteType: ButtonPaletteTemplate = this.buttonPaletteTemplate,
         size: IntSize = this.size,
         gridPosition: GridPosition = this.gridPosition,
         overrideTheme: GestureColors = this.overrideTheme,
@@ -195,7 +195,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
         gestureSet = gestureMap,
         size = IntSize(size.width, size.height),
         overrideTheme = overrideTheme.copy(),
-        buttonPaletteTag = paletteType,
+        buttonPaletteTemplate = paletteType,
         name = name,
     )
 
@@ -210,12 +210,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
         }.toMutableMap()
     )
 
-    fun remap(type: GestureType, data: GestureData) {
-        gestureMap[type] = data
-        Keyboard.isRedrawRequested = true
-    }
-
-    companion object {
+    companion object : ViewModelUser() {
         fun button(
             buttonPaletteTemplate: ButtonPaletteTemplate,
             rowStart: Int,
@@ -228,7 +223,7 @@ interface IButtonBuilder: AppEntity<ButtonModel>, Colorable, () -> Button {
             gridPosition = GridPosition(rowStart = rowStart, colStart = colStart, rowSpan = rowSpan, colSpan = colSpan),
             size = DEFAULT_SIZE,
             overrideTheme = Alpha4X4AlphaNum7X4KeyboardDefinition.defaultGestureColors,
-            buttonPaletteTag = buttonPaletteTemplate,
+            buttonPaletteTemplate = buttonPaletteTemplate,
             gestureSet = gestureMap,
             name = name,
         ) as IButtonBuilder

@@ -15,32 +15,29 @@ import android.view.KeyEvent.KEYCODE_F9
 import android.view.KeyEvent.KEYCODE_SPACE
 import com.galacticware.griddle.domain.design.base.IGNORE_SHIFT
 import com.galacticware.griddle.domain.design.base.button.IButtonBuilder
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.dsl.invoke
-import com.galacticware.griddle.domain.gesture.Click
+import com.galacticware.griddle.domain.design.base.gesture.Click
 import com.galacticware.griddle.domain.gesture.GestureData
-import com.galacticware.griddle.domain.gesture.Hold
-import com.galacticware.griddle.domain.gesture.HotSwapGestureType
-import com.galacticware.griddle.domain.gesture.LongBoomerangEast
-import com.galacticware.griddle.domain.gesture.LongBoomerangWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorth
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouth
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeWest
-import com.galacticware.griddle.domain.gesture.SmallCircleClockwise
-import com.galacticware.griddle.domain.gesture.SmallCircleCounterClockwise
+import com.galacticware.griddle.domain.design.base.gesture.Hold
+import com.galacticware.griddle.domain.design.base.gesture.LongBoomerangEast
+import com.galacticware.griddle.domain.design.base.gesture.LongBoomerangWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeWest
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleClockwise
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleCounterClockwise
 import com.galacticware.griddle.domain.language.LayerTag.English
-import com.galacticware.griddle.domain.language.LayerTag.Function
 import com.galacticware.griddle.domain.language.LayerTag.Hybrid
 import com.galacticware.griddle.domain.language.LayerTag.Numpad
 import com.galacticware.griddle.domain.language.LayerTag.Symbolic
@@ -61,12 +58,12 @@ import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol.F9_KEY_LEGE
 import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol.GO_TO_GLOBAL_SETTINGS_SYMBOL
 import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol.MICROPHONE_CHAR_SYMBOL
 import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol.SWAP_HANDEDNESS_LEGEND
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.BrightMonochromeTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.DarkMonochromeTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.BrightMonochromeColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.CentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.DarkMonochromeColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NoColor
+import com.galacticware.griddle.domain.visual.ButtonPaletteTemplate.BrightMonochromeTemplate
+import com.galacticware.griddle.domain.visual.ButtonPaletteTemplate.DarkMonochromeTemplate
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.BrightMonochromeColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.CentralAlphanumericColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.DarkMonochromeColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.NoColor
 import com.galacticware.griddle.domain.modifier.ModifierCycleDirection
 import com.galacticware.griddle.domain.operation.implementation.noargs.backspace.Backspace
 import com.galacticware.griddle.domain.operation.implementation.noargs.backspace.Delete
@@ -85,14 +82,13 @@ import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcon
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.Redo
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.SelectAll
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.Undo
-import com.galacticware.griddle.domain.operation.implementation.noargs.noop.NoOp
 import com.galacticware.griddle.domain.operation.implementation.noargs.speechtotext.SpeechToText
 import com.galacticware.griddle.domain.operation.implementation.noargs.swaphandedness.SwapHandedness
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ForwardCycleAlt
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ForwardCycleControl
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ToggleAltRepeat
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ToggleControlRepeat
-import com.galacticware.griddle.domain.operation.implementation.someargs.changeusersettings.ToggleGestureCorrection
+import com.galacticware.griddle.domain.operation.implementation.noargs.changeusersettings.ToggleGestureCorrection
 import com.galacticware.griddle.domain.operation.implementation.someargs.inserttext.InsertText
 import com.galacticware.griddle.domain.operation.implementation.someargs.presskey.child.PressEnterKey
 import com.galacticware.griddle.domain.operation.implementation.someargs.switchscreens.SwitchScreenArgs
@@ -100,7 +96,7 @@ import com.galacticware.griddle.domain.operation.implementation.someargs.switchs
 val settingsButton by lazy {
     DarkMonochromeTemplate("Settings", rowStart = 0, colStart = 3, rowSpan = 1, colSpan = 1) {
         use(DarkMonochromeColor) {
-            +Click.assign(NoOp, legend = GO_TO_GLOBAL_SETTINGS_SYMBOL, hotSwapType = HotSwapGestureType.LISTENER)
+            +Click.listen(GO_TO_GLOBAL_SETTINGS_SYMBOL)
             +Hold.switchScreens(SwitchScreenArgs.OpenBaseSettings)
             +ShortSwipeWest.repeat(Undo)
             +ShortSwipeEast.repeat(Redo)
@@ -207,7 +203,7 @@ val space2u by lazy {
             +ShortSwipeEast.repeat(MoveRight)
             +ShortSwipeSouth.switchLanguage()
         }
-         use(NoColor) {
+        use(NoColor) {
             +ShortBoomerangSouth.switchLanguage()
             +ShortBoomerangWest.repeat(MoveWordLeft)
             +ShortBoomerangEast.repeat(MoveWordRight)
@@ -216,7 +212,7 @@ val space2u by lazy {
             +SmallCircleClockwise.insertText("0")
             +SmallCircleCounterClockwise.insertText("0")
             +Hold.assign(InsertText, string1 = "")
-         }
+        }
     }
 }
 

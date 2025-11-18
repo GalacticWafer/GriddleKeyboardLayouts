@@ -5,7 +5,7 @@ import com.galacticware.griddle.domain.input.IMEService
 import com.galacticware.griddle.domain.keyboard.KeyboardHandedness
 import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
 import com.galacticware.griddle.domain.language.LayerTag
-import com.galacticware.griddle.domain.model.type.base.tag.Colorable
+import com.galacticware.griddle.domain.visual.Colorable
 import com.galacticware.griddle.domain.modifier.GestureColors
 import com.galacticware.griddle.domain.util.toPascalCase
 interface ButtonColorable: Colorable, (IMEService) -> LayerDefinable
@@ -42,7 +42,7 @@ interface ILayerBuilder: ButtonColorable {
         charSet = this@ILayerBuilder.charSet,
         layerTags = layerTags,
         defaultGestureColors = defaultGestureColors,
-        languageLayerTag = layerTags.firstOrNull { it.isAlphabetic },
+        languageLayerTag = layerTags.firstOrNull { it.isAlphabet },
     ){}
 
     fun copy(

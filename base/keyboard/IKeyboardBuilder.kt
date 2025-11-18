@@ -4,7 +4,7 @@ import com.galacticware.griddle.domain.input.IMEService
 import com.galacticware.griddle.domain.keyboard.Keyboard
 import com.galacticware.griddle.domain.design.base.layer.ILayerBuilder
 import com.galacticware.griddle.domain.design.base.layer.LayerDefinable
-import com.galacticware.griddle.domain.model.type.base.tag.IKeyboardColorScheme
+import com.galacticware.griddle.domain.visual.IKeyboardColorScheme
 
 /**
  * Define a contract for objects that build a [Keyboard].
@@ -35,5 +35,5 @@ interface IKeyboardBuilder: (IMEService) -> Keyboard {
         vararg builders: ILayerBuilder
     ) : IKeyboardBuilder = replaceLanguageLayersWith(name, builder, *builders)
 
-    fun copy(name: String, kind: KeyboardKind, layers: LinkedHashSet<ILayerBuilder>, keyboardColorScheme: IKeyboardColorScheme): IKeyboardBuilder
+    fun copy(name: String, kind: KeyboardKind, layers: LinkedHashSet<ILayerBuilder>, keyboardColorScheme: IKeyboardColorScheme, doRegister: Boolean): IKeyboardBuilder
 }

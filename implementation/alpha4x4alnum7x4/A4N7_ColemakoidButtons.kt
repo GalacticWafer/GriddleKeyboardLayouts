@@ -3,41 +3,39 @@ package com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4
 import android.view.KeyEvent.KEYCODE_DPAD_DOWN
 import android.view.KeyEvent.KEYCODE_DPAD_UP
 import com.galacticware.griddle.domain.design.base.IGNORE_SHIFT
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.dsl.invoke
-import com.galacticware.griddle.domain.gesture.Click
-import com.galacticware.griddle.domain.gesture.Hold
-import com.galacticware.griddle.domain.gesture.LongSwipeSouth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorth
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouth
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeWest
-import com.galacticware.griddle.domain.gesture.SmallCircleClockwise
-import com.galacticware.griddle.domain.gesture.SmallCircleCounterClockwise
+import com.galacticware.griddle.domain.design.base.gesture.Click
+import com.galacticware.griddle.domain.design.base.gesture.Hold
+import com.galacticware.griddle.domain.design.base.gesture.LongSwipeSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeWest
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleClockwise
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleCounterClockwise
 import com.galacticware.griddle.domain.language.LayerTag.Colemakoid
 import com.galacticware.griddle.domain.language.LayerTag.Symbolic
 import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.MultiColorButtonTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.CentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NoColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NonCentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.PeripheralSymbolicColor
+import com.galacticware.griddle.domain.visual.ButtonPaletteTemplate.MultiColorButtonTemplate
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.CentralAlphanumericColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.NoColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.NonCentralAlphanumericColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.PeripheralSymbolicColor
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
 import com.galacticware.griddle.domain.util.triple
 import com.galacticware.griddle.domain.modifier.AppModifierKey.Companion.control
-import com.galacticware.griddle.domain.operation.implementation.noargs.accentchars.CycleAccentCharacters
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageUp
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveUp
 import com.galacticware.griddle.domain.operation.implementation.someargs.changemodifier.ChangeModifierArgs.Companion.ForwardCycleShift
@@ -52,7 +50,7 @@ import com.galacticware.griddle.domain.operation.implementation.someargs.presske
 val colemakoidA by lazy {
     MultiColorButtonTemplate("Colemakoid A", rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "a")
+            +Click.insertText("a")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthEast.insertText(caseSensitive("q"))
@@ -62,15 +60,14 @@ val colemakoidA by lazy {
             +ShortSwipeNorth.insertText("¨")
             +ShortSwipeSouth.insertText("•")
             +ShortSwipeSouthWest.insertText("|")
-            +ShortSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
+            +ShortSwipeNorthWest.cycleAccentCharacters()
             +ShortSwipeEast.insertText("!", "¡", "¡")
             +ShortSwipeNorthEast.insertText("~")
         }
 
         use(NoColor) {
-
             +ShortBoomerangWest.insertText(reversedCase("†"))
-            +Hold.insertText(unpressedStateText = "1")
+            +Hold.insertText("1")
             +ShortBoomerangEast.insertText("÷", "-", "-")
             +ShortBoomerangSouthWest.insertText(reversedCase("¢"))
             +ShortBoomerangSouthEast.insertText(reversedCase("q"))
@@ -83,7 +80,7 @@ val colemakoidA by lazy {
 val colemakoidN by lazy {
     MultiColorButtonTemplate("Colemakoid N", rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "n")
+            +Click.insertText("n")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouth.insertText(caseSensitive("f"))
@@ -99,7 +96,7 @@ val colemakoidN by lazy {
         }
 
         use(NoColor) {
-            +Hold.insertText(triple("2"))
+            +Hold.insertText("2")
             +ShortBoomerangNorth.insertText(caseSensitive("ˇ"))
             +ShortBoomerangNorthWest.insertText(caseSensitive("\\", "`", "`"))
             +ShortBoomerangWest.insertText(Triple("¿", "?", "?"))
@@ -116,7 +113,7 @@ val colemakoidN by lazy {
 val colemakoidI by lazy {
     MultiColorButtonTemplate("Colemakoid I", rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "i")
+            +Click.insertText("i")
         }
 
         use(NonCentralAlphanumericColor) {
@@ -133,6 +130,7 @@ val colemakoidI by lazy {
         }
 
         use(NoColor) {
+            +Hold.insertText("3")
             +ShortBoomerangSouthEast.insertText(reversedCase("ŋ"))
             +ShortBoomerangSouth.insertText(caseSensitive("±", "=", "="))
             +ShortBoomerangSouthWest.insertText(reversedCase("g"))
@@ -149,7 +147,7 @@ val colemakoidI by lazy {
 val colemakoidH by lazy {
     MultiColorButtonTemplate("Colemakoid H", rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "h")
+            +Click.insertText("h")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthEast.insertText(caseSensitive("z"))
@@ -175,7 +173,7 @@ val colemakoidH by lazy {
             +SmallCircleClockwise.insertText(reversedCase("4"))
             +SmallCircleClockwise.insertText(reversedCase("h"))
             +SmallCircleCounterClockwise.insertText(reversedCase("h"))
-
+            +Hold.insertText("4")
         }
     }
 }
@@ -183,7 +181,7 @@ val colemakoidH by lazy {
 val colemakoidO by lazy {
     MultiColorButtonTemplate("Colemakoid O", rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "o")
+            +Click.insertText("o")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("x"))
@@ -207,7 +205,7 @@ val colemakoidO by lazy {
             +ShortBoomerangWest.insertText("‰", "%", "%")
             +SmallCircleCounterClockwise.insertText(reversedCase("o"))
             +SmallCircleClockwise.insertText(reversedCase("o"))
-            +Hold.insertText(reversedCase("5"))
+            +Hold.insertText("5")
         }
     }
 }
@@ -215,7 +213,7 @@ val colemakoidO by lazy {
 val colemakoidR by lazy {
     MultiColorButtonTemplate("Colemakoid R", rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "r")
+            +Click.insertText("r")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthWest.insertText(caseSensitive("å"))
@@ -239,7 +237,7 @@ val colemakoidR by lazy {
             +ShortBoomerangSouthWest.insertText(reversedCase("å"))
             +SmallCircleClockwise.insertText(reversedCase("r"))
             +SmallCircleCounterClockwise.insertText(reversedCase("r"))
-            +Hold.insertText(reversedCase("6"))
+            +Hold.insertText("6")
         }
     }
 }
@@ -247,7 +245,7 @@ val colemakoidR by lazy {
 val colemakoidT by lazy {
     MultiColorButtonTemplate("Colemakoid T", rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "t")
+            +Click.insertText("t")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthEast.insertText(caseSensitive("k"))
@@ -262,13 +260,13 @@ val colemakoidT by lazy {
             +ShortSwipeSouthWest.assign(PressUnTab)
         }
         use(NoColor) {
-            +Hold.insertText(reversedCase("7"))
+            +Hold.insertText("7")
             +ShortBoomerangNorth.insertText(reversedCase("þ"))
             +ShortBoomerangNorthEast.insertText(reversedCase("k"))
             +ShortBoomerangNorthWest.insertText("/", "\\", "\\")
             +ShortBoomerangEast.insertText(Triple("†", "*", "*"))
             +ShortBoomerangWest.insertText(Triple(">", "<", "<"))
-            +ShortBoomerangSouthEast.assign(PressTab, legend = AppSymbol.TAB_RIGHT_KEY_LEGEND)
+            +ShortBoomerangSouthEast.assign(PressTab)
             +SmallCircleClockwise.insertText(reversedCase("t"))
             +SmallCircleCounterClockwise.insertText(reversedCase("t"))
         }
@@ -278,7 +276,7 @@ val colemakoidT by lazy {
 val colemakoidE by lazy {
     MultiColorButtonTemplate("Colemakoid E", rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "e")
+            +Click.insertText("e")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("m"))
@@ -303,7 +301,7 @@ val colemakoidE by lazy {
             +ShortBoomerangWest.insertText(caseSensitive(","))
             +SmallCircleClockwise.insertText(reversedCase("e"))
             +SmallCircleCounterClockwise.insertText(reversedCase("e"))
-            +Hold.insertText(unpressedStateText = "e")
+            +Hold.insertText("8")
         }
     }
 }
@@ -311,7 +309,7 @@ val colemakoidE by lazy {
 val colemakoidS by lazy {
     MultiColorButtonTemplate("Colemakoid S", rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "s")
+            +Click.insertText("s")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("æ"))
@@ -331,7 +329,7 @@ val colemakoidS by lazy {
             +ShortBoomerangSouth.assign(PressKey, keycode = KEYCODE_DPAD_DOWN, modifiers = setOf(control), /*respectShift = IGNORE_SHIFT,*/ legend =  AppSymbol.DOWN_ARROW_KEY_LEGEND, duration = 500L)
             +SmallCircleCounterClockwise.insertText(reversedCase("s"))
             +SmallCircleClockwise.insertText(reversedCase("s"))
-            +Hold.insertText(caseSensitive("9"))
+            +Hold.insertText("9")
         }
     }
 }
@@ -349,7 +347,7 @@ val colemakoid1 by lazy {
             +ShortSwipeNorth.insertText("¨")
             +ShortSwipeSouth.insertText("•")
             +ShortSwipeSouthWest.insertText("|")
-            +ShortSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
+            +ShortSwipeNorthWest.cycleAccentCharacters()
             +ShortSwipeEast.insertText(Triple("!", "¡", "¡"))
             +ShortSwipeNorthEast.insertText("~")
 
@@ -357,7 +355,7 @@ val colemakoid1 by lazy {
 
         use(NoColor) {
             +ShortBoomerangWest.insertText(reversedCase("†"))
-            +Hold.insertText(unpressedStateText = "1")
+            +Hold.insertText("1")
         }
     }
 }
@@ -365,7 +363,7 @@ val colemakoid1 by lazy {
 val colemakoid2 by lazy {
     MultiColorButtonTemplate("Colemakoid 2", rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "2")
+            +Click.insertText("2")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouth.insertText(caseSensitive("φ"))
@@ -401,7 +399,7 @@ val colemakoid2 by lazy {
 val colemakoid3 by lazy {
     MultiColorButtonTemplate("Colemakoid 3", rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "3")
+            +Click.insertText("3")
         }
 
         use(NonCentralAlphanumericColor) {
@@ -434,7 +432,7 @@ val colemakoid3 by lazy {
 val colemakoid4 by lazy {
     MultiColorButtonTemplate("Colemakoid 4", rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "4")
+            +Click.insertText("4")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeEast.insertText("$")
@@ -468,7 +466,7 @@ val colemakoid4 by lazy {
 val colemakoid5 by lazy {
     MultiColorButtonTemplate("Colemakoid 5", rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "5")
+            +Click.insertText("5")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText("¹")
@@ -500,7 +498,7 @@ val colemakoid5 by lazy {
 val colemakoid6 by lazy {
     MultiColorButtonTemplate("Colemakoid 6", rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "6")
+            +Click.insertText("6")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("β"))
@@ -533,7 +531,7 @@ val colemakoid6 by lazy {
 val colemakoid7 by lazy {
     MultiColorButtonTemplate("Colemakoid 7", rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "7")
+            +Click.insertText("7")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthEast.insertText(caseSensitive("y"))
@@ -564,7 +562,7 @@ val colemakoid7 by lazy {
 val colemakoid8 by lazy {
     MultiColorButtonTemplate("Colemakoid 8", rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "8")
+            +Click.insertText("8")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("µ"))
@@ -589,7 +587,7 @@ val colemakoid8 by lazy {
             +ShortBoomerangWest.insertText(caseSensitive(","))
             +SmallCircleClockwise.insertText(reversedCase("8"))
             +SmallCircleCounterClockwise.insertText(reversedCase("8"))
-            +Hold.insertText(unpressedStateText = "8")
+            +Hold.insertText("8")
         }
     }
 }
@@ -597,7 +595,7 @@ val colemakoid8 by lazy {
 val colemakoid9 by lazy {
     MultiColorButtonTemplate("Colemakoid 9", rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "9")
+            +Click.insertText("9")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("ε"))

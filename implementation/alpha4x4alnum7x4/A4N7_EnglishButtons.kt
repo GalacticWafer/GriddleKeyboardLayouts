@@ -1,41 +1,36 @@
 package com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4
 
-import com.galacticware.griddle.domain.design.implementation.alpha4x4alnum7x4.dsl.invoke
-import com.galacticware.griddle.domain.gesture.Click
-import com.galacticware.griddle.domain.gesture.Hold
-import com.galacticware.griddle.domain.gesture.LongSwipeEast
-import com.galacticware.griddle.domain.gesture.LongSwipeNorth
-import com.galacticware.griddle.domain.gesture.LongSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.LongSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.LongSwipeWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangNorthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouth
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthEast
-import com.galacticware.griddle.domain.gesture.ShortBoomerangSouthWest
-import com.galacticware.griddle.domain.gesture.ShortBoomerangWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorth
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeNorthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouth
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthEast
-import com.galacticware.griddle.domain.gesture.ShortSwipeSouthWest
-import com.galacticware.griddle.domain.gesture.ShortSwipeWest
-import com.galacticware.griddle.domain.gesture.SmallCircleClockwise
-import com.galacticware.griddle.domain.gesture.SmallCircleCounterClockwise
-import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
-import com.galacticware.griddle.domain.model.type.base.tag.ButtonPaletteTemplate.MultiColorButtonTemplate
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.CentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NoColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.NonCentralAlphanumericColor
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate.PeripheralSymbolicColor
+import com.galacticware.griddle.domain.design.base.gesture.Click
+import com.galacticware.griddle.domain.design.base.gesture.Hold
+import com.galacticware.griddle.domain.design.base.gesture.LongSwipeEast
+import com.galacticware.griddle.domain.design.base.gesture.LongSwipeNorth
+import com.galacticware.griddle.domain.design.base.gesture.LongSwipeWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortBoomerangWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeNorthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouth
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthEast
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeSouthWest
+import com.galacticware.griddle.domain.design.base.gesture.ShortSwipeWest
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleClockwise
+import com.galacticware.griddle.domain.design.base.gesture.SmallCircleCounterClockwise
+import com.galacticware.griddle.domain.visual.ButtonPaletteTemplate.MultiColorButtonTemplate
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.CentralAlphanumericColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.NoColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.NonCentralAlphanumericColor
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate.PeripheralSymbolicColor
 import com.galacticware.griddle.domain.util.caseSensitive
 import com.galacticware.griddle.domain.util.reversedCase
 import com.galacticware.griddle.domain.util.triple
-import com.galacticware.griddle.domain.operation.implementation.noargs.accentchars.CycleAccentCharacters
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MoveDown
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageDown
 import com.galacticware.griddle.domain.operation.implementation.noargs.cursorcontrol.MovePageUp
@@ -50,19 +45,18 @@ import com.galacticware.griddle.domain.operation.implementation.someargs.presske
 val englishA by lazy {
     MultiColorButtonTemplate("English A", rowStart = 0, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "a")
+            +Click.insertText("a")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthEast.insertText(caseSensitive("v"))
         }
         use(PeripheralSymbolicColor) {
-            +ShortSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
+            +ShortSwipeNorthWest.cycleAccentCharacters()
             +ShortSwipeEast.insertText(caseSensitive("-", "÷", "÷"))
             +ShortSwipeSouthWest.insertText(caseSensitive("$"))
         }
+
         use(NoColor) {
-            +LongSwipeNorthWest.assign(CycleAccentCharacters, AppSymbol.CYCLE_ACCENTED_CHARS_LEGEND)
-            +LongSwipeSouthEast.insertText(caseSensitive("v"))
             +ShortBoomerangEast.insertText(reversedCase("÷", "-", "-"))
             +ShortBoomerangSouthWest.insertText(reversedCase("¢"))
             +ShortBoomerangSouthEast.insertText(reversedCase("V"))
@@ -76,7 +70,7 @@ val englishA by lazy {
 val englishN by lazy {
     MultiColorButtonTemplate("English N", rowStart = 0, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "n")
+            +Click.insertText("n")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouth.insertText(caseSensitive("l"))
@@ -86,10 +80,11 @@ val englishN by lazy {
             +ShortSwipeNorth.insertText(caseSensitive("^", "’", "’"))
             +ShortSwipeNorthEast.insertText(Triple("^", "’", "’"))
             +ShortSwipeEast.insertText(caseSensitive("!", "¡", "¡"))
-            +ShortSwipeSouthEast.insertText(caseSensitive("/", "—", "—"))
+            +ShortSwipeSouthEast.insertText(caseSensitive("\\"))
             +ShortSwipeSouthWest.insertText(caseSensitive("/", "—", "—"))
             +ShortSwipeWest.insertText(caseSensitive("+", "×", "×"))
         }
+
         use(NoColor) {
             +ShortBoomerangNorth.insertText(caseSensitive("ˇ"))
             +ShortBoomerangNorthWest.insertText(caseSensitive("\\", "`", "`"))
@@ -99,8 +94,8 @@ val englishN by lazy {
             +ShortBoomerangSouthWest.insertText(caseSensitive("—", "/", "/"))
             +ShortBoomerangWest.insertText(caseSensitive("×", "+", "+"))
             +SmallCircleClockwise.insertText(reversedCase("2"))
-            +SmallCircleCounterClockwise.insertText(reversedCase("N"))
-            +Hold.insertText("2")
+            +SmallCircleCounterClockwise.insertText(reversedCase("n"))
+            +Hold.insertText(triple("2"))
         }
     }
 }
@@ -108,26 +103,29 @@ val englishN by lazy {
 val englishI by lazy {
     MultiColorButtonTemplate("English I", rowStart = 0, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "i")
+            +Click.insertText("i")
         }
+
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthWest.insertText("x")
         }
+
         use(PeripheralSymbolicColor) {
             +ShortSwipeSouthEast.insertText(caseSensitive("€", "£", "£"))
             +ShortSwipeSouth.insertText(caseSensitive("=", "±", "±"))
             +ShortSwipeWest.insertText(caseSensitive("?", "¿", "¿"))
             +ShortSwipeNorth.repeat(MoveUp)
         }
+
         use(NoColor) {
-            +ShortBoomerangNorth.repeat(MovePageUp)
             +ShortBoomerangSouthEast.insertText(caseSensitive("£", "€", "€"))
             +ShortBoomerangSouth.insertText(caseSensitive("±", "=", "="))
             +ShortBoomerangSouthWest.insertText(reversedCase("X"))
             +ShortBoomerangWest.insertText(caseSensitive("¿", "?", "?"))
             +SmallCircleClockwise.insertText(reversedCase("3"))
-            +SmallCircleCounterClockwise.insertText(reversedCase("I"))
-            +Hold.insertText("3")
+            +SmallCircleCounterClockwise.reversedCase(reversedCase("I"))
+            +ShortBoomerangNorth.repeat(MovePageUp)
+            +Hold.insertText(triple("3"))
         }
     }
 }
@@ -135,7 +133,7 @@ val englishI by lazy {
 val englishH by lazy {
     MultiColorButtonTemplate("English H", rowStart = 1, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "h")
+            +Click.insertText("h")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeEast.insertText(caseSensitive("k"))
@@ -169,7 +167,7 @@ val englishH by lazy {
 val englishO by lazy {
     MultiColorButtonTemplate("English O", rowStart = 1, colStart = 1, rowSpan = 1, colSpan = 1,) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "o")
+            +Click.insertText("o")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("q"))
@@ -200,14 +198,14 @@ val englishO by lazy {
 val englishR by lazy {
     MultiColorButtonTemplate("English R", rowStart = 1, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "r")
+            +Click.insertText("r")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeWest.insertText(caseSensitive("m"))
             +LongSwipeWest.insertText(caseSensitive("m"))
         }
         use(PeripheralSymbolicColor) {
-            +ShortSwipeNorthWest.insertText(unpressedStateText = "")
+            +ShortSwipeNorthWest.insertText("")
             +ShortSwipeNorth.changeModifier(ForwardCycleShift)
             +ShortSwipeSouth.changeModifier(ReleaseShift)
             +ShortSwipeNorthWest.insertText(caseSensitive("|", "\\", "\\"))
@@ -220,7 +218,7 @@ val englishR by lazy {
             +ShortSwipeSouthEast.insertText(caseSensitive("]", "[", "["))
             +ShortBoomerangSouthEast.insertText(caseSensitive("[", "]", "]"))
             +ShortBoomerangSouth.insertText(caseSensitive("—"))
-            +ShortSwipeSouthWest.insertText(unpressedStateText = "@")
+            +ShortSwipeSouthWest.insertText("@")
         }
         use(NoColor) {
             +ShortBoomerangSouthWest.insertText(Triple("ª", "@", "@"))
@@ -235,7 +233,7 @@ val englishR by lazy {
 val englishT by lazy {
     MultiColorButtonTemplate("English T", rowStart = 2, colStart = 0, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "t")
+            +Click.insertText("t")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeSouthEast.insertText(caseSensitive("v"))
@@ -259,7 +257,7 @@ val englishT by lazy {
             +ShortBoomerangSouthWest.repeat(PressTab)
             +SmallCircleClockwise.insertText(reversedCase("7"))
             +SmallCircleCounterClockwise.insertText(reversedCase("T"))
-            +Hold.insertText("7")
+            +Hold.insertText(reversedCase("7"))
         }
     }
 }
@@ -267,7 +265,7 @@ val englishT by lazy {
 val englishE by lazy {
     MultiColorButtonTemplate("English E", rowStart = 2, colStart = 1, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "e")
+            +Click.insertText("e")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorth.insertText(caseSensitive("w"))
@@ -300,7 +298,7 @@ val englishE by lazy {
 val englishS by lazy {
     MultiColorButtonTemplate("English S", rowStart = 2, colStart = 2, rowSpan = 1, colSpan = 1) {
         use(CentralAlphanumericColor) {
-            +Click.insertText(unpressedStateText = "s")
+            +Click.insertText("s")
         }
         use(NonCentralAlphanumericColor) {
             +ShortSwipeNorthWest.insertText(caseSensitive("f"))
@@ -318,10 +316,10 @@ val englishS by lazy {
             +ShortBoomerangSouthWest.insertText(caseSensitive(";"))
             +ShortBoomerangWest.insertText(caseSensitive(" "))
             +ShortBoomerangSouth.repeat(MovePageDown)
-            +ShortBoomerangEast.insertText("<", "<" ,">")
-            +SmallCircleClockwise.insertText(reversedCase("9"))
+            +ShortBoomerangEast.insertText("<", "<", ">")
             +SmallCircleCounterClockwise.insertText(reversedCase("S"))
-            +Hold.insertText("9")
+            +SmallCircleClockwise.insertText(reversedCase("9"))
+            +Hold.insertText(caseSensitive("9"))
         }
     }
 }

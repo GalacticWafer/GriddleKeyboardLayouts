@@ -4,16 +4,17 @@ import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
 import com.galacticware.griddle.domain.design.base.collection.ButtonBuilders
 import com.galacticware.griddle.domain.input.IMEService
 import com.galacticware.griddle.domain.language.LayerTag
+import com.galacticware.griddle.domain.language.LayerTag.English
 import com.galacticware.griddle.domain.usercontolled.Answer.Companion.YES
 import com.galacticware.griddle.domain.usercontolled.Answer.Companion.NO
 import com.galacticware.griddle.domain.usercontolled.SettingManipulationType.TOGGLEABLE
 import com.galacticware.griddle.domain.usercontolled.SettingParams
 import com.galacticware.griddle.domain.util.PreferencesHelper.checkAndGetIncrementalValue
 import com.galacticware.griddle.domain.util.PreferencesHelper.checkAndSetUserDefinedValue
+import com.galacticware.griddle.domain.util.feedback.GriddleInitializable
 import com.galacticware.griddle.domain.view.composable.helper.SingleSettingDelegate
 import kotlinx.serialization.Serializable
 import java.util.SortedSet
-import java.util.TreeSet
 
 /**
  * A [CharSet] in the context of Griddle is a unique set of [LayerTag]s.
@@ -28,21 +29,14 @@ abstract class CharSet(
     vararg layerTags: LayerTag,
 ): ICharSet, Comparable<CharSet> {
 
-    init {
-        val predicate: (LayerTag) -> Boolean = { it != layerTag && it.isAlphabetic }
-        if(!layerTag.isAlphabetic && layerTags.any(predicate)) {
-            throw Exception("Language layer tag $layerTag is not alphabetic, but the following" +
-                    "non-language layer tags were declared afterward:\n\t${layerTags.filter(predicate)}}")
-        }
-    }
-
     /**
      * This is safe because every CharSet has at least one LanguageTag.
      */
     open val layerTags: SortedSet<LayerTag> = layerTags.toList().plus(layerTag).toSortedSet()
 
-    val languageTag by lazy { this.layerTags.firstOrNull { it.isAlphabetic } }
-    val isAlphabetical by lazy { languageTag != null }
+    val isAlphabet by lazy { this.layerTags.first().isAlphabet }
+    val delegate by lazy { this.f() }
+    fun toggle() { delegate.value = !delegate.value }
 
     override val name get() = toString()
     override fun toString(): String =  layerTags.joinToString("-"){ it.camelCasedName }
@@ -56,6 +50,8 @@ abstract class CharSet(
         }
     }
 
+    val isSelected get() = isAlphabet && delegate.value == true
+
     /**
      * This implementation always ensured that alpha layer tags are sorted to the beginning of the
      * list, and all layer tags are secondarily sorted by their ordinals
@@ -65,9 +61,9 @@ abstract class CharSet(
         val thatItr = other.layerTags.iterator()
         do {
             val(thisTag, thatTag) = thisItr.next() to thatItr.next()
-            if (thisTag.isAlphabetic && !thatTag.isAlphabetic) {
+            if (thisTag.isAlphabet && !thatTag.isAlphabet) {
                 return -1
-            } else if (!thisTag.isAlphabetic && thatTag.isAlphabetic) {
+            } else if (!thisTag.isAlphabet && thatTag.isAlphabet) {
                 return 1
             } else if (thisTag != thatTag) {
                 return thisTag.ordinal.compareTo(thatTag.ordinal)
@@ -83,7 +79,8 @@ abstract class CharSet(
     override fun equals(other: Any?): Boolean =
         if (this === other) true
         else if (other !is CharSet) false
-        else layerTags == other.layerTags
+        else if (layerTags != other.layerTags) false
+        else true
 
     override fun hashCode(): Int {
         return super.hashCode()
@@ -94,7 +91,7 @@ abstract class CharSet(
         alphaNumericCharSet: CharSet?,
         builders: ButtonBuilders
     ): LanguagePack =
-        if(charSet.isAlphabetical) {
+        if(charSet.isAlphabet) {
             LanguagePack(layerTags.first(), charSet, alphaNumericCharSet, builders)
         } else throw Exception("Cannot pack a non-language layer.")
 
@@ -102,7 +99,7 @@ abstract class CharSet(
      * Make a language
      */
     fun languagePackFor(builders: ButtonBuilders): LanguagePack
-    = languagePackFor(this, null, builders)
+            = languagePackFor(this, null, builders)
 
     data class LanguagePack(
         val layerTag: LayerTag,
@@ -120,22 +117,23 @@ abstract class CharSet(
                         "minX: $minX, minY: $minY, maxX: $maxX, maxY: $maxY")
         }
     }
-    companion object {
-        private val registry = mutableMapOf<SortedSet<LayerTag>, CharSet>()
+    companion object: GriddleInitializable<IMEService> {
+        lateinit var f: (CharSet.() -> booleanDelegate)
+        override fun initialize(imeService: IMEService) {
+            f = {
+                booleanDelegate("is${name}LayerSelected", imeService, layerTags.size == 1 && layerTags.first() == English)
+            }
+        }
+
         /**
          * Create a new [CharSet] with the given [LayerTag]s. We purposely name this method `id`
          * because it is used in our button builders, and reads extremely well while also being
          * very short (e.g. `+Click.switchLayer(ENGLISH_LAYER)`).
          */
-        fun id(vararg layerTags: LayerTag) = layerTags.toSortedSet().let{ ss->
-            registry.getOrPut(ss) {
-                val firstTag = layerTags.first()
-                val otherTags = layerTags.drop(1).toTypedArray()
-                object : CharSet(firstTag, *otherTags) {
-                    override val layerTags: TreeSet<LayerTag> get()
-                    = sortedSetOf(firstTag, *otherTags)
-                }
-            }
+        fun id(vararg layerTags: LayerTag) = object : CharSet(
+            layerTags.first(), *layerTags.drop(1).toTypedArray()
+        ) {
+            override val layerTags get() = sortedSetOf(layerTags.first(), *layerTags.drop(1).toTypedArray())
         }
     }
 }

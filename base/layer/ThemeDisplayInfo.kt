@@ -2,7 +2,7 @@ package com.galacticware.griddle.domain.design.base.layer
 
 import com.galacticware.griddle.domain.model.gesture.GestureType
 import com.galacticware.griddle.domain.model.type.base.tag.AppSymbol
-import com.galacticware.griddle.domain.model.type.base.tag.GesturePaletteTemplate
+import com.galacticware.griddle.domain.visual.GesturePaletteTemplate
 
 data class ThemeDisplayInfo(
     val gestureType: GestureType,

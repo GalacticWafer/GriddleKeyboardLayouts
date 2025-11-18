@@ -13,7 +13,7 @@ import com.galacticware.griddle.domain.language.LayerTag
 import com.galacticware.griddle.domain.layer.AppEntity
 import com.galacticware.griddle.domain.layer.LayerModel
 import com.galacticware.griddle.domain.model.gesture.GestureType
-import com.galacticware.griddle.domain.model.type.base.tag.Colorable
+import com.galacticware.griddle.domain.visual.Colorable
 import com.galacticware.griddle.domain.modifier.GestureColors
 import com.galacticware.griddle.domain.registrar.LayerPositionRegistrationKey
 
@@ -55,11 +55,9 @@ interface LayerDefinable: AppEntity<LayerModel>, Colorable, Comparable<LayerDefi
 
     fun resizeToFitScreen()
     fun saveBoardPositionAndSize(value: KeyboardOffsetAndSize)
-    fun copy(builders: LinkedHashSet<IButtonBuilder>): LayerDefinable
+    fun copy(builders: ButtonBuilders): LayerDefinable
     fun withSingleButton(button: IButtonBuilder): LayerDefinable
 
     override fun compareTo(other: LayerDefinable): Int = charSet.compareTo(other.charSet)
-    fun remap(position: GridPosition, type: GestureType, data: GestureData) {
-        buttonBuilders.find { it.gridPosition == position }?.remap(type, data)
-    }
+    fun remap(position: GridPosition, type: GestureType, data: GestureData): LayerDefinable
 }

@@ -48,7 +48,7 @@ abstract class AbstractLayerBuilder(
             vararg layerTags: LayerTag,
             keyboardDefinable: KeyboardDefinable,
             keyboardHandedness: KeyboardHandedness,
-            isPrimary: Boolean = layerTags.size == 1 && layerTags.first().isAlphabetic,
+            isPrimary: Boolean = layerTags.size == 1 && layerTags.first().isAlphabet,
             defaultSize: IntSize = DEFAULT_SIZE,
             defaultGestureColors: GestureColors = keyboardDefinable.defaultGestureColors,
             buttonBuilders: ButtonBuilders,
